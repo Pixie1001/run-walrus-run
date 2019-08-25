@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1620228028308406345}
   - component: {fileID: 1620228028307407497}
   m_Layer: 0
-  m_Name: File_unit
+  m_Name: Cupboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b76c461b9d1a13b4a92921d1c6efab17, type: 3}
+  - {fileID: 2100000, guid: db82a69fee3974f4d8c2c42b9dff6bc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
