@@ -7,6 +7,7 @@ using UnityEditor;
 public static class OnLoad {
 
     public const float speed = 1f;
+    public enum ExplodeResult { nothing, lose, push };
 
 	// Use this for initialization
 	static OnLoad () {

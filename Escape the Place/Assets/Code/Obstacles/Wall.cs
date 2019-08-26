@@ -2,9 +2,9 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-public class Wall : ObstacleType
+public class Wall : EntityType
 {
-    public Wall(int x, int y, float elevation, GameObject model, List<ObstacleType>[,] grid) : base(true, model, x, y, elevation, grid) {
+    public Wall() : base(true) {
         
     }
 }

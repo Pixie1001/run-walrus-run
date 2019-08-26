@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class Avatar : MovableObject {
 
-    float speed = OnLoad.speed;
-    int explode;
-    IExplosionType explosionType;
-    public int x;
-    public int y;
+    public enum ExplosionTypes { Pulsar };
+    public int explodeOn;
+    ExplosionType explosionType;
+    public ExplosionTypes PickExplosion;
 
-    int turnCount = 0;
+    public int turnCount = 0;
 
-    public Avatar (int x, int y, float elevation, GameObject model, IExplosionType explosionType, int explodeCount, List<ObstacleType>[,] grid) : base (true, model, x, y, elevation, grid) {
-        this.x = x;
-        this.y = y;
-        this.explosionType = explosionType;
-        this.explode = explodeCount;
+    public Avatar () : base (true) {
+        if (explosionType == null) {
+            explosionType = new Pulsar();
+        }
+
+        if (explodeOn == null) {
+            explodeOn = 3;
+        }
+
+        switch (PickExplosion) {
+            case ExplosionTypes.Pulsar:
+                explosionType = new Pulsar();
+                break;
+            default:
+                explosionType = new Pulsar();
+                break;
+        }
     }
-	
-    public void PlayerMove(string direction, List<ObstacleType>[,] grid) {
+
+    public void PlayerMove(string direction, List<EntityType>[,] grid) {
         if (Move(direction, grid)) {
             turnCount += 1;
-            if (turnCount >= explode) {
-                explosionType.Explode();
+            if (turnCount >= explodeOn) {
+                explosionType.Explode(this, grid);
                 turnCount = 0;
             }
         }
