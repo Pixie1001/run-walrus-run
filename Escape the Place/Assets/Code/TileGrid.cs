@@ -8,6 +8,8 @@ public class TileGrid : MonoBehaviour
     //List<List<ObstacleType>> tiles = new List<List<ObstacleType>>();
     ObjectSpawner spawner = new ObjectSpawner();
     public List<EntityType>[,] tiles;
+    public List<EntityType> movableList;
+    public bool loseState = false;
     Avatar avatar;
     List<string> inputLog;
     public int width = 10;
@@ -23,23 +25,74 @@ public class TileGrid : MonoBehaviour
 
     void Update() {
         //Check for inputs
-        if (Input.GetKeyUp(KeyCode.W)) { // W
-            avatar.PlayerMove("up", tiles);
+        if (!loseState) {
+            if (Input.GetKeyUp(KeyCode.W)) { // W
+                ProcessTurn("up");
+            }
+            if (Input.GetKeyUp(KeyCode.A)) { // A
+                ProcessTurn("left");
+            }
+            if (Input.GetKeyUp(KeyCode.S)) { // S
+                ProcessTurn("down");
+            }
+            if (Input.GetKeyUp(KeyCode.D)) { // D
+                ProcessTurn("right");
+            }
         }
-        if (Input.GetKeyUp(KeyCode.A)) { // A
-            avatar.PlayerMove("left", tiles);
-        }
-        if (Input.GetKeyUp(KeyCode.S)) { // S
-            avatar.PlayerMove("down", tiles);
-        }
-        if (Input.GetKeyUp(KeyCode.D)) { // D
-            avatar.PlayerMove("right", tiles);
-        }
+    }
 
-        if (avatar.X == goal[0] && avatar.Y == goal[1]) {
-            //Debug.Log("You win!!!");
-        }
+    private void ProcessTurn(string pDirection) {
+        //Get each MovableObject to run a method that calcs their nX and nY (Don't change it if they hit a level boundary - some might also explode here)
+        //Get nX and nY of each movable object
+        //Check each object's nX and nY against each other to see if any would collide.
+        //If both objects are not ExplosionPulses, they remain static (Have hteir nX and nY set to their base X and Y vals). ExplosionPulses move and explode, hitting the other object which moves as normal.
+        //If player isn't stopped by this check, call HandleMovement for the objects that can move (HandleMovement will need a validator checks if nX and nY have actally changed)
+        //Then spawn extra explosions, starting on player's tile, and have them move 1 space.
 
+        //Get destination
+        foreach (MovableObject obj in movableList) {
+            obj.GetDestination(pDirection);
+        }
+        //Adjust destination based on collision
+        foreach (MovableObject obj in movableList) {
+            foreach (MovableObject comp in movableList) {
+                if (obj.newY == comp.newY && obj.newX == comp.newX) {
+                    if (obj.collision && comp.collision) {
+                        obj.newX = obj.X;
+                        obj.newY = obj.Y;
+                        comp.newX = comp.X;
+                        comp.newY = comp.Y;
+                    }
+                }
+            }
+        }
+        //Check if player's move was valid
+        if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
+            //Move all objects to new coords
+            foreach (MovableObject obj in movableList) {
+                obj.Move();
+            }
+            //Check win state
+            if (avatar.X == goal[0] && avatar.Y == goal[1]) {
+                Debug.Log("You win!!!");
+            }
+            else if (loseState) {
+                Debug.Log("You lose :(");
+            }
+            //Dispose of exploded objects
+            IRemovable temp;
+            for (int i = 0; i < movableList.Count; i++) {
+                temp = movableList[i] as IRemovable;
+                if (temp != null) {
+                    if (temp.Terminate) {
+                        movableList.Remove(movableList[i]);
+                    }
+                }
+            }
+        }
+        else {
+            avatar.Rotate(pDirection);
+        }
     }
 
     private void GenerateLevel() {

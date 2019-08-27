@@ -7,16 +7,14 @@ public class Pulsar : ExplosionType
     private int count = 0;
 
     public override bool Explode(Avatar avatar, List<EntityType>[,] grid) {
-        Debug.Log("EXPLOSION!!!");
         int x = avatar.X;
         int y = avatar.Y;
 
         SpawnPulse("up", x, y + 1, grid);
-        //SpawnPulse("down", x, y - 1, grid);
-        //SpawnPulse("left", x - 1, y, grid);
-        //SpawnPulse("right", x + 1, y, grid);
+        SpawnPulse("down", x, y - 1, grid);
+        SpawnPulse("left", x - 1, y, grid);
+        SpawnPulse("right", x + 1, y, grid);
 
-        Debug.Log("Explosion done");
         return false;
     }
 
@@ -38,11 +36,9 @@ public class Pulsar : ExplosionType
             return false;
         }
         //Spawn thing
-        GameObject model = Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject;
+        GameObject model = Instantiate(Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject);
         model.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/pulse_controller") as RuntimeAnimatorController;
         ExplosionPulse pulse = (ExplosionPulse) model.AddComponent(System.Type.GetType("ExplosionPulse"));
-        count += 1;
-        Debug.Log("Script added #" + count);
         pulse.Model = model;
         pulse.direction = direction;
         new ObjectSpawner().Spawn(pulse, x, y, 0.2f, direction, 0.2f, grid);

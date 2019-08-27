@@ -9,6 +9,7 @@ public class Avatar : MovableObject {
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
 
+
     public int turnCount = 0;
 
     public Avatar () : base (true) {
@@ -30,13 +31,49 @@ public class Avatar : MovableObject {
         }
     }
 
-    public void PlayerMove(string direction, List<EntityType>[,] grid) {
-        if (Move(direction, grid)) {
+    /*
+    public bool PlayerMove(string direction) {
+        if (Move(direction)) {
             turnCount += 1;
             if (turnCount >= explodeOn) {
                 explosionType.Explode(this, grid);
                 turnCount = 0;
             }
+            return true;
         }
+        return false;
+    }
+    */
+
+    public override void Move() {
+        base.Move();
+        turnCount += 1;
+        if (turnCount >= explodeOn) {
+            explosionType.Explode(this, grid);
+            turnCount = 0;
+        }
+    }
+
+    public void Rotate(string direction) {
+        float rotate;
+        switch (direction) {
+            case "up":
+                rotate = 0f;
+                break;
+            case "down":
+                rotate = 180f;
+                break;
+            case "left":
+                rotate = rotate = -90f;
+                break;
+            case "right":
+                rotate = 90f;
+                break;
+            default:
+                Debug.Log("Invalid turn?");
+                rotate = 0f;
+                break;
+        }
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
     }
 }

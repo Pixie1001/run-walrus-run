@@ -12,8 +12,9 @@ public class Patroller : MovableObject
         step = 0;
     }
 
-    public bool Move(List<EntityType>[,] grid) {
-        bool result = Move(route[step], grid);
+    /*
+    public bool Move() {
+        bool result = Move(route[step]);
         if (result) {
             step += 1;
             if (step > route.Length) {
@@ -22,6 +23,7 @@ public class Patroller : MovableObject
         }
         return result;
     }
+    */
 
 
 }

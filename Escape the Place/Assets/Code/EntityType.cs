@@ -9,6 +9,7 @@ public abstract class EntityType : MonoBehaviour
     protected int y;
     protected GameObject model;
     protected List<EntityType>[,] grid;
+    protected bool loseState;
     //ObjectSpawner spawner = new ObjectSpawner();
 
     public EntityType(bool collision) {
@@ -16,17 +17,22 @@ public abstract class EntityType : MonoBehaviour
         //this.model = spawner.Spawn(this, x, y, elevation, grid);
     }
 
-    void Start() {
+    protected virtual void Start() {
         Debug.Log("Gen " + name);
         x = (int)transform.position.x;
         y = (int)transform.position.x;
         model = this.gameObject;
         grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().tiles;
+        loseState = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().loseState;
         Initialize();
     }
 
-    public virtual OnLoad.ExplodeResult OnExplode() {
-        return OnLoad.ExplodeResult.nothing;
+    protected virtual void Update() {
+        //Do nothing atm
+    }
+
+    public virtual void OnExplode(string dir) {
+        //Nothing happens
     }
 
     private void Initialize() {
@@ -37,11 +43,6 @@ public abstract class EntityType : MonoBehaviour
         else if (grid[x, y] != null) {
             grid[x, y].Add(this);
         }
-    }
-
-    public bool Explode() {
-        Debug.Log("Not fragile");
-        return false;
     }
 
     //Attributes

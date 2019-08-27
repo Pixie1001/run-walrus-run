@@ -31,17 +31,14 @@ public class ObjectSpawner
                 break;
         }
         temp.transform.eulerAngles = new Vector3(temp.transform.eulerAngles.x, rotate, temp.transform.eulerAngles.z);
-        Debug.Log("pre-return");
         return temp;
     }
 
     public GameObject Spawn(EntityType entity, int x, int y, float elevation, List<EntityType>[,] grid) {
         if (entity.Model == null) {
-            Debug.Log("no model given");
         }
         GameObject temp = GameObject.Instantiate(entity.Model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
-        Debug.Log("Object Instantiated!");
-        //GameObject.Destroy(entity.Model);
+        GameObject.Destroy(entity.Model);
         if (temp != null) {
             if (grid[x, y] == null && x < grid.GetLength(0) && x >= 0 && y < grid.GetLength(0) && y >= 0) {
                 grid[x, y] = new List<EntityType> { entity };

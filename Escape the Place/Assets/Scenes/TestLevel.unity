@@ -292,7 +292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 0
-  explodeOn: 4
+  newX: 0
+  newY: 0
+  explodeOn: 3
   PickExplosion: 0
   turnCount: 0
 --- !u!1 &983320052
@@ -399,6 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f613831a0c2e6b4f9ccf5306d9f83e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movableList: []
+  loseState: 0
   width: 10
   height: 10
   avModel: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
