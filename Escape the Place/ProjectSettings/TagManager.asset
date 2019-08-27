@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Tile1
-  - Tile2
+  - TempGrid
+  - Avatar
+  - End
   layers:
   - Default
   - TransparentFX

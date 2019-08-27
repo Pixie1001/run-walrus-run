@@ -3,42 +3,142 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class MovableObject : ObstacleType
+public abstract class MovableObject : EntityType
 {
     float speed = OnLoad.speed;
-    public int x;
-    public int y;
-    ObjectSpawner spawner = new ObjectSpawner();
+    float targetTime = 0.5f;
+    float currTime = 100;
+    Vector3 start;
+    Vector3 destination;
+    public int newX;
+    public int newY;
 
-    public MovableObject(bool collision, GameObject model, int x, int y, float elevation, List<ObstacleType>[,] grid) : base (true, model, x, y, elevation, grid) {
-        this.x = x;
-        this.y = y;        
+    public MovableObject(bool collision) : base (collision) {
+        
     }
 
-    public bool Move(string direction, List<ObstacleType>[,] grid) {
-        if (model == null) {
-            Debug.Log("Cannot find model :C");
-        }
-        Debug.Log("Requested move");
+    protected override void Start() {
+        base.Start();
+        GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().movableList.Add(this);
+    }
+
+    public virtual bool GetDestination(string direction) {
+        newX = x;
+        newY = y;
         switch (direction) {
             case "up":
-                if (CheckMove(x, y + 1, grid)) {
-                    HandleMovement(x, y, x, y + 1, grid);
+                if (CheckBoundary(x, y + 1)) {
+                    newY += 1;
+                    return true;
                 }
                 break;
             case "down":
-                if (CheckMove(x, y - 1, grid)) {
-                    HandleMovement(x, y, x, y - 1, grid);
+                if (CheckBoundary(x, y - 1)) {
+                    newY -= 1;
+                    return true;
                 }
                 break;
             case "left":
-                if (CheckMove(x - 1, y, grid)) {
-                    HandleMovement(x, y, x - 1, y, grid);
+                if (CheckBoundary(x - 1, y)) {
+                    newX -= 1;
+                    return true;
                 }
                 break;
             case "right":
-                if (CheckMove(x + 1, y, grid)) {
-                    HandleMovement(x, y, x + 1, y, grid);
+                if (CheckBoundary(x + 1, y)) {
+                    newX += 1;
+                    return true;
+                }
+                break;
+            default:
+                break;
+        }
+        return false;
+    }
+
+    public virtual void Move() {
+        if (!(X == newX && Y == newY)) {
+            //Remove old position
+            if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(0) && Y >= 0) {
+                //Do nothing - no list to remove self from :D
+            }
+            else if (grid[X, Y] != null) {
+                grid[X, Y].Remove(this);
+            }
+
+            //Add new position
+            if (grid[newX, newY] == null && newX < grid.GetLength(0) && newX >= 0 && newY < grid.GetLength(0) && newY >= 0) {
+                grid[newX, newY] = new List<EntityType> { this };
+            }
+            else if (grid[newX, newY] != null) {
+                grid[newX, newY].Add(this);
+            }
+
+            //rotate model
+            string dir = (newX - X) + "/" + (newY - Y);
+            float rotate;
+            switch (dir) {
+                case "0/1":
+                    rotate = 0f;
+                    break;
+                case "0/-1":
+                    rotate = 180f;
+                    break;
+                case "1/0":
+                    rotate = rotate = 90f;
+                    break;
+                case "-1/0":
+                    rotate = -90f;
+                    break;
+                default:
+                    Debug.Log("Invalid turn?");
+                    rotate = 0f;
+                    break;
+            }
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
+
+            //Play walking animation
+            if (GetComponent<Animator>() != null) {
+                GetComponent<Animator>().Play("MOVE");
+            }
+
+            //Move model
+            //transform.transform.Translate(0f, 0f, speed);
+            start = transform.position;
+            destination = new Vector3(newX, transform.position.y, newY);
+            currTime = 0;
+
+            x = newX;
+            y = newY;
+        }
+    }
+
+    /*
+    public bool Move(string direction) {
+        Debug.Log("Requested move");
+        switch (direction) {
+            case "up":
+                if (CheckMove(x, y + 1)) {
+                    HandleMovement(x, y + 1);
+                    return true;
+                }
+                break;
+            case "down":
+                if (CheckMove(x, y - 1)) {
+                    HandleMovement(x, y - 1);
+                    return true;
+                }
+                break;
+            case "left":
+                if (CheckMove(x - 1, y)) {
+                    HandleMovement(x - 1, y);
+                    return true;
+                }
+                break;
+            case "right":
+                if (CheckMove(x + 1, y)) {
+                    HandleMovement(x + 1, y);
+                    return true;
                 }
                 break;
             default:
@@ -46,18 +146,26 @@ public abstract class MovableObject : ObstacleType
                 return false;
         }
         Debug.Log("Switch ended");
-        return true;
+        return false;
+    }
+    */
+
+    protected override void Update() {
+        base.Update();
+        if (currTime <= targetTime * 2) {
+            currTime += Time.deltaTime / targetTime;
+            transform.position = Vector3.Lerp(start, destination, currTime);
+        }
     }
 
-    private bool CheckMove(int x, int y, List<ObstacleType>[,] grid) {
-        Debug.Log("Check movement");
+    protected bool CheckBoundary(int x, int y) {
         if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
             return false;
         }
         else {
             if (grid[x, y] != null) {
-                foreach (ObstacleType ob in grid[x, y]) {
-                    if (ob.collision) {
+                foreach (EntityType obj in grid[x, y]) {
+                    if (obj.collision && (MovableObject)obj == null) {
                         return false;
                     }
                 }
@@ -66,26 +174,47 @@ public abstract class MovableObject : ObstacleType
         return true;
     }
 
-    private void HandleMovement(int _x, int _y, int _nX, int _nY, List<ObstacleType>[,] grid) {
+    /*
+    protected bool CheckMove(int x, int y) {
+        Debug.Log("Check movement");
+        if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
+            return false;
+        }
+        else {
+            if (grid[x, y] != null) {
+                foreach (EntityType obj in grid[x, y]) {
+                    if (obj.collision) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    */
+
+    /*
+    protected void HandleMovement(int nX, int nY) {
         Debug.Log("Handling move");
         //Remove old position
-        if (grid[_x, _y] == null && _x < grid.GetLength(0) && _x >= 0 && _y < grid.GetLength(0) && _y >= 0) {
+        if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(0) && Y >= 0) {
             //Do nothing - no list to remove self from :D
         }
-        else if (grid[_x, _y] != null) {
-            grid[_x, _y].Remove(this);
+        else if (grid[X, Y] != null) {
+            grid[X, Y].Remove(this);
         }
 
         //Add new position
-        if (grid[_nX, _nY] == null && _nX < grid.GetLength(0) && _nX >= 0 && _nY < grid.GetLength(0) && _nY >= 0) {
-            grid[_nX, _nY] = new List<ObstacleType> { this };
+        if (grid[nX, nY] == null && nX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(0) && nY >= 0) {
+            grid[nX, nY] = new List<EntityType> { this };
         }
-        else if (grid[_nX, _nY] != null) {
-            grid[_nX, _nY].Add(this);
+        else if (grid[nX, nY] != null) {
+            grid[nX, nY].Add(this);
         }
+        Debug.Log("Grid Coords: " + nX + " / " + nY);
 
         //rotate model
-        string dir = (_nX - _x) + "/" + (_nY - _y);
+        string dir = (nX - X) + "/" + (nY - Y);
         float rotate;
         switch (dir) {
             case "0/1":
@@ -105,17 +234,21 @@ public abstract class MovableObject : ObstacleType
                 rotate = 0f;
                 break;
         }
-        model.transform.eulerAngles = new Vector3(model.transform.eulerAngles.x, rotate, model.transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
 
         //Play walking animation
-        if (model.GetComponent<Animator>() != null) {
-            model.GetComponent<Animator>().Play("MOVE");
+        if (GetComponent<Animator>() != null) {
+            GetComponent<Animator>().Play("MOVE");
         }
 
         //Move model
-        model.transform.transform.Translate(0f, 0f, speed);
+        //transform.transform.Translate(0f, 0f, speed);
+        start = transform.position;
+        destination = new Vector3(nX, transform.position.y, nY);
+        currTime = 0;
 
-        x = _nX;
-        y = _nY;
+        x = nX;
+        y = nY;
     }
+    */
 }
