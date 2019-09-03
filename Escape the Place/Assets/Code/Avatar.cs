@@ -10,7 +10,7 @@ public class Avatar : MovableObject {
     public ExplosionTypes PickExplosion;
 
 
-    public int turnCount = 0;
+    int turnCount = 0;
 
     public Avatar () : base (true) {
         if (explosionType == null) {
@@ -47,7 +47,7 @@ public class Avatar : MovableObject {
 
     public override void Move() {
         base.Move();
-        turnCount += 1;
+        turnCount -= 1;
         if (turnCount >= explodeOn) {
             explosionType.Explode(this, grid);
             turnCount = 0;
