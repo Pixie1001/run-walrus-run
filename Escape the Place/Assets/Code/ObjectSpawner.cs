@@ -39,14 +39,6 @@ public class ObjectSpawner
         }
         GameObject temp = GameObject.Instantiate(entity.Model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
         GameObject.Destroy(entity.Model);
-        if (temp != null) {
-            if (grid[x, y] == null && x < grid.GetLength(0) && x >= 0 && y < grid.GetLength(0) && y >= 0) {
-                grid[x, y] = new List<EntityType> { entity };
-            }
-            else if (grid[x, y] != null) {
-                grid[x, y].Add(entity);
-            }
-        }
         return temp;
     }
 

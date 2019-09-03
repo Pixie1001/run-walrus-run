@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public abstract class EntityType : MonoBehaviour
 {
     public bool collision;
-    protected int x;
-    protected int y;
+    public int x;
+    public int y;
     protected GameObject model;
     protected List<EntityType>[,] grid;
     protected bool loseState;
@@ -18,9 +18,15 @@ public abstract class EntityType : MonoBehaviour
     }
 
     protected virtual void Start() {
-        Debug.Log("Gen " + name);
+        if (name == "Polygonal Metalon Red(Clone)(Clone)") {
+            name = "Pulse " + Random.value;
+        }
+        else if (name == "Polygonal Metalon Red(Clone)") {
+            name = "Unwanted Clone";
+        }
         x = (int)transform.position.x;
-        y = (int)transform.position.x;
+        y = (int)transform.position.z;
+        Debug.Log("Gen " + name + " | X=" + x + " / Y=" + y);
         model = this.gameObject;
         grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().tiles;
         loseState = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().loseState;

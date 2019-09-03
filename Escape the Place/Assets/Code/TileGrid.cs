@@ -38,6 +38,14 @@ public class TileGrid : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.D)) { // D
                 ProcessTurn("right");
             }
+            if (Input.GetKeyUp(KeyCode.R)) { // R
+                Dispose();
+                string output = "";
+                foreach (EntityType obj in movableList) {
+                    output += obj.name + ", ";
+                }
+                Debug.Log(output);
+            }
         }
     }
 
@@ -50,24 +58,33 @@ public class TileGrid : MonoBehaviour
         //Then spawn extra explosions, starting on player's tile, and have them move 1 space.
 
         //Get destination
+        Dispose();
         foreach (MovableObject obj in movableList) {
             obj.GetDestination(pDirection);
         }
         //Adjust destination based on collision
         foreach (MovableObject obj in movableList) {
             foreach (MovableObject comp in movableList) {
-                if (obj.newY == comp.newY && obj.newX == comp.newX) {
-                    if (obj.collision && comp.collision) {
-                        obj.newX = obj.X;
-                        obj.newY = obj.Y;
-                        comp.newX = comp.X;
-                        comp.newY = comp.Y;
+                if (obj != comp) {
+                    if (obj.newY == comp.newY && obj.newX == comp.newX) {
+                        if (obj.collision && comp.collision) {
+                            obj.newX = obj.X;
+                            obj.newY = obj.Y;
+                            comp.newX = comp.X;
+                            comp.newY = comp.Y;
+                        }
+                        else {
+                            Debug.Log("Trigger collision explosion");
+                            obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
+                            comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
+                        }
                     }
                 }
             }
         }
         //Check if player's move was valid
         if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
+            Dispose();
             //Move all objects to new coords
             foreach (MovableObject obj in movableList) {
                 obj.Move();
@@ -79,20 +96,41 @@ public class TileGrid : MonoBehaviour
             else if (loseState) {
                 Debug.Log("You lose :(");
             }
-            //Dispose of exploded objects
-            IRemovable temp;
-            for (int i = 0; i < movableList.Count; i++) {
-                temp = movableList[i] as IRemovable;
-                if (temp != null) {
-                    if (temp.Terminate) {
-                        movableList.Remove(movableList[i]);
-                    }
+            Dispose();
+        }
+        else {
+            Debug.Log("idle movement");
+            avatar.Rotate(pDirection);
+        }
+    }
+
+    private void Dispose() {
+        IRemovable temp;
+        for (int i = 0; i < movableList.Count; i++) {
+            temp = movableList[i] as IRemovable;
+            if (temp != null) {
+                if (temp.Terminate) {
+                    movableList.Remove(movableList[i]);
+                    Debug.Log("Removed");
                 }
             }
         }
-        else {
-            avatar.Rotate(pDirection);
+    }
+
+    private string CalcDirection (int x, int y, int nX, int nY) {
+        if (nY < y) {
+            return "down";
         }
+        else if (nY > y) {
+            return "up";
+        }
+        else if (nX < x) {
+            return "left";
+        }
+        else if (nX > x) {
+            return "right";
+        }
+        return null;
     }
 
     private void GenerateLevel() {

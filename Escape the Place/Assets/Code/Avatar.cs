@@ -10,7 +10,7 @@ public class Avatar : MovableObject {
     public ExplosionTypes PickExplosion;
 
 
-    int turnCount = 0;
+    int countdown = 0;
 
     public Avatar () : base (true) {
         if (explosionType == null) {
@@ -20,6 +20,8 @@ public class Avatar : MovableObject {
         if (explodeOn == null) {
             explodeOn = 3;
         }
+
+        countdown = explodeOn;
 
         switch (PickExplosion) {
             case ExplosionTypes.Pulsar:
@@ -47,10 +49,12 @@ public class Avatar : MovableObject {
 
     public override void Move() {
         base.Move();
-        turnCount -= 1;
-        if (turnCount >= explodeOn) {
+        countdown -= 1;
+        if (countdown == 0) {
             explosionType.Explode(this, grid);
-            turnCount = 0;
+        }
+        else if (countdown < 0) {
+            countdown = explodeOn;
         }
     }
 

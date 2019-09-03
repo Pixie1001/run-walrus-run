@@ -25,6 +25,7 @@ public abstract class MovableObject : EntityType
     public virtual bool GetDestination(string direction) {
         newX = x;
         newY = y;
+        //Debug.Log(name + ": " + newX + ", " + newY);
         switch (direction) {
             case "up":
                 if (CheckBoundary(x, y + 1)) {
@@ -35,6 +36,7 @@ public abstract class MovableObject : EntityType
             case "down":
                 if (CheckBoundary(x, y - 1)) {
                     newY -= 1;
+                    //Debug.Log(name + " (after down): " + newX + ", " + newY);
                     return true;
                 }
                 break;
@@ -165,7 +167,7 @@ public abstract class MovableObject : EntityType
         else {
             if (grid[x, y] != null) {
                 foreach (EntityType obj in grid[x, y]) {
-                    if (obj.collision && (MovableObject)obj == null) {
+                    if (obj.collision && obj as MovableObject == null) {
                         return false;
                     }
                 }

@@ -5,8 +5,6 @@ using System;
 
 public class ExplosionPulse : MovableObject, IRemovable {
     public string direction;
-    int nY;
-    int nX;
     float deathTimer = 1.333f;
     public bool terminate;
 
@@ -16,58 +14,64 @@ public class ExplosionPulse : MovableObject, IRemovable {
         //Debug.Log("New EP script created");
     }
 
+    protected override void Start() {
+        base.Start();
+        if (Model == null) {
+            grid[X, Y].Remove(this);
+        }
+        if (grid[X, Y] != null && Model != null) {
+            if (grid[X, Y].Count > 1) {
+                string output = "Tile " + X + "/" + Y + ": ";
+                foreach (EntityType obj in grid[X, Y]) {
+                    output += obj.name + ", ";
+                }
+                Debug.Log(name + ": " + output);
+                for (int i = 0; i < grid[X, Y].Count; i++) {
+                    if (grid[X, Y][i].Model != null) {
+                        Debug.Log("Call impact explode on " + grid[X, Y][i].name);
+                        grid[X, Y][i].OnExplode(direction);
+                    }
+                    else {
+                        grid[X, Y].Remove(grid[X, Y][i]);
+                    }
+                }
+                Debug.Log("Call spawn explode");
+                OnExplode(null);
+            }
+        }
+    }
+
     public override bool GetDestination(string unused) {
         bool output = base.GetDestination(direction);
         if (!output) {
+            Debug.Log("Exploded against level edge");
             OnExplode(null);
         }
         return output;
     }
 
+    //FIX this up later to handle explosions - be careful about how it functions, some checks might need to be done via ProcessTurn
     /*
-     * //FIX this up later to handle explosions - be careful about how it functions, some checks might need to be done via ProcessTurn
-    public void Move() {
-        if (Move(direction)) {
-            //pulse moves, everyone is happy
+    public override void Move() {
+        base.Move();
+        //Check if pulse is leaving level
+        if (newX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(0) && nY >= 0) {
+            OnExplode(null);
         }
         else {
-            nX = X;
-            nY = Y;
-            switch (direction) {
-                case "up":
-                    nY += 1;
-                    break;
-                case "down":
-                    nY -= 1;
-                    break;
-                case "left":
-                    nX -= 1;
-                    break;
-                case "right":
-                    nX += 1;
-                    break;
-                default:
-                    Debug.Log("Invalid direction string :C");
-                    break;
-            }
-            //Check if pulse is leaving level
-            if (nX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(0) && nY >= 0) {
-                OnExplode(null);
-            }
-            else {
-                if (grid[nX, nY] != null) {
-                    foreach (EntityType obj in grid[nX, nY]) {
-                        obj.OnExplode(direction);
-                    }
+            if (grid[nX, nY] != null) {
+                foreach (EntityType obj in grid[nX, nY]) {
+                    obj.OnExplode(direction);
                 }
-                HandleMovement(nX, nY);
-                OnExplode(null);
             }
+            HandleMovement(nX, nY);
+            OnExplode(null);
         }
     }
     */
 
     public override void OnExplode(string dir) {
+        Debug.Log(name + " exploded :o");
         terminate = true;
         foreach (List<EntityType> tile in grid) {
             if (tile != null) {
@@ -88,6 +92,7 @@ public class ExplosionPulse : MovableObject, IRemovable {
         }
         if (deathTimer <= 0) {
             GameObject.Destroy(Model);
+            //Model.transform.Translate(100, -100, 100);
         }
     }
 
