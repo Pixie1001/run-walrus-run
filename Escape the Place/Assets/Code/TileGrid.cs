@@ -7,7 +7,7 @@ public class TileGrid : MonoBehaviour
 {
     //List<List<ObstacleType>> tiles = new List<List<ObstacleType>>();
     ObjectSpawner spawner = new ObjectSpawner();
-    public List<EntityType>[,] tiles;
+    public List<EntityType>[,] grid;
     public List<EntityType> movableList;
     public bool loseState = false;
     Avatar avatar;
@@ -17,10 +17,27 @@ public class TileGrid : MonoBehaviour
     public GameObject avModel;
     public bool renderTiles;
     int[] goal;
+    public bool[,] tiles;
 
     void Awake() {
         Debug.Log("Level starto");
         GenerateLevel();
+
+        List<GameObject> blocks = GameObject.FindGameObjectsWithTag("Tile");
+        foreach (GameObject obj in blocks)
+        {
+            //Go through tiles and add a true
+            //Afterwards, add a pit object to the grid for each null value
+            tiles[obj.transform.X, obj.transform.Z] = true;
+        }
+
+        for (int x = 0; x < tiles[0].count)
+        {
+            if (val != null)
+            {
+                grid[val.transform.X, val.transform.Z]
+            }
+        }
     }
 
     void Update() {
@@ -62,6 +79,7 @@ public class TileGrid : MonoBehaviour
         foreach (MovableObject obj in movableList) {
             obj.GetDestination(pDirection);
         }
+        Dispose();
         //Adjust destination based on collision
         foreach (MovableObject obj in movableList) {
             foreach (MovableObject comp in movableList) {
@@ -142,7 +160,7 @@ public class TileGrid : MonoBehaviour
             Debug.Log("Please add an 'End' tile to this level");
         }
         Debug.Log("Gen level");
-        tiles = new List<EntityType>[width, height];
+        grid = new List<EntityType>[width, height];
         avModel = GameObject.FindWithTag("Avatar");
         avModel.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/player_controller") as RuntimeAnimatorController;
 
@@ -208,7 +226,7 @@ public class TileGrid : MonoBehaviour
                 odd = true;
             }
             block.name = "Tile " + xCount + "/" + yCount;
-            nBlock = spawner.SpawnTile(block, xCount, yCount, -0.5f, tiles);
+            nBlock = spawner.SpawnTile(block, xCount, yCount, -0.5f, grid);
 
             xCount += 1;
             if (xCount >= width) {
