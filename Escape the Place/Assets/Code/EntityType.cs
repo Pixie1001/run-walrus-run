@@ -28,7 +28,7 @@ public abstract class EntityType : MonoBehaviour
         y = (int)transform.position.z;
         Debug.Log("Gen " + name + " | X=" + x + " / Y=" + y);
         model = this.gameObject;
-        grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().tiles;
+        grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().grid;
         loseState = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().loseState;
         Initialize();
     }
