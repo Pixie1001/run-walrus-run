@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Avatar : MovableObject {
 
@@ -42,21 +43,14 @@ public class Avatar : MovableObject {
     protected override void Start() {
         base.Start();
         collision = true;
-    }
-
-    /*
-    public bool PlayerMove(string direction) {
-        if (Move(direction)) {
-            turnCount += 1;
-            if (turnCount >= explodeOn) {
-                explosionType.Explode(this, grid);
-                turnCount = 0;
-            }
-            return true;
+        try {
+            GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
+            display.GetComponent<Text>().text = (explodeOn).ToString();
         }
-        return false;
+        finally {
+            Debug.Log("Error: No UI element deteted");
+        }
     }
-    */
 
     public override void Move() {
         base.Move();
@@ -65,7 +59,23 @@ public class Avatar : MovableObject {
             explosionType.Explode(this, grid);
         }
         else if (countdown < 0) {
-            countdown = explodeOn;
+            countdown = explodeOn - 1;
+        }
+
+        //UpdateUI
+        try {
+            GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
+            string countDisplay;
+            if (countdown == 0) {
+                countDisplay = (explodeOn).ToString();
+            }
+            else {
+                countDisplay = countdown.ToString();
+            }
+            display.GetComponent<Text>().text = countDisplay;
+        }
+        finally {
+            Debug.Log("Error: No UI element deteted");
         }
     }
 
@@ -92,3 +102,21 @@ public class Avatar : MovableObject {
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
     }
 }
+
+
+
+
+
+/*
+public bool PlayerMove(string direction) {
+    if (Move(direction)) {
+        turnCount += 1;
+        if (turnCount >= explodeOn) {
+            explosionType.Explode(this, grid);
+            turnCount = 0;
+        }
+        return true;
+    }
+    return false;
+}
+*/

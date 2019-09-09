@@ -10,23 +10,54 @@ public class TileGrid : MonoBehaviour
     ObjectSpawner spawner = new ObjectSpawner();
     public List<EntityType>[,] grid;
     public List<EntityType> movableList;
-    public bool loseState = false;
+    [HideInInspector] public bool loseState = false;
     Avatar avatar;
     List<string> inputLog;
-    public int width = 10;
-    public int height = 10;
+    int width = 0;
+    int height = 0;
     int[] goal;
     public GameObject[,] tiles;
 
-    public float turnTimer = 1.33f;
+    float turnTimer = 1.33f;
 
     void Awake() {
         Debug.Log("Level starto");
-        GenerateLevel();
+        avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
+
+        if (GameObject.FindWithTag("End") != null) {
+            goal = new int[2] { (int)GameObject.FindWithTag("End").transform.position.x, (int)GameObject.FindWithTag("End").transform.position.z };
+        }
+        else {
+            goal = new int[2] { 0, 0 };
+            Debug.Log("Please add an 'End' tile to this level");
+        }
+
+        //Get width x height
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Tile");
+        int val;
+        foreach (GameObject block in blocks) {
+            val = (int) block.transform.position.x;
+            if (val >= width) {
+                width = val + 1;
+            }
+            val = (int)block.transform.position.z;
+            if (val >= height) {
+                height = val + 1;
+            }
+        }
+        val = goal[0];
+        if (val > width) {
+            width = val + 1;
+        }
+        val = goal[1];
+        if (val > height) {
+            height = val + 1;
+        }
+
+
+        grid = new List<EntityType>[width, height];
 
         tiles = new GameObject[width, height];
-        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Tile");
-
         foreach (GameObject obj in blocks) {
             //Go through tiles and add a true
             //Afterwards, add a pit object to the grid for each null value

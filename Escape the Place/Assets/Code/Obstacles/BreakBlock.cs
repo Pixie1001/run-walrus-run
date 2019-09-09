@@ -17,6 +17,9 @@ public class BreakBlock : EntityType, IRemovable {
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");
         }
+        else {
+            deathTimer = 0f;
+        }
     }
 
     protected override void Update() {

@@ -512,11 +512,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 0
+  x: 0
+  y: 0
+  moveChecked: 0
   newX: 0
   newY: 0
   explodeOn: 3
   PickExplosion: 0
-  turnCount: 0
 --- !u!1 &983320052
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,10 +625,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movableList: []
   loseState: 0
-  width: 10
-  height: 10
-  avModel: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
-  renderTiles: 1
 --- !u!1001 &1038870956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,6 +943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 1
+  x: 0
+  y: 0
 --- !u!1 &1221546535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 1353234568}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UI (Countdown))
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1344,3 +1344,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 1
+  x: 0
+  y: 0

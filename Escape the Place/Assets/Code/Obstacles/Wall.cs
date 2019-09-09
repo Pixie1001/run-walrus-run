@@ -7,4 +7,9 @@ public class Wall : EntityType
     public Wall() : base(true) {
         
     }
+
+    protected override void Start() {
+        base.Start();
+        //Set transparent
+    }
 }

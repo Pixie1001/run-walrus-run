@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System;
 using System.Collections.Generic;
 
 public abstract class EntityType : MonoBehaviour
@@ -16,13 +17,13 @@ public abstract class EntityType : MonoBehaviour
 
     protected virtual void Start() {
         if (name == "Polygonal Metalon Red(Clone)(Clone)") {
-            name = "Pulse " + Random.value;
+            name = "Pulse " + UnityEngine.Random.value;
         }
         else if (name == "Polygonal Metalon Red(Clone)") {
             name = "Unwanted Clone";
         }
-        x = (int)transform.position.x;
-        y = (int)transform.position.z;
+        x = (int) Math.Round(transform.position.x);
+        y = (int) Math.Round(transform.position.z);
         Debug.Log("Gen " + name + " | X=" + x + " / Y=" + y);
         model = this.gameObject;
         grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().grid;

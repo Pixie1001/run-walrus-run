@@ -9,6 +9,7 @@ TagManager:
   - Avatar
   - End
   - Tile
+  - UI (Countdown)
   layers:
   - Default
   - TransparentFX
