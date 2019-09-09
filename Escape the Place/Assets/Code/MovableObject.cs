@@ -5,16 +5,17 @@ using System.Collections.Generic;
 
 public abstract class MovableObject : EntityType
 {
-    float speed = OnLoad.speed;
-    float targetTime = 0.5f;
-    float currTime = 100;
-    Vector3 start;
-    Vector3 destination;
+    protected float speed = OnLoad.speed;
+    protected float targetTime = 0.5f;
+    protected float currTime = 100;
+    protected Vector3 start;
+    protected Vector3 destination;
+    public bool moveChecked = false;
     public int newX;
     public int newY;
 
     public MovableObject(bool collision) : base (collision) {
-        
+
     }
 
     protected override void Start() {
@@ -22,7 +23,15 @@ public abstract class MovableObject : EntityType
         GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().movableList.Add(this);
     }
 
-    public virtual bool GetDestination(string direction) {
+    protected override void Update() {
+        base.Update();
+        if (currTime <= targetTime * 2) {
+            currTime += Time.deltaTime / targetTime;
+            transform.position = Vector3.Lerp(start, destination, currTime);
+        }
+    }
+
+    public virtual bool GetDestination(string direction, bool verified) {
         newX = x;
         newY = y;
         //Debug.Log(name + ": " + newX + ", " + newY);
@@ -93,7 +102,7 @@ public abstract class MovableObject : EntityType
                     rotate = -90f;
                     break;
                 default:
-                    Debug.Log("Invalid turn?");
+                    Debug.Log("Invalid turn? " + name);
                     rotate = 0f;
                     break;
             }
@@ -152,22 +161,14 @@ public abstract class MovableObject : EntityType
     }
     */
 
-    protected override void Update() {
-        base.Update();
-        if (currTime <= targetTime * 2) {
-            currTime += Time.deltaTime / targetTime;
-            transform.position = Vector3.Lerp(start, destination, currTime);
-        }
-    }
-
-    protected bool CheckBoundary(int x, int y) {
+    private bool CheckBoundary(int x, int y) {
         if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
             return false;
         }
         else {
             if (grid[x, y] != null) {
                 foreach (EntityType obj in grid[x, y]) {
-                    if (obj.collision && obj as MovableObject == null) {
+                    if (obj.collision && collision && obj as MovableObject == null) {
                         return false;
                     }
                 }

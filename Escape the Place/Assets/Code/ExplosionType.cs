@@ -2,12 +2,8 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-public abstract class ExplosionType : MonoBehaviour
+public abstract class ExplosionType
 {
-
-    void Start() {
-        Debug.Log("Worked");
-    }
 
     public abstract bool Explode(Avatar avatar, List<EntityType>[,] grid);
 

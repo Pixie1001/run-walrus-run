@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class TileGrid : MonoBehaviour
 {
@@ -14,35 +15,51 @@ public class TileGrid : MonoBehaviour
     List<string> inputLog;
     public int width = 10;
     public int height = 10;
-    public GameObject avModel;
-    public bool renderTiles;
     int[] goal;
-    public bool[,] tiles;
+    public GameObject[,] tiles;
+
+    public float turnTimer = 1.33f;
 
     void Awake() {
         Debug.Log("Level starto");
         GenerateLevel();
 
-        List<GameObject> blocks = GameObject.FindGameObjectsWithTag("Tile");
-        foreach (GameObject obj in blocks)
-        {
+        tiles = new GameObject[width, height];
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Tile");
+
+        foreach (GameObject obj in blocks) {
             //Go through tiles and add a true
             //Afterwards, add a pit object to the grid for each null value
-            tiles[obj.transform.X, obj.transform.Z] = true;
+            tiles[(int) obj.transform.position.x, (int) obj.transform.position.z] = obj;
         }
 
-        for (int x = 0; x < tiles[0].count)
-        {
-            if (val != null)
-            {
-                grid[val.transform.X, val.transform.Z]
+        for (int x = 0; x < tiles.GetLength(0); x++) {
+            for (int y = 0; y < tiles.GetLength(1); y++) {
+                /*
+                if (tiles[x, y] == null && !(x == goal[0] && y == goal[1])) {
+                    GameObject pitM = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    Pit pit = (Pit) pitM.AddComponent(System.Type.GetType("Pit"));
+                    pit.name = "pit";
+                    pitM.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                    spawner.Spawn(pit, x, y, -30f, grid);
+                    */
+
+                if (tiles[x, y] == null && !(x == goal[0] && y == goal[1])) {
+                    //Spawn thing
+                    GameObject model = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    Pit pit = (Pit)model.AddComponent(System.Type.GetType("Pit"));
+                    pit.Model = model;
+                    spawner.Spawn(pit, x, y, -30f, "up", 0.01f, grid);
+                }
             }
         }
     }
 
     void Update() {
         //Check for inputs
-        if (!loseState) {
+        turnTimer += Time.deltaTime;
+
+        if (turnTimer >= 0.5f) {
             if (Input.GetKeyUp(KeyCode.W)) { // W
                 ProcessTurn("up");
             }
@@ -56,12 +73,21 @@ public class TileGrid : MonoBehaviour
                 ProcessTurn("right");
             }
             if (Input.GetKeyUp(KeyCode.R)) { // R
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Dispose();
+            }
+            if (Input.GetKeyUp(KeyCode.Q)) { //Q
                 Dispose();
                 string output = "";
                 foreach (EntityType obj in movableList) {
                     output += obj.name + ", ";
                 }
                 Debug.Log(output);
+            }
+
+            if (loseState) {
+                Debug.Log("You lose :(");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
@@ -77,9 +103,8 @@ public class TileGrid : MonoBehaviour
         //Get destination
         Dispose();
         foreach (MovableObject obj in movableList) {
-            obj.GetDestination(pDirection);
+            obj.GetDestination(pDirection, false);
         }
-        Dispose();
         //Adjust destination based on collision
         foreach (MovableObject obj in movableList) {
             foreach (MovableObject comp in movableList) {
@@ -91,35 +116,70 @@ public class TileGrid : MonoBehaviour
                             comp.newX = comp.X;
                             comp.newY = comp.Y;
                         }
-                        else {
-                            Debug.Log("Trigger collision explosion");
-                            obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
-                            comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
-                        }
                     }
                 }
             }
         }
         //Check if player's move was valid
         if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
+            foreach (MovableObject obj in movableList) {
+                if (!obj.GetDestination(pDirection, true)) {
+                    obj.OnExplode(null);
+                }
+            }
+            Dispose();
+            //Adjust destination based on collision
+            foreach (MovableObject obj in movableList) {
+                foreach (MovableObject comp in movableList) {
+                    if (obj != comp) {
+                        if (obj.newY == comp.newY && obj.newX == comp.newX) {
+                            if (obj.collision && comp.collision) {
+                                obj.newX = obj.X;
+                                obj.newY = obj.Y;
+                                comp.newX = comp.X;
+                                comp.newY = comp.Y;
+                            }
+                            else {
+                                Debug.Log("Trigger collision explosion");
+                                if (!obj.moveChecked) {
+                                    obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
+                                }
+                                if (!comp.moveChecked) {
+                                    comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
+                                }
+                                obj.moveChecked = true;
+                                comp.moveChecked = true;
+                            }
+                        }
+                    }
+                }
+            }
+            Dispose();
+            foreach (MovableObject obj in movableList) {
+                obj.moveChecked = false;
+            }
             Dispose();
             //Move all objects to new coords
             foreach (MovableObject obj in movableList) {
                 obj.Move();
             }
+            Dispose();
             //Check win state
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
                 Debug.Log("You win!!!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else if (loseState) {
                 Debug.Log("You lose :(");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            Dispose();
+            turnTimer = 0f;
         }
         else {
             Debug.Log("idle movement");
             avatar.Rotate(pDirection);
         }
+        Dispose();
     }
 
     private void Dispose() {
@@ -129,7 +189,18 @@ public class TileGrid : MonoBehaviour
             if (temp != null) {
                 if (temp.Terminate) {
                     movableList.Remove(movableList[i]);
-                    Debug.Log("Removed");
+                }
+            }
+        }
+        foreach (List<EntityType> tile in grid) {
+            if (tile != null) {
+                for (int i = 0; i < tile.Count; i++) {
+                    temp = tile[i] as IRemovable;
+                    if (temp != null) {
+                        if (temp.Terminate) {
+                            tile.Remove(tile[i]);
+                        }
+                    }
                 }
             }
         }
@@ -161,8 +232,8 @@ public class TileGrid : MonoBehaviour
         }
         Debug.Log("Gen level");
         grid = new List<EntityType>[width, height];
-        avModel = GameObject.FindWithTag("Avatar");
-        avModel.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/player_controller") as RuntimeAnimatorController;
+        //avModel = GameObject.FindWithTag("Avatar");
+        //avModel.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/player_controller") as RuntimeAnimatorController;
 
         //Temp - remove after IdleChan is repalced
         //avModel.GetComponent<UnityChan.IdleChanger>().enabled = false;
@@ -173,12 +244,8 @@ public class TileGrid : MonoBehaviour
         //avatar = new Avatar(9, 9, GameObject.FindWithTag("Player"), new Pulsar(), 3, tiles);
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
         //List<EntityType> obstacles = new List<EntityType>();
-        Material m1 = Resources.Load("Friends", typeof(Material)) as Material;
-        Material m2 = null;
-
-        if (renderTiles) {
-            RenderFloor(m1, m2);
-        }
+        //Material m1 = Resources.Load("Friends", typeof(Material)) as Material;
+        //Material m2 = null;
         
         //Place Obstacles
         //new Wall(3, 2, 0, GameObject.FindWithTag("Wall"), tiles);

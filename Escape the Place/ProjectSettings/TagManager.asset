@@ -8,6 +8,7 @@ TagManager:
   - TempGrid
   - Avatar
   - End
+  - Tile
   layers:
   - Default
   - TransparentFX

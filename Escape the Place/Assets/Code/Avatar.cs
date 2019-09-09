@@ -31,6 +31,17 @@ public class Avatar : MovableObject {
                 explosionType = new Pulsar();
                 break;
         }
+        if (this.collision) {
+            Debug.Log("Construct (Avatar) = collision");
+        }
+        else {
+            Debug.Log("Construct (Avatar) = clip");
+        }
+    }
+
+    protected override void Start() {
+        base.Start();
+        collision = true;
     }
 
     /*
