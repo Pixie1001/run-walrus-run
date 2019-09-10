@@ -47,7 +47,7 @@ public class Avatar : MovableObject {
             GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
             display.GetComponent<Text>().text = (explodeOn).ToString();
         }
-        finally {
+        catch {
             Debug.Log("Error: No UI element deteted");
         }
     }
@@ -74,7 +74,7 @@ public class Avatar : MovableObject {
             }
             display.GetComponent<Text>().text = countDisplay;
         }
-        finally {
+        catch {
             Debug.Log("Error: No UI element deteted");
         }
     }

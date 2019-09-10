@@ -16,13 +16,27 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     protected override void Start() {
         base.Start();
-        
+        Debug.Log(name + "(ExP) called on start");
         if (Model == null) {
             grid[X, Y].Remove(this);
+            Debug.Log(name + ": No model...?");
         }
         else if (grid[X, Y].Count > 1) {
             //Explode stuff
             bool impact = false;
+
+            //Check everything in space
+            try {
+                string output = "";
+                foreach (EntityType obj in grid[X, Y]) {
+                    output += obj.name + ", ";
+                }
+                Debug.Log(output);
+            }
+            catch {
+                Debug.Log("Tile == null");
+            }
+
             for (int i = 0; i < grid[X, Y].Count; i++) {
                 if ((grid[x, y][i].collision || grid[x, y][i] as IExploder != null) && grid[x, y][i] != this) {
                     Debug.Log("Call clipping explode on " + grid[X, Y][i].name);
@@ -34,6 +48,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 Debug.Log("self explode");
                 OnExplode(null);
             }
+        }
+        else {
+            Debug.Log(name + ": Doesn't detect chair - " + grid[X, Y].Count);
         }
     }
 
@@ -52,7 +69,6 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 case "down":
                     if (CollideBoundary(x, y - 1)) {
                         newY -= 1;
-                        //Debug.Log(name + " (after down): " + newX + ", " + newY);
                         return true;
                     }
                     break;
@@ -71,7 +87,6 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 default:
                     break;
             }
-            OnExplode(null);
             return false;
         }
         else {

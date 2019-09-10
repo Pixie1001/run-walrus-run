@@ -21,7 +21,7 @@ public class Pulsar : ExplosionType
 
     private bool SpawnPulse(string direction, int x, int y, List<EntityType>[,] grid) {
         //Check if tile is within grid
-        if (x < grid.GetLength(0) && x >= 0 && y < grid.GetLength(0) && y >= 0) {
+        if (x < grid.GetLength(0) && x >= 0 && y < grid.GetLength(1) && y >= 0) {
             if (grid[x, y] != null) {
                 foreach (EntityType obj in grid[x, y]) {
                     //Check if space is occupied

@@ -70,7 +70,7 @@ public abstract class MovableObject : EntityType
     public virtual void Move() {
         if (!(X == newX && Y == newY)) {
             //Remove old position
-            if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(0) && Y >= 0) {
+            if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(1) && Y >= 0) {
                 //Do nothing - no list to remove self from :D
             }
             else if (grid[X, Y] != null) {
@@ -78,7 +78,7 @@ public abstract class MovableObject : EntityType
             }
 
             //Add new position
-            if (grid[newX, newY] == null && newX < grid.GetLength(0) && newX >= 0 && newY < grid.GetLength(0) && newY >= 0) {
+            if (grid[newX, newY] == null && newX < grid.GetLength(0) && newX >= 0 && newY < grid.GetLength(1) && newY >= 0) {
                 grid[newX, newY] = new List<EntityType> { this };
             }
             else if (grid[newX, newY] != null) {

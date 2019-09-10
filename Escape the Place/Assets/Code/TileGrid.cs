@@ -17,6 +17,7 @@ public class TileGrid : MonoBehaviour
     int height = 0;
     int[] goal;
     public GameObject[,] tiles;
+    string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4," };
 
     float turnTimer = 1.33f;
 
@@ -90,7 +91,7 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
-        if (turnTimer >= 0.5f) {
+        if (turnTimer >= 0.3f) {
             if (Input.GetKeyUp(KeyCode.W)) { // W
                 ProcessTurn("up");
             }
@@ -151,6 +152,7 @@ public class TileGrid : MonoBehaviour
                 }
             }
         }
+        Dispose(); //Why does this call stop the game from crashing???
         //Check if player's move was valid
         if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
             foreach (MovableObject obj in movableList) {
@@ -198,7 +200,18 @@ public class TileGrid : MonoBehaviour
             //Check win state
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
                 Debug.Log("You win!!!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                for (int i = 0; i < levels.Length; i++) {
+                    if (levels[i] == SceneManager.GetActiveScene().name) {
+                        if (i == levels.Length - 1) {
+                            SceneManager.LoadScene(levels[0]);
+                            Debug.Log("(Finished game) Load " + levels[0]);
+                        }
+                        else {
+                            SceneManager.LoadScene(levels[i + 1]);
+                            Debug.Log("Load " + levels[i + 1]);
+                        }
+                    }
+                }
             }
             else if (loseState) {
                 Debug.Log("You lose :(");

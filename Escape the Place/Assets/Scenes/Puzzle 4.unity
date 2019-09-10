@@ -1778,7 +1778,7 @@ MonoBehaviour:
   moveChecked: 0
   newX: 0
   newY: 0
-  explodeOn: 2
+  explodeOn: 3
   PickExplosion: 0
 --- !u!1001 &827690510
 PrefabInstance:

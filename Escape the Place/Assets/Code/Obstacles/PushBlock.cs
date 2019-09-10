@@ -76,7 +76,7 @@ public class PushBlock : MovableObject
     private void HandleMovement(int nX, int nY) {
         Debug.Log("Handling move");
         //Remove old position
-        if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(0) && Y >= 0) {
+        if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(1) && Y >= 0) {
             //Do nothing - no list to remove self from :D
         }
         else if (grid[X, Y] != null) {
@@ -84,7 +84,7 @@ public class PushBlock : MovableObject
         }
 
         //Add new position
-        if (grid[nX, nY] == null && nX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(0) && nY >= 0) {
+        if (grid[nX, nY] == null && nX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(1) && nY >= 0) {
             grid[nX, nY] = new List<EntityType> { this };
         }
         else if (grid[nX, nY] != null) {
