@@ -17,12 +17,11 @@ public class PushBlock : MovableObject
 
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
-        Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
+        //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
         Move(dir);
     }
 
     private bool Move(string direction) {
-        Debug.Log(name + " is moving :)");
         switch (direction) {
             case "up":
                 if (CheckMove(x, y + 1)) {
@@ -52,12 +51,10 @@ public class PushBlock : MovableObject
                 Debug.Log("Hit wall :C");
                 return false;
         }
-        Debug.Log("Switch ended");
         return false;
     }
 
     private bool CheckMove(int x, int y) {
-        Debug.Log("Check movement");
         if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
             return false;
         }
@@ -74,7 +71,6 @@ public class PushBlock : MovableObject
     }
 
     private void HandleMovement(int nX, int nY) {
-        Debug.Log("Handling move");
         //Remove old position
         if (grid[X, Y] == null && X < grid.GetLength(0) && X >= 0 && Y < grid.GetLength(1) && Y >= 0) {
             //Do nothing - no list to remove self from :D
@@ -90,7 +86,7 @@ public class PushBlock : MovableObject
         else if (grid[nX, nY] != null) {
             grid[nX, nY].Add(this);
         }
-        Debug.Log("Grid Coords: " + nX + " / " + nY);
+        //Debug.Log("Grid Coords: " + nX + " / " + nY);
 
         //rotate model
         string dir = (nX - X) + "/" + (nY - Y);
@@ -128,7 +124,7 @@ public class PushBlock : MovableObject
         x = nX;
         y = nY;
 
-        Debug.Log("New Coords: " + X + " / " + Y);
+        //Debug.Log("New Coords: " + X + " / " + Y);
     }
 
     public override void Move() {

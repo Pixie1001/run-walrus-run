@@ -17,7 +17,7 @@ public class TileGrid : MonoBehaviour
     int height = 0;
     int[] goal;
     public GameObject[,] tiles;
-    string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4," };
+    string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4", "Puzzle 5" };
 
     float turnTimer = 1.33f;
 
@@ -67,15 +67,6 @@ public class TileGrid : MonoBehaviour
 
         for (int x = 0; x < tiles.GetLength(0); x++) {
             for (int y = 0; y < tiles.GetLength(1); y++) {
-                /*
-                if (tiles[x, y] == null && !(x == goal[0] && y == goal[1])) {
-                    GameObject pitM = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    Pit pit = (Pit) pitM.AddComponent(System.Type.GetType("Pit"));
-                    pit.name = "pit";
-                    pitM.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-                    spawner.Spawn(pit, x, y, -30f, grid);
-                    */
-
                 if (tiles[x, y] == null && !(x == goal[0] && y == goal[1])) {
                     //Spawn thing
                     GameObject model = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -165,6 +156,8 @@ public class TileGrid : MonoBehaviour
             foreach (MovableObject obj in movableList) {
                 foreach (MovableObject comp in movableList) {
                     if (obj != comp) {
+                        PushBlock pushCheck1 = obj as PushBlock;
+                        PushBlock pushCheck2 = comp as PushBlock;
                         if (obj.newY == comp.newY && obj.newX == comp.newX) {
                             if (obj.collision && comp.collision) {
                                 obj.newX = obj.X;
@@ -172,8 +165,73 @@ public class TileGrid : MonoBehaviour
                                 comp.newX = comp.X;
                                 comp.newY = comp.Y;
                             }
-                            else {
-                                Debug.Log("Trigger collision explosion");
+                            else if (pushCheck1 != null || pushCheck2 != null) {
+                                //Check if obj1 is the push block. If true, it explodes. If false, it doesn't explode, but comp does.
+                               
+                                bool impact = false;
+                                if (pushCheck1 != null) {
+                                    if (!obj.moveChecked) {
+                                        Debug.Log(obj.name + " is a pushblock");
+                                        switch (CalcDirection(comp.X, comp.Y, comp.newX, comp.newY)) {
+                                            case "up":
+                                                impact = CheckMove(obj.newX, obj.newY + 1);
+                                                break;
+                                            case "down":
+                                                impact = CheckMove(obj.newX, obj.newY - 1);
+                                                break;
+                                            case "left":
+                                                impact = CheckMove(obj.newX - 1, obj.newY);
+                                                Debug.Log(obj.name + " was pushed from the left :)");
+                                                break;
+                                            case "right":
+                                                impact = CheckMove(obj.newX + 1, obj.newY);
+                                                break;
+                                            default:
+                                                Debug.Log(obj.name + " isn't being hit from any direct :C");
+                                                break;
+                                        }
+                                        if (impact) {
+                                            Debug.Log(obj.name + " was impacted");
+                                            obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
+                                        }
+                                        else {
+                                            Debug.Log(obj.name + " is blocked from moving :(");
+                                            comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
+                                        }
+                                    }
+                                }
+                                else if (!comp.moveChecked) {
+                                    Debug.Log(comp.name + " is a pushblock");
+                                    impact = false;
+                                    switch (CalcDirection(obj.X, obj.Y, obj.newX, obj.newY)) {
+                                        case "up":
+                                            impact = !CheckMove(comp.newX, comp.newY + 1);
+                                            break;
+                                        case "down":
+                                            impact = !CheckMove(comp.newX, comp.newY - 1);
+                                            break;
+                                        case "left":
+                                            impact = !CheckMove(comp.newX - 1, comp.newY);
+                                            break;
+                                        case "right":
+                                            impact = !CheckMove(comp.newX + 1, comp.newY);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    if (impact) {
+                                        comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
+                                    }
+                                    else {
+                                        Debug.Log(comp.name + " is blocked from moving :(");
+                                        obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
+                                    }
+                                }
+                                obj.moveChecked = true;
+                                comp.moveChecked = true;
+                            }
+                            else if (pushCheck1 == null && pushCheck2 == null) {
+                                Debug.Log("Trigger collision explosion" + obj.name + " and " + comp.name);
                                 if (!obj.moveChecked) {
                                     obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
                                 }
@@ -264,6 +322,22 @@ public class TileGrid : MonoBehaviour
             return "right";
         }
         return null;
+    }
+
+    private bool CheckMove(int x, int y) {
+        if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
+            return false;
+        }
+        else {
+            if (grid[x, y] != null) {
+                foreach (EntityType obj in grid[x, y]) {
+                    if (obj.collision || obj as IExploder != null) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     private void GenerateLevel() {

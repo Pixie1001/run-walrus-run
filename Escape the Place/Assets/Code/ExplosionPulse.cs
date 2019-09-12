@@ -40,8 +40,35 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             for (int i = 0; i < grid[X, Y].Count; i++) {
                 if ((grid[x, y][i].collision || grid[x, y][i] as IExploder != null) && grid[x, y][i] != this) {
                     Debug.Log("Call clipping explode on " + grid[X, Y][i].name);
+                    //Debug.Log(grid[X, Y][i].name + " pre-explode");
+                    //Debug.Log(grid[X, Y][i].name + " post explode");
+                    PushBlock pushCheck = grid[X, Y][i] as PushBlock;
+                    //WIP - check if tile is free based on case statement. If true, impact = false.
+                    //Check if push block
+                    
+                    if (pushCheck != null) {
+                        switch (direction) {
+                            case "up":
+                                impact = !CheckMove(x, y + 1);
+                                break;
+                            case "down":
+                                impact = !CheckMove(x, y - 1);
+                                break;
+                            case "left":
+                                impact = !CheckMove(x - 1, y);
+                                break;
+                            case "right":
+                                impact = !CheckMove(x + 1, y);
+                                break;
+                            default:
+                                Debug.Log(grid[X, Y][i].name + " reported no valid path");
+                                break;
+                        }
+                    }
+                    if (pushCheck == null) {
+                        impact = true;
+                    }
                     grid[X, Y][i].OnExplode(direction);
-                    impact = true;
                 }
             }
             if (impact) {
@@ -112,6 +139,22 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             }
             return output;
         }
+    }
+
+    private bool CheckMove(int x, int y) {
+        if (x >= grid.GetLength(0) || x < 0 || y >= grid.GetLength(1) || y < 0) {
+            return false;
+        }
+        else {
+            if (grid[x, y] != null) {
+                foreach (EntityType obj in grid[x, y]) {
+                    if (obj.collision || obj as IExploder != null) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     //FIX this up later to handle explosions - be careful about how it functions, some checks might need to be done via ProcessTurn

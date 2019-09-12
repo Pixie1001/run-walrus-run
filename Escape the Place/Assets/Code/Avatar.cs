@@ -11,18 +11,16 @@ public class Avatar : MovableObject {
     public ExplosionTypes PickExplosion;
 
 
-    int countdown = 0;
+    int countdown;
 
     public Avatar () : base (true) {
         if (explosionType == null) {
             explosionType = new Pulsar();
         }
 
-        if (explodeOn == null) {
+        if (explodeOn == 0) {
             explodeOn = 3;
         }
-
-        countdown = explodeOn;
 
         switch (PickExplosion) {
             case ExplosionTypes.Pulsar:
@@ -32,17 +30,15 @@ public class Avatar : MovableObject {
                 explosionType = new Pulsar();
                 break;
         }
-        if (this.collision) {
-            Debug.Log("Construct (Avatar) = collision");
-        }
-        else {
-            Debug.Log("Construct (Avatar) = clip");
-        }
     }
 
     protected override void Start() {
         base.Start();
         collision = true;
+
+        explodeOn = explodeOn - 1;
+        countdown = explodeOn;
+
         try {
             GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
             display.GetComponent<Text>().text = (explodeOn).ToString();
@@ -59,7 +55,7 @@ public class Avatar : MovableObject {
             explosionType.Explode(this, grid);
         }
         else if (countdown < 0) {
-            countdown = explodeOn - 1;
+            countdown = explodeOn;
         }
 
         //UpdateUI
@@ -67,7 +63,8 @@ public class Avatar : MovableObject {
             GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
             string countDisplay;
             if (countdown == 0) {
-                countDisplay = (explodeOn).ToString();
+                countDisplay = (explodeOn + 1).ToString();
+                //countDisplay = countdown.ToString();
             }
             else {
                 countDisplay = countdown.ToString();
