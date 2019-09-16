@@ -9,6 +9,7 @@ public class Avatar : MovableObject {
     public int explodeOn;
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
+    bool triggerExplosion = false;
 
 
     int countdown;
@@ -42,9 +43,24 @@ public class Avatar : MovableObject {
         try {
             GameObject display = GameObject.FindGameObjectWithTag("UI (Countdown)");
             display.GetComponent<Text>().text = (explodeOn).ToString();
+            //Adjust colour to signal imminent explosion
+            if (countdown == 1) {
+                display.GetComponent<Text>().color = Color.red;
+            }
+            else {
+                display.GetComponent<Text>().color = Color.white;
+            }
         }
         catch {
             Debug.Log("Error: No UI element deteted");
+        }
+    }
+
+    protected override void Update() {
+        base.Update();
+        if (currTime >= targetTime - 0.05f && triggerExplosion) {
+            explosionType.Explode(this, grid);
+            triggerExplosion = false;
         }
     }
 
@@ -52,7 +68,7 @@ public class Avatar : MovableObject {
         base.Move();
         countdown -= 1;
         if (countdown == 0) {
-            explosionType.Explode(this, grid);
+            triggerExplosion = true;
         }
         else if (countdown < 0) {
             countdown = explodeOn;
@@ -64,12 +80,18 @@ public class Avatar : MovableObject {
             string countDisplay;
             if (countdown == 0) {
                 countDisplay = (explodeOn + 1).ToString();
-                //countDisplay = countdown.ToString();
             }
             else {
                 countDisplay = countdown.ToString();
             }
             display.GetComponent<Text>().text = countDisplay;
+            //Adjust colour to signal imminent explosion
+            if (countdown == 1) {
+                display.GetComponent<Text>().color = Color.red;
+            }
+            else {
+                display.GetComponent<Text>().color = Color.white;
+            }
         }
         catch {
             Debug.Log("Error: No UI element deteted");
