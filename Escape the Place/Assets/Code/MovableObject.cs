@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public abstract class MovableObject : EntityType
 {
-    protected float speed = OnLoad.speed;
     protected float targetTime = 0.5f;
     protected float currTime = 100;
     protected Vector3 start;
