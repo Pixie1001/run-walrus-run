@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: 8becbbd43c259554d85fbf8e5614b14c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Body_2_seat
+    100004: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_10
+    100006: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    100008: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_3
+    100010: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_4
+    100012: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_9
+    100014: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_5
+    100016: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_6
+    100018: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_7
+    100020: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_8
+    100022: Sofa_Variety:transform12
+    100024: Sofa_Variety:transform13
+    100026: Sofa_Variety:transform14
+    100028: Sofa_Variety:transform15
+    100030: Sofa_Variety:transform16
+    100032: Sofa_Variety:transform17
+    100034: Sofa_Variety:transform18
+    100036: Sofa_Variety:transform19
+    100038: Sofa_Variety:transform20
+    400000: //RootNode
+    400002: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Body_2_seat
+    400004: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_10
+    400006: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    400008: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_3
+    400010: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_4
+    400012: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_9
+    400014: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_5
+    400016: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_6
+    400018: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_7
+    400020: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_8
+    400022: Sofa_Variety:transform12
+    400024: Sofa_Variety:transform13
+    400026: Sofa_Variety:transform14
+    400028: Sofa_Variety:transform15
+    400030: Sofa_Variety:transform16
+    400032: Sofa_Variety:transform17
+    400034: Sofa_Variety:transform18
+    400036: Sofa_Variety:transform19
+    400038: Sofa_Variety:transform20
+    2100000: lambert2
+    2100002: lambert3
+    2100004: Sofa_Variety_Sofa_Material_3
+    2100006: lambert4
+    2300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    3300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
