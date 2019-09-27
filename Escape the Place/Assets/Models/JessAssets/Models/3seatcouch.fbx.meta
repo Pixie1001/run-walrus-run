@@ -58,7 +58,27 @@ ModelImporter:
     2300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
     3300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
     4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sofa_Variety_Sofa_Material_6
+    second: {fileID: 2100000, guid: f01fb3b67a1bbaa4696ebdb539c404d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6
+    second: {fileID: 2100000, guid: f01fb3b67a1bbaa4696ebdb539c404d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7
+    second: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
