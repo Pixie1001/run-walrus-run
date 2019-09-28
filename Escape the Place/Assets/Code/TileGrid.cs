@@ -3,6 +3,8 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class TileGrid : MonoBehaviour
 {
@@ -261,6 +263,7 @@ public class TileGrid : MonoBehaviour
                 for (int i = 0; i < levels.Length; i++) {
                     if (levels[i] == SceneManager.GetActiveScene().name) {
                         if (i == levels.Length - 1) {
+                            //BOOKMARK
                             SceneManager.LoadScene(levels[0]);
                             Debug.Log("(Finished game) Load " + levels[0]);
                         }
@@ -306,6 +309,17 @@ public class TileGrid : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void SaveGame (int progress) {
+        OnLoad.Progress = progress;
+        Save save = new Save(OnLoad.Progress);
+        
+        // 2
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, save);
+        file.Close();
     }
 
     private string CalcDirection (int x, int y, int nX, int nY) {

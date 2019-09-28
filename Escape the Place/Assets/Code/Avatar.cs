@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,9 @@ public class Avatar : MovableObject {
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
     bool triggerExplosion = false;
+    AudioSource audioSource;
+    AudioClip moveSE;
+    AudioClip explodeSE;
 
 
     int countdown;
@@ -37,6 +41,11 @@ public class Avatar : MovableObject {
         base.Start();
         collision = true;
 
+        //Sound stuff
+        audioSource = model.AddComponent<AudioSource>();
+        moveSE = Resources.Load<AudioClip>("Audio/Alien_Sounds");
+        explodeSE = Resources.Load<AudioClip>("Audio/Explosion");
+
         explodeOn = explodeOn - 1;
         countdown = explodeOn;
 
@@ -56,15 +65,21 @@ public class Avatar : MovableObject {
         }
     }
 
+    private T AddComponent<T>() {
+        throw new NotImplementedException();
+    }
+
     protected override void Update() {
         base.Update();
         if (currTime >= targetTime - 0.05f && triggerExplosion) {
             explosionType.Explode(this, grid);
+            audioSource.PlayOneShot(explodeSE);
             triggerExplosion = false;
         }
     }
 
     public override void Move() {
+        audioSource.PlayOneShot(moveSE);
         base.Move();
         countdown -= 1;
         if (countdown == 0) {
