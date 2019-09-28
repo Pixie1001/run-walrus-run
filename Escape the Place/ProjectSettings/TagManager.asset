@@ -10,6 +10,8 @@ TagManager:
   - End
   - Tile
   - UI (Countdown)
+  - Legend
+  - Intro
   layers:
   - Default
   - TransparentFX
