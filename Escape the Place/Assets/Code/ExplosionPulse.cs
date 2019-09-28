@@ -7,6 +7,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     public string direction;
     float deathTimer = 1.333f;
     public bool terminate;
+    AudioClip moveSE;
 
     public ExplosionPulse() : base(false) {
         //model = Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject;
@@ -16,6 +17,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     protected override void Start() {
         base.Start();
+        moveSE = Resources.Load<AudioClip>("Audio/ExplosionMovement");
         Debug.Log(name + "(ExP) called on start");
         if (Model == null) {
             grid[X, Y].Remove(this);
@@ -79,6 +81,12 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         else {
             Debug.Log(name + ": Doesn't detect chair - " + grid[X, Y].Count);
         }
+    }
+
+    public override void Move() {
+        audioSource.PlayOneShot(moveSE, 0.3f);
+
+        base.Move();
     }
 
     public override bool GetDestination(string unused, bool verified) {

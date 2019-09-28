@@ -10,6 +10,7 @@ public abstract class EntityType : MonoBehaviour
     public int y;
     protected GameObject model;
     protected List<EntityType>[,] grid;
+    protected AudioSource audioSource;
 
     public EntityType(bool collision) {
         this.collision = collision;
@@ -26,6 +27,7 @@ public abstract class EntityType : MonoBehaviour
         y = (int) Math.Round(transform.position.z);
         Debug.Log("Gen " + name + " | X=" + x + " / Y=" + y);
         model = this.gameObject;
+        audioSource = (AudioSource)model.AddComponent<AudioSource>();
         grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().grid;
         Initialize();
     }

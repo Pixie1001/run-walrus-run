@@ -11,7 +11,6 @@ public class Avatar : MovableObject {
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
     bool triggerExplosion = false;
-    AudioSource audioSource;
     AudioClip moveSE;
     AudioClip explodeSE;
 
