@@ -6,8 +6,10 @@ using UnityEngine;
 public class Save
 {
     public int progress;
+    public LevelData[] levels;
 
-    public Save (int nProgress) {
+    public Save (int nProgress, LevelData[] nLevels) {
         progress = nProgress;
+        levels = nLevels;
     }
 }

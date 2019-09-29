@@ -18,7 +18,7 @@ public static class OnLoad {
 
     private static int progress;
 
-    private static string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4", "Puzzle 5" };
+    private static LevelData[] levels = { new LevelData("Puzzle 1"), new LevelData("Puzzle 3"), new LevelData("Puzzle 4"), new LevelData("Puzzle 5") };
 
     public static int Progress
     {
@@ -32,10 +32,13 @@ public static class OnLoad {
         }
     }
 
-    public static string[] Levels
+    public static LevelData[] Levels
     {
         get {
             return levels;
+        }
+        set {
+            levels = value;
         }
     }
 }

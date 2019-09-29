@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
 
 public class TileGrid : MonoBehaviour
 {
@@ -12,18 +13,20 @@ public class TileGrid : MonoBehaviour
     ObjectSpawner spawner = new ObjectSpawner();
     public List<EntityType>[,] grid;
     public List<EntityType> movableList;
+    public int targetSteps = 0;
     [HideInInspector] public bool loseState = false;
     Avatar avatar;
     List<string> inputLog;
     int width = 0;
     int height = 0;
     int[] goal;
+    int steps = 0;
+    int levelId;
     public GameObject[,] tiles;
 
     float turnTimer = 1.33f;
 
     void Awake() {
-        Debug.Log("Level starto");
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
         if (GameObject.FindWithTag("End") != null) {
@@ -32,6 +35,21 @@ public class TileGrid : MonoBehaviour
         else {
             goal = new int[2] { 0, 0 };
             Debug.Log("Please add an 'End' tile to this level");
+        }
+
+        //Set base steps value
+        try {
+            GameObject display = GameObject.FindGameObjectWithTag("UI (Steps)");
+            display.GetComponent<Text>().text = 0.ToString();
+        }
+        catch {
+            Debug.Log("Error: No UI element deteted");
+        }
+
+        for (int i = 0; i < OnLoad.Levels.Length; i++) {
+            if (OnLoad.Levels[i].name == SceneManager.GetActiveScene().name) {
+                levelId = i;
+            }
         }
 
         //Get width x height
@@ -148,6 +166,23 @@ public class TileGrid : MonoBehaviour
         Dispose(); //Why does this call stop the game from crashing???
         //Check if player's move was valid
         if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
+            //Update step count
+            steps += 1;
+            try {
+                GameObject display = GameObject.FindGameObjectWithTag("UI (Steps)");
+                display.GetComponent<Text>().text = steps.ToString();
+                if (steps > targetSteps) {
+                    display.GetComponent<Text>().color = Color.red;
+                }
+                else {
+                    display.GetComponent<Text>().color = Color.white;
+                }
+            }
+            catch {
+                Debug.Log("Error: No UI element deteted");
+            }
+
+            //Explode objects that collide with level edge
             foreach (MovableObject obj in movableList) {
                 if (!obj.GetDestination(pDirection, true)) {
                     obj.OnExplode(null);
@@ -167,9 +202,7 @@ public class TileGrid : MonoBehaviour
                                 comp.newX = comp.X;
                                 comp.newY = comp.Y;
                             }
-                            else if (pushCheck1 != null || pushCheck2 != null) {
-                                //Check if obj1 is the push block. If true, it explodes. If false, it doesn't explode, but comp does.
-                               
+                            else if (pushCheck1 != null || pushCheck2 != null) {                             
                                 bool impact = false;
                                 if (pushCheck1 != null) {
                                     if (!obj.moveChecked) {
@@ -260,19 +293,20 @@ public class TileGrid : MonoBehaviour
             //Check win state
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
                 Debug.Log("You win!!!");
-                for (int i = 0; i < OnLoad.Levels.Length; i++) {
-                    if (OnLoad.Levels[i] == SceneManager.GetActiveScene().name) {
-                        if (i == OnLoad.Levels.Length - 1) {
-                            SaveGame(i);
-                            SceneManager.LoadScene(OnLoad.Levels[0]);
-                            Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
-                        }
-                        else {
-                            SaveGame(i);
-                            SceneManager.LoadScene(OnLoad.Levels[i + 1]);
-                            Debug.Log("Load " + OnLoad.Levels[i + 1]);
-                        }
-                    }
+                //Save step count
+                if (OnLoad.Levels[levelId].steps > steps) {
+                    OnLoad.Levels[levelId].steps = steps;
+                }
+                //Navigate to next level
+                if (levelId == OnLoad.Levels.Length - 1) {
+                    SaveGame(levelId);
+                    SceneManager.LoadScene(OnLoad.Levels[0].name);
+                    Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
+                }
+                else {
+                    SaveGame(levelId + 1);
+                    SceneManager.LoadScene(OnLoad.Levels[levelId + 1].name);
+                    Debug.Log("Load " + OnLoad.Levels[levelId + 1]);
                 }
             }
             else if (loseState) {
@@ -314,9 +348,8 @@ public class TileGrid : MonoBehaviour
 
     private void SaveGame (int progress) {
         OnLoad.Progress = progress;
-        Save save = new Save(OnLoad.Progress);
+        Save save = new Save(OnLoad.Progress, OnLoad.Levels);
         
-        // 2
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         bf.Serialize(file, save);

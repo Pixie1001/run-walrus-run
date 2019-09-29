@@ -12,6 +12,7 @@ TagManager:
   - UI (Countdown)
   - Legend
   - Intro
+  - UI (Steps)
   layers:
   - Default
   - TransparentFX
