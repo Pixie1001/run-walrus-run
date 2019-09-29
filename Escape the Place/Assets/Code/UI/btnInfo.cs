@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class btnInfo : MonoBehaviour
+public class btnInfo: MonoBehaviour
 {
     public GameObject legend;
 
