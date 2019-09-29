@@ -13,6 +13,7 @@ TagManager:
   - Legend
   - Intro
   - UI (Steps)
+  - Transition
   layers:
   - Default
   - TransparentFX

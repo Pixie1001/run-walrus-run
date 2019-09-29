@@ -22,9 +22,10 @@ public class TileGrid : MonoBehaviour
     int[] goal;
     int steps = 0;
     int levelId;
+    bool pause = true;
     public GameObject[,] tiles;
 
-    float turnTimer = 1.33f;
+    float turnTimer = 0f;
 
     void Awake() {
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
@@ -103,7 +104,19 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
-        if (turnTimer >= 0.3f) {
+        if (turnTimer >= 2f && pause) {
+            pause = false;
+            turnTimer = 1.33f;
+            try {
+                GameObject transition = GameObject.FindGameObjectWithTag("Transition");
+                transition.SetActive(false);
+            }
+            catch {
+                Debug.Log("Error: No transition object found");
+            }
+        }
+        
+        if (turnTimer >= 0.3f && !pause) {
             if (Input.GetKeyUp(KeyCode.W)) { // W
                 ProcessTurn("up");
             }
