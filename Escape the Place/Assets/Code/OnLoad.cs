@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[InitializeOnLoad]
+//[InitializeOnLoad]
 public static class OnLoad {
     /*
     //public const float speed = 1f;
@@ -17,7 +17,9 @@ public static class OnLoad {
     */
 
     private static int progress;
-    
+
+    private static string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4", "Puzzle 5" };
+
     public static int Progress
     {
         get {
@@ -27,6 +29,13 @@ public static class OnLoad {
             if (value >= progress) {
                 progress = value;
             }
+        }
+    }
+
+    public static string[] Levels
+    {
+        get {
+            return levels;
         }
     }
 }

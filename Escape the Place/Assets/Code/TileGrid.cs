@@ -19,7 +19,6 @@ public class TileGrid : MonoBehaviour
     int height = 0;
     int[] goal;
     public GameObject[,] tiles;
-    string[] levels = { "Puzzle 1", "Puzzle 3", "Puzzle 4", "Puzzle 5" };
 
     float turnTimer = 1.33f;
 
@@ -78,6 +77,8 @@ public class TileGrid : MonoBehaviour
                 }
             }
         }
+
+        Dispose();
     }
 
     void Update() {
@@ -99,7 +100,6 @@ public class TileGrid : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.R)) { // R
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                Dispose();
             }
             if (Input.GetKeyUp(KeyCode.Q)) { //Q
                 Dispose();
@@ -260,16 +260,17 @@ public class TileGrid : MonoBehaviour
             //Check win state
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
                 Debug.Log("You win!!!");
-                for (int i = 0; i < levels.Length; i++) {
-                    if (levels[i] == SceneManager.GetActiveScene().name) {
-                        if (i == levels.Length - 1) {
-                            //BOOKMARK
-                            SceneManager.LoadScene(levels[0]);
-                            Debug.Log("(Finished game) Load " + levels[0]);
+                for (int i = 0; i < OnLoad.Levels.Length; i++) {
+                    if (OnLoad.Levels[i] == SceneManager.GetActiveScene().name) {
+                        if (i == OnLoad.Levels.Length - 1) {
+                            SaveGame(i);
+                            SceneManager.LoadScene(OnLoad.Levels[0]);
+                            Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
                         }
                         else {
-                            SceneManager.LoadScene(levels[i + 1]);
-                            Debug.Log("Load " + levels[i + 1]);
+                            SaveGame(i);
+                            SceneManager.LoadScene(OnLoad.Levels[i + 1]);
+                            Debug.Log("Load " + OnLoad.Levels[i + 1]);
                         }
                     }
                 }
