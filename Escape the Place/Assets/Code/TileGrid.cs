@@ -30,6 +30,7 @@ public class TileGrid : MonoBehaviour
     void Awake() {
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
+        //Find goal
         if (GameObject.FindWithTag("End") != null) {
             goal = new int[2] { (int)GameObject.FindWithTag("End").transform.position.x, (int)GameObject.FindWithTag("End").transform.position.z };
         }
@@ -47,11 +48,14 @@ public class TileGrid : MonoBehaviour
             Debug.Log("Error: No UI element deteted");
         }
 
+        //Find levelId
         for (int i = 0; i < OnLoad.Levels.Length; i++) {
             if (OnLoad.Levels[i].name == SceneManager.GetActiveScene().name) {
                 levelId = i;
             }
         }
+
+        OnLoad.Levels[levelId].targetSteps = targetSteps;
 
         //Get width x height
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Tile");
@@ -104,7 +108,7 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
-        if (turnTimer >= 2f && pause) {
+        if (turnTimer >= 1f && pause) {
             pause = false;
             turnTimer = 1.33f;
             try {
