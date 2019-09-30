@@ -4540,7 +4540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movableList: []
-  targetSteps: 0
+  targetSteps: 24
   loseState: 0
 --- !u!1001 &993715363
 PrefabInstance:

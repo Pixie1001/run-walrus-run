@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movableList: []
-  targetSteps: 0
+  targetSteps: 16
   loseState: 0
 --- !u!1 &1036002243
 GameObject:
