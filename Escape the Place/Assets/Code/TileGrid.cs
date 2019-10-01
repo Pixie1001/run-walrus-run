@@ -83,9 +83,13 @@ public class TileGrid : MonoBehaviour
         grid = new List<EntityType>[width, height];
 
         tiles = new GameObject[width, height];
+
+        Debug.Log(width + " / " + height);
+
         foreach (GameObject obj in blocks) {
             //Go through tiles and add a true
             //Afterwards, add a pit object to the grid for each null value
+            Debug.Log("Checking tile at: " + (int)obj.transform.position.x + " / " + (int)obj.transform.position.z);
             tiles[(int) obj.transform.position.x, (int) obj.transform.position.z] = obj;
         }
 
