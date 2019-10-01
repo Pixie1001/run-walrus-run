@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
+using System;
 
 public class TileGrid : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class TileGrid : MonoBehaviour
             //Go through tiles and add a true
             //Afterwards, add a pit object to the grid for each null value
             Debug.Log("Checking tile at: " + (int)obj.transform.position.x + " / " + (int)obj.transform.position.z);
-            tiles[(int) obj.transform.position.x, (int) obj.transform.position.z] = obj;
+            tiles[(int) Math.Round(obj.transform.position.x), (int) Math.Round(obj.transform.position.z)] = obj;
         }
 
         for (int x = 0; x < tiles.GetLength(0); x++) {
