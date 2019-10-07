@@ -10,7 +10,7 @@ public abstract class EntityType : MonoBehaviour
     public int y;
     protected GameObject model;
     protected List<EntityType>[,] grid;
-    protected AudioSource audioSource;
+    public AudioSource audioSource;
 
     public EntityType(bool collision) {
         this.collision = collision;

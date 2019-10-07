@@ -25,11 +25,16 @@ public class TileGrid : MonoBehaviour
     int levelId;
     bool pause = true;
     public GameObject[,] tiles;
+    AudioClip characterHitWall, explosionHitWall, explosionPulseCollisionSE;
 
     float turnTimer = 0f;
 
     void Awake() {
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
+
+        explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        characterHitWall = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
+        explosionHitWall = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWall");
 
         //Find goal
         if (GameObject.FindWithTag("End") != null) {
@@ -207,6 +212,7 @@ public class TileGrid : MonoBehaviour
             //Explode objects that collide with level edge
             foreach (MovableObject obj in movableList) {
                 if (!obj.GetDestination(pDirection, true)) {
+                    obj.audioSource.PlayOneShot(explosionHitWall);
                     obj.OnExplode(null);
                 }
             }
@@ -224,9 +230,11 @@ public class TileGrid : MonoBehaviour
                                 comp.newX = comp.X;
                                 comp.newY = comp.Y;
                             }
+                            //Check if any objct involved are pushable
                             else if (pushCheck1 != null || pushCheck2 != null) {                             
                                 bool impact = false;
-                                if (pushCheck1 != null) {
+                                //Handle for push blocks
+                                if (pushCheck1 != null) {   
                                     if (!obj.moveChecked) {
                                         Debug.Log(obj.name + " is a pushblock");
                                         switch (CalcDirection(comp.X, comp.Y, comp.newX, comp.newY)) {
@@ -287,7 +295,9 @@ public class TileGrid : MonoBehaviour
                                 obj.moveChecked = true;
                                 comp.moveChecked = true;
                             }
+                            //Handle 2 pulses colliding
                             else if (pushCheck1 == null && pushCheck2 == null) {
+                                obj.audioSource.PlayOneShot(explosionPulseCollisionSE);
                                 Debug.Log("Trigger collision explosion" + obj.name + " and " + comp.name);
                                 if (!obj.moveChecked) {
                                     obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
@@ -338,7 +348,7 @@ public class TileGrid : MonoBehaviour
             turnTimer = 0f;
         }
         else {
-            Debug.Log("idle movement");
+            avatar.audioSource.PlayOneShot(characterHitWall);
             avatar.Rotate(pDirection);
         }
         Dispose();

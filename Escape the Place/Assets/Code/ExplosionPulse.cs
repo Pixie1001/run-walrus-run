@@ -7,7 +7,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     public string direction;
     float deathTimer = 1.333f;
     public bool terminate;
-    AudioClip moveSE;
+    AudioClip moveSE, pulseCollisionSE, hitWallSE;
 
     public ExplosionPulse() : base(false) {
         //model = Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject;
@@ -17,7 +17,12 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     protected override void Start() {
         base.Start();
-        moveSE = Resources.Load<AudioClip>("Audio/ExplosionMovement");
+
+        //Sound stuff
+        moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
+        pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        hitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWallSE");
+
         Debug.Log(name + "(ExP) called on start");
         if (Model == null) {
             grid[X, Y].Remove(this);
@@ -75,6 +80,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             }
             if (impact) {
                 Debug.Log("self explode");
+                audioSource.PlayOneShot(pulseCollisionSE);
                 OnExplode(null);
             }
         }
@@ -85,7 +91,6 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     public override void Move() {
         audioSource.PlayOneShot(moveSE, 0.3f);
-
         base.Move();
     }
 

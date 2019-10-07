@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class PushBlock : MovableObject
 {
 
+    AudioClip moveSE, stuckSE;
+
     public PushBlock() : base(true) {
 
     }
@@ -15,9 +17,21 @@ public class PushBlock : MovableObject
         return true;
     }
 
+    protected override void Start() {
+        base.Start();
+        moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairMove");
+        stuckSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairCantMove");
+    }
+
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
         //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
+        if (newX == X && newY == Y) {
+            audioSource.PlayOneShot(stuckSE);
+        }
+        else {
+            audioSource.PlayOneShot(moveSE);
+        }
         Move(dir);
     }
 

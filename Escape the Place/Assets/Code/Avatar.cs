@@ -11,8 +11,7 @@ public class Avatar : MovableObject {
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
     bool triggerExplosion = false;
-    AudioClip moveSE;
-    AudioClip explodeSE;
+    AudioClip moveSE, explodeSE, walkIntoObjectSE;
 
 
     int countdown;
@@ -42,8 +41,8 @@ public class Avatar : MovableObject {
 
         //Sound stuff
         audioSource = model.AddComponent<AudioSource>();
-        moveSE = Resources.Load<AudioClip>("Audio/Alien_Sounds");
-        explodeSE = Resources.Load<AudioClip>("Audio/Explosion");
+        moveSE = Resources.Load<AudioClip>("Audio/Upload/CharacterMove");
+        explodeSE = Resources.Load<AudioClip>("Audio/Upload/CharacterExplode");
 
         explodeOn = explodeOn - 1;
         countdown = explodeOn;
@@ -133,6 +132,7 @@ public class Avatar : MovableObject {
                 break;
         }
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
+        audioSource.PlayOneShot(walkIntoObjectSE);
     }
 }
 

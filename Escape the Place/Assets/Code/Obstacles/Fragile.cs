@@ -6,15 +6,22 @@ public class Fragile : EntityType, IRemovable
 {
     float deathTimer = 1.333f;
     public bool terminate;
+    AudioClip explodeSE;
 
     public Fragile () : base(true) {
 
+    }
+
+    protected override void Start() {
+        base.Start();
+        explodeSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitFailState");
     }
 
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
         terminate = true;
         GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().loseState = true;
+        audioSource.PlayOneShot(explodeSE);
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");
         }
