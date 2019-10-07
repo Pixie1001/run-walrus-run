@@ -25,7 +25,7 @@ public class TileGrid : MonoBehaviour
     int levelId;
     bool pause = true;
     public GameObject[,] tiles;
-    AudioClip characterHitWall, explosionHitWall, explosionPulseCollisionSE;
+    AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
 
     float turnTimer = 0f;
 
@@ -33,8 +33,9 @@ public class TileGrid : MonoBehaviour
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
         explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
-        characterHitWall = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
-        explosionHitWall = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWall");
+        characterHitWallSE = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
+        explosionHitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWall");
+        chairStuckSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairCantMove");
 
         //Find goal
         if (GameObject.FindWithTag("End") != null) {
@@ -118,7 +119,7 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
-        if (turnTimer >= 1f && pause) {
+        if (turnTimer >= 0f && pause) {
             pause = false;
             turnTimer = 1.33f;
             try {
@@ -212,7 +213,7 @@ public class TileGrid : MonoBehaviour
             //Explode objects that collide with level edge
             foreach (MovableObject obj in movableList) {
                 if (!obj.GetDestination(pDirection, true)) {
-                    obj.audioSource.PlayOneShot(explosionHitWall);
+                    obj.audioSource.PlayOneShot(explosionHitWallSE);
                     obj.OnExplode(null);
                 }
             }
@@ -261,6 +262,7 @@ public class TileGrid : MonoBehaviour
                                         }
                                         else {
                                             Debug.Log(obj.name + " is blocked from moving :(");
+                                            obj.audioSource.PlayOneShot(chairStuckSE, 1f);
                                             comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
                                         }
                                     }
@@ -289,6 +291,7 @@ public class TileGrid : MonoBehaviour
                                     }
                                     else {
                                         Debug.Log(comp.name + " is blocked from moving :(");
+                                        comp.audioSource.PlayOneShot(chairStuckSE, 1f);
                                         obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
                                     }
                                 }
@@ -348,7 +351,7 @@ public class TileGrid : MonoBehaviour
             turnTimer = 0f;
         }
         else {
-            avatar.audioSource.PlayOneShot(characterHitWall);
+            avatar.audioSource.PlayOneShot(characterHitWallSE);
             avatar.Rotate(pDirection);
         }
         Dispose();

@@ -26,12 +26,7 @@ public class PushBlock : MovableObject
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
         //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
-        if (newX == X && newY == Y) {
-            audioSource.PlayOneShot(stuckSE);
-        }
-        else {
-            audioSource.PlayOneShot(moveSE);
-        }
+        audioSource.PlayOneShot(moveSE, 2f);
         Move(dir);
     }
 

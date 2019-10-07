@@ -72,6 +72,7 @@ public class Avatar : MovableObject {
         if (currTime >= targetTime - 0.05f && triggerExplosion) {
             explosionType.Explode(this, grid);
             audioSource.PlayOneShot(explodeSE);
+            GetComponent<Animator>().Play("EXPLODE");
             triggerExplosion = false;
         }
     }
