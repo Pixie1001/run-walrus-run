@@ -20,7 +20,7 @@ public class Fragile : EntityType, IRemovable
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
         terminate = true;
-        GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().loseState = true;
+        GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().LoseGame();
         audioSource.PlayOneShot(explodeSE);
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");

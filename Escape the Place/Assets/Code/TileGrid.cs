@@ -96,7 +96,7 @@ public class TileGrid : MonoBehaviour
         foreach (GameObject obj in blocks) {
             //Go through tiles and add a true
             //Afterwards, add a pit object to the grid for each null value
-            Debug.Log("Checking tile at: " + (int)obj.transform.position.x + " / " + (int)obj.transform.position.z);
+            //Debug.Log("Checking tile at: " + (int)obj.transform.position.x + " / " + (int)obj.transform.position.z);
             tiles[(int) Math.Round(obj.transform.position.x), (int) Math.Round(obj.transform.position.z)] = obj;
         }
 
@@ -154,11 +154,6 @@ public class TileGrid : MonoBehaviour
                     output += obj.name + ", ";
                 }
                 Debug.Log(output);
-            }
-
-            if (loseState) {
-                Debug.Log("You lose :(");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
@@ -344,10 +339,6 @@ public class TileGrid : MonoBehaviour
                     Debug.Log("Load " + OnLoad.Levels[levelId + 1]);
                 }
             }
-            else if (loseState) {
-                Debug.Log("You lose :(");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
             turnTimer = 0f;
         }
         else {
@@ -508,5 +499,10 @@ public class TileGrid : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void LoseGame() {
+        Debug.Log("You lose :(");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
