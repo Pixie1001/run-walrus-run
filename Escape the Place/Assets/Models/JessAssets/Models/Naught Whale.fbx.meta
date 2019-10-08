@@ -1,17 +1,23 @@
 fileFormatVersion: 2
-guid: ac041ad7f2baa754496e48bf72473015
+guid: 1387adc25e3bd0a46821ea62f942bbcd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert3
-    2100002: lambert4
-    2100004: lambert5
+    2100000: lambert1
+    2100002: lambert2
+    2100004: lambert3
+    2100006: lambert4
     2300000: //RootNode
     3300000: //RootNode
-    4300000: WhaleStatue1
+    4300000: WhaleStatue:Whale2
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 1a9d5b0fded7622438bbc32568cc9735, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,11 +28,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: lambert4
     second: {fileID: 2100000, guid: b7e995f769ebcdb4783f1263318c88b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert5
-    second: {fileID: 2100000, guid: 1a9d5b0fded7622438bbc32568cc9735, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +67,7 @@ ModelImporter:
     importCameras: 0
     importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
