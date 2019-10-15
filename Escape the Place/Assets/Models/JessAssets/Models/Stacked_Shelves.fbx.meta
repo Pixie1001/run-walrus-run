@@ -120,6 +120,10 @@ ModelImporter:
     400112: transform4
     400114: transform5
     2100000: lambert1
+    2100002: Shelves1
+    2100004: book02
+    2100006: Book01
+    2100008: box
     2300000: pCube10
     2300002: pCube11
     2300004: pCube12
@@ -167,6 +171,7 @@ ModelImporter:
     2300088: pCube6
     2300090: pCube7
     2300092: pCube9
+    2300094: //RootNode
     3300000: pCube10
     3300002: pCube11
     3300004: pCube12
@@ -214,6 +219,7 @@ ModelImporter:
     3300088: pCube6
     3300090: pCube7
     3300092: pCube9
+    3300094: //RootNode
     4300000: pCube6
     4300002: pCube7
     4300004: pCube9
@@ -261,6 +267,7 @@ ModelImporter:
     4300088: pCube53
     4300090: pCube54
     4300092: pCube55
+    4300094: Stacked_Shelves
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

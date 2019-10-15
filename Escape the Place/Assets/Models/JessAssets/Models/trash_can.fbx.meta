@@ -12,15 +12,19 @@ ModelImporter:
     400004: Circle_001
     400006: //RootNode
     2100000: metal
+    2100002: lambert1
     2300000: BezierCircle
     2300002: Circle
     2300004: Circle_001
+    2300006: //RootNode
     3300000: BezierCircle
     3300002: Circle
     3300004: Circle_001
+    3300006: //RootNode
     4300000: BezierCircle
     4300002: Circle
     4300004: Circle_001
+    4300006: pCylinder1
   externalObjects: {}
   materials:
     importMaterials: 1

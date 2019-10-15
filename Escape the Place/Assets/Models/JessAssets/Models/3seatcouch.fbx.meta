@@ -27,6 +27,32 @@ ModelImporter:
     100042: Sofa_Variety:transform7
     100044: Sofa_Variety:transform8
     100046: Sofa_Variety:transform9
+    100048: Couch_1_sea
+    100050: Couch_3_Seat
+    100052: Couch_3_seat
+    100054: polySurface15
+    100056: polySurface16
+    100058: polySurface20
+    100060: polySurface21
+    100062: polySurface22
+    100064: polySurface23
+    100066: polySurface25
+    100068: polySurface26
+    100070: polySurface27
+    100072: polySurface28
+    100074: polySurface29
+    100076: transform10
+    100078: transform11
+    100080: transform12
+    100082: transform13
+    100084: transform14
+    100086: transform15
+    100088: transform16
+    100090: transform17
+    100092: transform18
+    100094: transform19
+    100096: transform20
+    100098: transform21
     400000: //RootNode
     400002: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Body_3_seatTriple_SeatTriple_Seat
     400004: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_1
@@ -51,13 +77,44 @@ ModelImporter:
     400042: Sofa_Variety:transform7
     400044: Sofa_Variety:transform8
     400046: Sofa_Variety:transform9
+    400048: Couch_1_sea
+    400050: Couch_3_Seat
+    400052: Couch_3_seat
+    400054: polySurface15
+    400056: polySurface16
+    400058: polySurface20
+    400060: polySurface21
+    400062: polySurface22
+    400064: polySurface23
+    400066: polySurface25
+    400068: polySurface26
+    400070: polySurface27
+    400072: polySurface28
+    400074: polySurface29
+    400076: transform10
+    400078: transform11
+    400080: transform12
+    400082: transform13
+    400084: transform14
+    400086: transform15
+    400088: transform16
+    400090: transform17
+    400092: transform18
+    400094: transform19
+    400096: transform20
+    400098: transform21
     2100000: lambert5
     2100002: lambert6
     2100004: Sofa_Variety_Sofa_Material_6
     2100006: lambert7
+    2100008: lambert1
     2300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
+    2300002: Couch_3_seat
     3300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
+    3300002: Couch_3_seat
     4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
+    4300002: Couch_3_seat
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material

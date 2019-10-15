@@ -6,16 +6,76 @@ ModelImporter:
     100000: Jug
     100002: Stand
     100004: //RootNode
+    100006: polySurface134
+    100008: polySurface137
+    100010: polySurface138
+    100012: polySurface142
+    100014: polySurface143
+    100016: polySurface146
+    100018: polySurface148
+    100020: polySurface168
+    100022: polySurface169
+    100024: polySurface170
+    100026: polySurface172
+    100028: polySurface261
+    100030: transform143
+    100032: transform144
+    100034: transform145
+    100036: transform146
+    100038: transform147
+    100040: transform148
+    100042: transform149
+    100044: transform150
+    100046: transform151
+    100048: transform152
+    100050: transform153
+    100052: transform154
+    100054: transform155
+    100056: WaterCooler
+    100058: Watercooler
     400000: Jug
     400002: Stand
     400004: //RootNode
+    400006: polySurface134
+    400008: polySurface137
+    400010: polySurface138
+    400012: polySurface142
+    400014: polySurface143
+    400016: polySurface146
+    400018: polySurface148
+    400020: polySurface168
+    400022: polySurface169
+    400024: polySurface170
+    400026: polySurface172
+    400028: polySurface261
+    400030: transform143
+    400032: transform144
+    400034: transform145
+    400036: transform146
+    400038: transform147
+    400040: transform148
+    400042: transform149
+    400044: transform150
+    400046: transform151
+    400048: transform152
+    400050: transform153
+    400052: transform154
+    400054: transform155
+    400056: WaterCooler
+    400058: Watercooler
     2100000: lambert1
+    2100002: lambert28
+    2100004: lambert29
     2300000: Jug
     2300002: Stand
+    2300004: Watercooler
     3300000: Jug
     3300002: Stand
+    3300004: Watercooler
     4300000: Jug
     4300002: Stand
+    4300004: Watercooler
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

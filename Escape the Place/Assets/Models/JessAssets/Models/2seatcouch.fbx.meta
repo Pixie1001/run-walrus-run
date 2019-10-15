@@ -47,9 +47,14 @@ ModelImporter:
     2100002: lambert3
     2100004: Sofa_Variety_Sofa_Material_3
     2100006: lambert4
+    2100008: lambert8
+    2100010: lambert9
     2300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    2300002: //RootNode
     3300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    3300002: //RootNode
     4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Cushion_11
+    4300002: Couch_2_Seat
   externalObjects: {}
   materials:
     importMaterials: 1

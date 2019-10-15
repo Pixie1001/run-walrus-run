@@ -8,9 +8,13 @@ ModelImporter:
     2100000: lambert1
     2100002: lambert3
     2100004: lambert4
+    2100006: lambert21
+    2100008: lambert22
+    2100010: lambert23
     2300000: //RootNode
     3300000: //RootNode
     4300000: Computer1
+    4300002: Computer
   externalObjects: {}
   materials:
     importMaterials: 1

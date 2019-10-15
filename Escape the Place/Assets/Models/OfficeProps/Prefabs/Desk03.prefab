@@ -94,6 +94,7 @@ MonoBehaviour:
   collision: 1
   x: 0
   y: 0
+  audioSource: {fileID: 0}
 --- !u!1001 &2109342284488746038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,15 +108,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.00000008037
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.588
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.088
+      value: -0.117
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalRotation.x
@@ -151,15 +152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.620178
+      value: 2.7649176
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.620178
+      value: 2.7649176
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.620178
+      value: 2.7649176
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d53cf8c18b176bf4ca79a1e4985fcc04, type: 3}
       propertyPath: m_Materials.Array.data[1]

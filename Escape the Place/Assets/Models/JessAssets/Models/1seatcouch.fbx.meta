@@ -4,13 +4,56 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Couch_1_sea
+    100004: Couch_2_Seat1
+    100006: pCylinder1
+    100008: pCylinder2
+    100010: pCylinder3
+    100012: pCylinder4
+    100014: polySurface3
+    100016: polySurface6
+    100018: polySurface7
+    100020: transform1
+    100022: transform2
+    100024: transform3
+    100026: transform4
+    100028: transform5
+    100030: transform6
+    100032: transform7
+    100034: transform8
     400000: //RootNode
+    400002: Couch_1_sea
+    400004: Couch_2_Seat1
+    400006: pCylinder1
+    400008: pCylinder2
+    400010: pCylinder3
+    400012: pCylinder4
+    400014: polySurface3
+    400016: polySurface6
+    400018: polySurface7
+    400020: transform1
+    400022: transform2
+    400024: transform3
+    400026: transform4
+    400028: transform5
+    400030: transform6
+    400032: transform7
+    400034: transform8
     2100000: lambert3
     2100002: lambert2
     2100004: Sofa_Variety_Sofa_Material1
+    2100006: lambert1
+    2100008: lambert19
+    2100010: Sofa_Variety_Sofa_Material3
+    2100012: lambert34
     2300000: //RootNode
+    2300002: Couch_1_sea
     3300000: //RootNode
+    3300002: Couch_1_sea
     4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Leg_5
+    4300002: Couch_1_sea
+    4300004: Couch_1_seat1
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material

@@ -4,15 +4,124 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cactus 1
+    100004: polySurface114
+    100006: polySurface115
+    100008: polySurface116
+    100010: polySurface117
+    100012: polySurface118
+    100014: polySurface119
+    100016: polySurface120
+    100018: polySurface121
+    100020: polySurface122
+    100022: polySurface123
+    100024: polySurface124
+    100026: polySurface125
+    100028: polySurface126
+    100030: polySurface127
+    100032: polySurface128
+    100034: polySurface129
+    100036: polySurface130
+    100038: polySurface131
+    100040: polySurface132
+    100042: polySurface133
+    100044: polySurface133 1
+    100046: transform122
+    100048: transform123
+    100050: transform124
+    100052: transform125
+    100054: transform126
+    100056: transform127
+    100058: transform128
+    100060: transform129
+    100062: transform130
+    100064: transform131
+    100066: transform132
+    100068: transform133
+    100070: transform134
+    100072: transform135
+    100074: transform136
+    100076: transform137
+    100078: transform138
+    100080: transform139
+    100082: transform140
+    100084: transform141
+    100086: transform142
     400000: //RootNode
+    400002: Cactus 1
+    400004: polySurface114
+    400006: polySurface115
+    400008: polySurface116
+    400010: polySurface117
+    400012: polySurface118
+    400014: polySurface119
+    400016: polySurface120
+    400018: polySurface121
+    400020: polySurface122
+    400022: polySurface123
+    400024: polySurface124
+    400026: polySurface125
+    400028: polySurface126
+    400030: polySurface127
+    400032: polySurface128
+    400034: polySurface129
+    400036: polySurface130
+    400038: polySurface131
+    400040: polySurface132
+    400042: polySurface133
+    400044: polySurface133 1
+    400046: transform122
+    400048: transform123
+    400050: transform124
+    400052: transform125
+    400054: transform126
+    400056: transform127
+    400058: transform128
+    400060: transform129
+    400062: transform130
+    400064: transform131
+    400066: transform132
+    400068: transform133
+    400070: transform134
+    400072: transform135
+    400074: transform136
+    400076: transform137
+    400078: transform138
+    400080: transform139
+    400082: transform140
+    400084: transform141
+    400086: transform142
     2100000: White flower pot
     2100002: Soil 1
     2100004: Stone
     2100006: Cactus 1
     2300000: //RootNode
+    2300002: polySurface133
     3300000: //RootNode
+    3300002: polySurface133
     4300000: Cactus 1
-  externalObjects: {}
+    4300002: polySurface133
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactus 1
+    second: {fileID: 2100000, guid: 822575548aa88f745b1c23fb45b1f9e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Soil 1
+    second: {fileID: 2100000, guid: f01fb3b67a1bbaa4696ebdb539c404d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White flower pot
+    second: {fileID: 2100000, guid: 0093dac1579bdda4d915c949dfa0e96d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -43,7 +152,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
