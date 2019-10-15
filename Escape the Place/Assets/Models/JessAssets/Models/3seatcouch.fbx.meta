@@ -53,6 +53,27 @@ ModelImporter:
     100094: transform19
     100096: transform20
     100098: transform21
+    100100: pCube7
+    100102: polySurface1
+    100104: polySurface1 1
+    100106: polySurface10
+    100108: polySurface11
+    100110: polySurface2
+    100112: polySurface3
+    100114: polySurface5
+    100116: polySurface6
+    100118: polySurface7
+    100120: polySurface8
+    100122: polySurface9
+    100124: transform1
+    100126: transform2
+    100128: transform3
+    100130: transform4
+    100132: transform5
+    100134: transform6
+    100136: transform7
+    100138: transform8
+    100140: transform9
     400000: //RootNode
     400002: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneSofa_Body_3_seatTriple_SeatTriple_Seat
     400004: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_1
@@ -103,23 +124,58 @@ ModelImporter:
     400094: transform19
     400096: transform20
     400098: transform21
+    400100: pCube7
+    400102: polySurface1
+    400104: polySurface1 1
+    400106: polySurface10
+    400108: polySurface11
+    400110: polySurface2
+    400112: polySurface3
+    400114: polySurface5
+    400116: polySurface6
+    400118: polySurface7
+    400120: polySurface8
+    400122: polySurface9
+    400124: transform1
+    400126: transform2
+    400128: transform3
+    400130: transform4
+    400132: transform5
+    400134: transform6
+    400136: transform7
+    400138: transform8
+    400140: transform9
     2100000: lambert5
     2100002: lambert6
     2100004: Sofa_Variety_Sofa_Material_6
     2100006: lambert7
     2100008: lambert1
+    2100010: lambert35
     2300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
     2300002: Couch_3_seat
+    2300004: polySurface1
     3300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
     3300002: Couch_3_seat
+    3300004: polySurface1
     4300000: Sofa_Variety:General_Sofa_VarietyComplete_SceneEntire_SceneTriple_SeatTriple_SeatSofa_Cushion_9
     4300002: Couch_3_seat
+    4300004: polySurface1
     2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sofa_Variety_Sofa_Material_6
+    second: {fileID: 2100000, guid: f01fb3b67a1bbaa4696ebdb539c404d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert35
     second: {fileID: 2100000, guid: f01fb3b67a1bbaa4696ebdb539c404d7, type: 2}
   - first:
       type: UnityEngine:Material
@@ -172,10 +228,10 @@ ModelImporter:
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
