@@ -132,16 +132,19 @@ public class TileGrid : MonoBehaviour
         }
         
         if (turnTimer >= 0.3f && !pause) {
-            if (Input.GetKeyUp(KeyCode.W)) { // W
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { // W
                 ProcessTurn("up");
             }
-            if (Input.GetKeyUp(KeyCode.A)) { // A
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+            { // A
                 ProcessTurn("left");
             }
-            if (Input.GetKeyUp(KeyCode.S)) { // S
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+            { // S
                 ProcessTurn("down");
             }
-            if (Input.GetKeyUp(KeyCode.D)) { // D
+            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            { // D
                 ProcessTurn("right");
             }
             if (Input.GetKeyUp(KeyCode.R)) { // R
