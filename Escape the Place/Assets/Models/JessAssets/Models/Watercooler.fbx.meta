@@ -33,6 +33,33 @@ ModelImporter:
     100054: transform155
     100056: WaterCooler
     100058: Watercooler
+    100060: polySurface12
+    100062: polySurface13
+    100064: polySurface14
+    100066: polySurface15
+    100068: polySurface16
+    100070: polySurface17
+    100072: polySurface17 1
+    100074: polySurface18
+    100076: polySurface19
+    100078: polySurface20
+    100080: polySurface21
+    100082: polySurface22
+    100084: polySurface23
+    100086: polySurface24
+    100088: transform13
+    100090: transform14
+    100092: transform15
+    100094: transform16
+    100096: transform17
+    100098: transform18
+    100100: transform19
+    100102: transform20
+    100104: transform21
+    100106: transform22
+    100108: transform23
+    100110: transform24
+    100112: transform25
     400000: Jug
     400002: Stand
     400004: //RootNode
@@ -63,18 +90,51 @@ ModelImporter:
     400054: transform155
     400056: WaterCooler
     400058: Watercooler
+    400060: polySurface12
+    400062: polySurface13
+    400064: polySurface14
+    400066: polySurface15
+    400068: polySurface16
+    400070: polySurface17
+    400072: polySurface17 1
+    400074: polySurface18
+    400076: polySurface19
+    400078: polySurface20
+    400080: polySurface21
+    400082: polySurface22
+    400084: polySurface23
+    400086: polySurface24
+    400088: transform13
+    400090: transform14
+    400092: transform15
+    400094: transform16
+    400096: transform17
+    400098: transform18
+    400100: transform19
+    400102: transform20
+    400104: transform21
+    400106: transform22
+    400108: transform23
+    400110: transform24
+    400112: transform25
     2100000: lambert1
     2100002: lambert28
     2100004: lambert29
     2300000: Jug
     2300002: Stand
     2300004: Watercooler
+    2300006: polySurface17
+    2300008: polySurface24
     3300000: Jug
     3300002: Stand
     3300004: Watercooler
+    3300006: polySurface17
+    3300008: polySurface24
     4300000: Jug
     4300002: Stand
     4300004: Watercooler
+    4300006: polySurface24
+    4300008: polySurface17
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
