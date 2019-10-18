@@ -17,7 +17,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     protected override void Start() {
         base.Start();
-
+        PushBlock pushCheck;
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
         pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
@@ -49,7 +49,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                     Debug.Log("Call clipping explode on " + grid[X, Y][i].name);
                     //Debug.Log(grid[X, Y][i].name + " pre-explode");
                     //Debug.Log(grid[X, Y][i].name + " post explode");
-                    PushBlock pushCheck = grid[X, Y][i] as PushBlock;
+                    pushCheck = grid[X, Y][i] as PushBlock;
                     //WIP - check if tile is free based on case statement. If true, impact = false.
                     //Check if push block
                     
@@ -84,8 +84,118 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 OnExplode(null);
             }
         }
-        else {
-            Debug.Log(name + ": Doesn't detect chair - " + grid[X, Y].Count);
+        Debug.Log(name + " triggered a telegraph");
+        //Get grid, find x and y
+        //start loop
+        //Check tile. If empty, out of bounds or Pit, end loop
+        //if chair, check if there's a thing behind it, and mark 'pushing'. If pushing already true, end loop.
+        //otherwise create primitive plane with TelegraphTile script (Orange).
+        //Use SpawnTile to generate
+        //end loop
+        int checkX = X;
+        int checkY = Y;
+        int pushCheckX = 0;
+        int pushCheckY = 0;
+        bool hitChair = false;
+        bool interrupted = false;
+        bool outOfBounds = false;
+
+        while (!interrupted) {
+            //Check if tile is within level
+            if (checkX < grid.GetLength(0) && checkX >= 0 && checkY < grid.GetLength(1) && checkY >= 0) {
+                //Check if tile is occupied
+                if (grid[checkX, checkY] != null) {
+                    foreach (EntityType obj in grid[checkX, checkY]) {
+                        //Check if path is interrupted
+                        if (obj.collision) {
+                            pushCheck = obj as PushBlock;
+                            //Check if blocker is a pushblock
+                            if (pushCheck != null && !hitChair) {
+                                hitChair = true;
+                                //Check if chair will buffer
+                                switch (direction) {
+                                    case "up":
+                                        pushCheckX = checkX;
+                                        pushCheckY = checkY + 1;
+                                        break;
+                                    case "down":
+                                        pushCheckX = checkX;
+                                        pushCheckY = checkY - 1;
+                                        break;
+                                    case "left":
+                                        pushCheckX = checkX - 1;
+                                        pushCheckY = checkY;
+                                        break;
+                                    case "right":
+                                        pushCheckX = checkX + 1;
+                                        pushCheckY = checkY;
+                                        break;
+                                    default:
+                                        Debug.Log("ERROR: Invalid direction");
+                                        pushCheckX = checkX;
+                                        pushCheckY = checkY;
+                                        break;
+                                }
+                                if (pushCheckX < grid.GetLength(0) && pushCheckX >= 0 && pushCheckY < grid.GetLength(1) && pushCheckY >= 0) {
+                                    //Check if tile is occupied
+                                    if (grid[pushCheckX, pushCheckY] != null) {
+                                        foreach (EntityType obj2 in grid[pushCheckX, pushCheckY]) {
+                                            //Check if path is interrupted
+                                            if (obj2.collision) {
+                                                interrupted = true;
+                                            }
+                                        }
+                                    }
+                                }
+                                else {
+                                    interrupted = true;
+                                }
+                            }
+                            else {
+                                interrupted = true;
+                            }
+                        }
+
+                    }
+                }
+            }
+            else {
+                interrupted = true;
+                outOfBounds = true;
+            }
+            if (!outOfBounds && !(interrupted && hitChair)) {
+                //Generate telegraph tile
+                GameObject telegraph = GameObject.CreatePrimitive(PrimitiveType.Plane);
+                //TelegraphTile tileScript = new TelegraphTile();
+                TelegraphTile tileScript = (TelegraphTile)telegraph.AddComponent(System.Type.GetType("TelegraphTile"));
+                tileScript.enabled = true;
+                if (interrupted) {
+                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(0.333f, .0196f, .0f));
+                }
+                else {
+                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 0.4f, .039f));
+                }
+                telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                new ObjectSpawner().SpawnTile(telegraph, checkX, checkY, 0.02f, grid);
+            }
+
+            switch (direction) {
+                case "up":
+                    checkY += 1;
+                    break;
+                case "down":
+                    checkY -= 1;
+                    break;
+                case "left":
+                    checkX -= 1;
+                    break;
+                case "right":
+                    checkX += 1;
+                    break;
+                default:
+                    Debug.Log("ERROR: Invalid direction");
+                    break;
+            }
         }
     }
 

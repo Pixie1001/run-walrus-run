@@ -44,8 +44,9 @@ public class ObjectSpawner
     }
 
     public GameObject SpawnTile(GameObject model, int x, int y, float elevation, List<EntityType>[,] grid) {
+        GameObject temp = GameObject.Instantiate(model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
         GameObject.Destroy(model);
-        return GameObject.Instantiate(model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
+        return temp;
     }
 
     protected Vector3 getSpawnLocation(int x, int y, float w, float h, float elevation) {
