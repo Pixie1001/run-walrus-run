@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class Avatar : MovableObject {
 
+
     public enum ExplosionTypes { Pulsar };
     public int explodeOn;
+    float expClock = 0f;
+    float expTime = 0.7f;
     ExplosionType explosionType;
     public ExplosionTypes PickExplosion;
-    bool triggerExplosion = false;
-    AudioClip moveSE, explodeSE, walkIntoObjectSE;
+    bool triggerExplosion1 = false;
+    bool triggerExplosion2 = false;
+    AudioClip moveSE, explodeSE, slipSE, walkIntoObjectSE;
 
 
     int countdown;
@@ -42,7 +46,10 @@ public class Avatar : MovableObject {
         //Sound stuff
         audioSource = model.AddComponent<AudioSource>();
         moveSE = Resources.Load<AudioClip>("Audio/Upload/CharacterMove");
-        explodeSE = Resources.Load<AudioClip>("Audio/Upload/CharacterExplode");
+        audioSource.clip = moveSE;
+        explodeSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        slipSE = Resources.Load<AudioClip>("Audio/Upload/CharacterSlip");
+        //explodeSE = Resources.Load<AudioClip>("Audio/Upload/CharacterExplosion");
 
         explodeOn = explodeOn - 1;
         countdown = explodeOn;
@@ -59,7 +66,7 @@ public class Avatar : MovableObject {
             }
         }
         catch {
-            Debug.Log("Error: No UI element deteted");
+            Debug.Log("Error: No UI element detected");
         }
     }
 
@@ -69,20 +76,33 @@ public class Avatar : MovableObject {
 
     protected override void Update() {
         base.Update();
-        if (currTime >= targetTime - 0.05f && triggerExplosion) {
-            explosionType.Explode(this, grid);
-            audioSource.PlayOneShot(explodeSE);
+        if (currTime >= targetTime - 0.5f && triggerExplosion1) {
+            audioSource.Stop();
+            audioSource.PlayOneShot(slipSE);
             GetComponent<Animator>().Play("EXPLODE");
-            triggerExplosion = false;
+            triggerExplosion1 = false;
+            triggerExplosion2 = true;
+        }
+
+        if (expClock >= expTime && triggerExplosion2) {
+            audioSource.PlayOneShot(explodeSE);
+            explosionType.Explode(this, grid);
+            triggerExplosion2 = false;
+        }
+        else {
+            expClock += Time.deltaTime;
         }
     }
 
     public override void Move() {
-        audioSource.PlayOneShot(moveSE);
+        //audioSource.PlayOneShot(moveSE);
+        audioSource.Play();
         base.Move();
         countdown -= 1;
         if (countdown == 0) {
-            triggerExplosion = true;
+            triggerExplosion1 = true;
+            expClock = 0;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TileGrid>().explodePause = true;
         }
         else if (countdown < 0) {
             countdown = explodeOn;

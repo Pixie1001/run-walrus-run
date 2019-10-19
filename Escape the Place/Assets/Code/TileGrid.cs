@@ -27,6 +27,9 @@ public class TileGrid : MonoBehaviour
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
 
+    [HideInInspector]
+    public bool explodePause = false;
+
     float turnTimer = 0f;
 
     void Awake() {
@@ -119,6 +122,7 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
+        //Pause for transition - set to 0f to disable
         if (turnTimer >= 0f && pause) {
             pause = false;
             turnTimer = 1.33f;
@@ -130,8 +134,14 @@ public class TileGrid : MonoBehaviour
                 Debug.Log("Error: No transition object found");
             }
         }
-        
-        if (turnTimer >= 0.3f && !pause) {
+
+        //Delay for extended explosion animation
+        if (turnTimer >= 1.5f && explodePause) {
+            explodePause = false;
+            //turnTimer = 3f;
+        }
+
+        if (turnTimer >= 0.3f && !pause && !explodePause) {
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { // W
                 ProcessTurn("up");
             }
