@@ -7,7 +7,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     public string direction;
     float deathTimer = 1.333f;
     public bool terminate;
-    bool tailEnabled = false, tailTrigger = false;
+    bool tailEnabled = false, tailTrigger = false, counterPulse = false;
     PulseTail tail;
     int tailX = 0, tailY = 0;
     AudioClip moveSE, pulseCollisionSE, hitWallSE;
@@ -25,6 +25,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
         pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        //pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitFailState");
         hitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWallSE");
 
         Debug.Log(name + "(ExP) called on start");
@@ -79,12 +80,17 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                     if (pushCheck == null) {
                         impact = true;
                     }
+                    if (grid[X, Y][i] as ExplosionPulse != null && grid[X, Y][i] != this) {
+                        counterPulse = true;
+                    }
                     grid[X, Y][i].OnExplode(direction);
                 }
             }
             if (impact) {
                 Debug.Log("self explode");
-                audioSource.PlayOneShot(pulseCollisionSE);
+                if (counterPulse) {
+                    audioSource.PlayOneShot(pulseCollisionSE);
+                }
                 OnExplode(null);
             }
         }
@@ -174,10 +180,10 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 TelegraphTile tileScript = (TelegraphTile)telegraph.AddComponent(System.Type.GetType("TelegraphTile"));
                 tileScript.enabled = true;
                 if (interrupted) {
-                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(0.333f, .0196f, .0f));
+                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(0.333f, .0196f, .0f, 0.1f));
                 }
                 else {
-                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 0.4f, .039f));
+                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 0.4f, .039f, 0.1f));
                 }
                 telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 new ObjectSpawner().SpawnTile(telegraph, checkX, checkY, 0.02f, grid);
