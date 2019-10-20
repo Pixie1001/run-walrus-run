@@ -2358,6 +2358,7 @@ MonoBehaviour:
   movableList: []
   targetSteps: 26
   loseState: 0
+  explodePause: 0
 --- !u!1001 &992815429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2484,6 +2485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.8919067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887321190261279517, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.40000153
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed6b798d94cc0a4bb3f16a70bf54871, type: 3}
