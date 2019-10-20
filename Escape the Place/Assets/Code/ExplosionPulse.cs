@@ -205,9 +205,11 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     public override void Move() {
         audioSource.PlayOneShot(moveSE, 0.3f);
+        /*
         tailX = X;
         tailY = Y;
         tailTrigger = true;
+        */
         base.Move();
     }
 

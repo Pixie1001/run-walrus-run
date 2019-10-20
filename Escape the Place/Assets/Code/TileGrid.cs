@@ -265,7 +265,7 @@ public class TileGrid : MonoBehaviour
                                                 break;
                                         }
                                         if (impact) {
-                                            Debug.Log(obj.name + " was impacted");
+                                            Debug.Log(obj.name + " was impacted by " + comp.name);
                                             obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
                                         }
                                         else {
