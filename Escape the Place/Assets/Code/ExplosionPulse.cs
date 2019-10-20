@@ -7,6 +7,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     public string direction;
     float deathTimer = 1.333f;
     public bool terminate;
+    bool tailEnabled = false, tailTrigger = false;
+    PulseTail tail;
+    int tailX = 0, tailY = 0;
     AudioClip moveSE, pulseCollisionSE, hitWallSE;
 
     public ExplosionPulse() : base(false) {
@@ -18,6 +21,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     protected override void Start() {
         base.Start();
         PushBlock pushCheck;
+        model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
         pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
@@ -201,6 +205,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
 
     public override void Move() {
         audioSource.PlayOneShot(moveSE, 0.3f);
+        tailX = X;
+        tailY = Y;
+        tailTrigger = true;
         base.Move();
     }
 
@@ -280,38 +287,35 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         return true;
     }
 
-    //FIX this up later to handle explosions - be careful about how it functions, some checks might need to be done via ProcessTurn
-    /*
-    public override void Move() {
-        base.Move();
-        //Check if pulse is leaving level
-        if (newX < grid.GetLength(0) && nX >= 0 && nY < grid.GetLength(0) && nY >= 0) {
-            OnExplode(null);
-        }
-        else {
-            if (grid[nX, nY] != null) {
-                foreach (EntityType obj in grid[nX, nY]) {
-                    obj.OnExplode(direction);
-                }
-            }
-            HandleMovement(nX, nY);
-            OnExplode(null);
-        }
-    }
-    */
-
     public override void OnExplode(string dir) {
         Debug.Log(name + " exploded :o");
         terminate = true;
-        Model.GetComponent<Animator>().Play("EXPLODE");
+        Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
     }
 
     protected override void Update() {
         base.Update();
+        if (currTime >= targetTime - 0.6f && tailTrigger) {
+            if (!tailEnabled) {
+                tailEnabled = true;
+                GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Crack_02") as GameObject);
+                //Add script and animator to prefab
+                model = new ObjectSpawner().SpawnTail(model, tailX, tailY, 0.03f, direction, grid);
+                tail = model.GetComponent<PulseTail>();
+            }
+            else {
+                Debug.Log("Move crack");
+                tail.Move(tailX, tailY);
+                //Add code for OnExplode
+            }
+            tailTrigger = false;
+        }
+
         if (terminate) {
             deathTimer -= Time.deltaTime;
         }
         if (deathTimer <= 0) {
+            tail.Delete();
             GameObject.Destroy(Model);
         }
     }

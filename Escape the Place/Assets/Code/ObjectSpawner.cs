@@ -8,9 +8,11 @@ public class ObjectSpawner
 
     }
 
-    public GameObject Spawn(EntityType entity, int x, int y, float elevation, string facing, float scale, List<EntityType>[,] grid) {
+    public GameObject Spawn(EntityType entity, int x, int y, float elevation, string facing, float? scale, List<EntityType>[,] grid) {
         GameObject temp = Spawn(entity, x, y, elevation, grid);
-        temp.transform.localScale = new Vector3(scale, scale, scale);
+        if (scale.HasValue) {
+            temp.transform.localScale = new Vector3(scale.GetValueOrDefault(), scale.GetValueOrDefault(), scale.GetValueOrDefault());
+        }
         float rotate;
         switch (facing) {
             case "up":
@@ -46,6 +48,32 @@ public class ObjectSpawner
     public GameObject SpawnTile(GameObject model, int x, int y, float elevation, List<EntityType>[,] grid) {
         GameObject temp = GameObject.Instantiate(model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
         GameObject.Destroy(model);
+        return temp;
+    }
+
+    public GameObject SpawnTail(GameObject model, int x, int y, float elevation, string facing, List<EntityType>[,] grid) {
+        GameObject temp = GameObject.Instantiate(model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
+        GameObject.Destroy(model);
+        float rotate;
+        switch (facing) {
+            case "up":
+                rotate = 0f;
+                break;
+            case "down":
+                rotate = 180f;
+                break;
+            case "left":
+                rotate = rotate = -90f;
+                break;
+            case "right":
+                rotate = 90f;
+                break;
+            default:
+                Debug.Log("Invalid turn?");
+                rotate = 0f;
+                break;
+        }
+        temp.transform.eulerAngles = new Vector3(temp.transform.eulerAngles.x, rotate, temp.transform.eulerAngles.z);
         return temp;
     }
 

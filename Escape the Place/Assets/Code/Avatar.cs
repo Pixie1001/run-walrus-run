@@ -87,6 +87,7 @@ public class Avatar : MovableObject {
         if (expClock >= expTime && triggerExplosion2) {
             audioSource.PlayOneShot(explodeSE);
             explosionType.Explode(this, grid);
+            DustCloud();
             triggerExplosion2 = false;
         }
         else {
@@ -154,6 +155,16 @@ public class Avatar : MovableObject {
         }
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
         audioSource.PlayOneShot(walkIntoObjectSE);
+    }
+
+    private void DustCloud() {
+        Debug.Log("Spawn cloud");
+        //Generate dust cloud
+        GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/DustPulse") as GameObject);
+        DustPulse script = (DustPulse)obj.AddComponent(System.Type.GetType("DustPulse"));
+        //script.enabled = true;
+        obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        new ObjectSpawner().SpawnTile(obj, X, Y, 0.02f, grid);
     }
 }
 

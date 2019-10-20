@@ -11,10 +11,10 @@ public class Pulsar : ExplosionType
         int x = avatar.X;
         int y = avatar.Y;
 
-        SpawnPulse("up", x, y + 1, grid);
+        //SpawnPulse("up", x, y + 1, grid);
         SpawnPulse("down", x, y - 1, grid);
-        SpawnPulse("left", x - 1, y, grid);
-        SpawnPulse("right", x + 1, y, grid);
+        //SpawnPulse("left", x - 1, y, grid);
+        //SpawnPulse("right", x + 1, y, grid);
 
         return false;
     }
@@ -35,12 +35,14 @@ public class Pulsar : ExplosionType
             return false;
         }
         //Spawn thing
-        GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject);
-        model.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/pulse_controller") as RuntimeAnimatorController;
+        //GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject);
+        GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Crack_01") as GameObject);
+        //model.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/pulse_controller") as RuntimeAnimatorController;
         ExplosionPulse pulse = (ExplosionPulse) model.AddComponent(System.Type.GetType("ExplosionPulse"));
         pulse.Model = model;
         pulse.direction = direction;
-        spawner.Spawn(pulse, x, y, 0.2f, direction, 0.2f, grid);
+        //spawner.Spawn(pulse, x, y, 0.2f, direction, 0.2f, grid);
+        spawner.Spawn(pulse, x, y, 0.03f, direction, null, grid);
         return true;
     }
 

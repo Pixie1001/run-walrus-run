@@ -9,32 +9,8 @@ public class btnMenus : MonoBehaviour
 {
     public GameObject legend;
 
-    FileStream file;
-
     protected void Start() {
-        if (File.Exists(Application.persistentDataPath + "/gamesave.save")) {
-            try {
-                Debug.Log(Application.persistentDataPath + "/gamesave.save");
-                BinaryFormatter bf = new BinaryFormatter();
-                file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-                Save data = (Save)bf.Deserialize(file);
-                file.Close();
-
-                OnLoad.Progress = data.progress;
-            }
-            catch {
-                Debug.Log("Error: Save data corrupted!");
-                if (file != null) {
-                    file.Close();
-                }
-                File.Delete(Application.persistentDataPath + "/gamesave.save");
-                UnityEditor.AssetDatabase.Refresh();
-                //delete folder somehow
-            }
-        }
-        else {
-            Debug.Log("No save data found");
-        }
+        
     }
 
     public void Rules() {
@@ -56,5 +32,10 @@ public class btnMenus : MonoBehaviour
 
     public void Return() {
         SceneManager.LoadScene("Title Page");
+    }
+
+    public void Exit() {
+        Debug.Log("Quitting application");
+        Application.Quit();
     }
 }
