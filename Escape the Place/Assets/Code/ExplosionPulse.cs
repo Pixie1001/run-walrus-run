@@ -315,7 +315,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             deathTimer -= Time.deltaTime;
         }
         if (deathTimer <= 0) {
-            tail.Delete();
+            if (tailEnabled) {
+                tail.Delete();
+            }
             GameObject.Destroy(Model);
         }
     }
