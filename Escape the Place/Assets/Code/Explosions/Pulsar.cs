@@ -11,10 +11,10 @@ public class Pulsar : ExplosionType
         int x = avatar.X;
         int y = avatar.Y;
 
-        //SpawnPulse("up", x, y + 1, grid);
+        SpawnPulse("up", x, y + 1, grid);
         SpawnPulse("down", x, y - 1, grid);
-        //SpawnPulse("left", x - 1, y, grid);
-        //SpawnPulse("right", x + 1, y, grid);
+        SpawnPulse("left", x - 1, y, grid);
+        SpawnPulse("right", x + 1, y, grid);
 
         return false;
     }
