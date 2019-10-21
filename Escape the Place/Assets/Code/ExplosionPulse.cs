@@ -89,6 +89,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             if (impact) {
                 Debug.Log("self explode");
                 if (counterPulse) {
+                    Debug.Log("Counterpulse");
                     audioSource.PlayOneShot(pulseCollisionSE);
                 }
                 OnExplode(null);

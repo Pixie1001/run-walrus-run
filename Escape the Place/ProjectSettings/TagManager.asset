@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - TempGrid
   - Avatar
   - End
   - Tile
@@ -14,6 +12,12 @@ TagManager:
   - Intro
   - UI (Steps)
   - Transition
+  - Levels
+  - Lvl1
+  - Lvl3
+  - Lvl4
+  - Lvl5
+  - Level 2
   layers:
   - Default
   - TransparentFX

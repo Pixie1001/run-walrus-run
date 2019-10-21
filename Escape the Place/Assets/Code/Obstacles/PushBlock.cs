@@ -26,8 +26,12 @@ public class PushBlock : MovableObject
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
         //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
-        audioSource.PlayOneShot(moveSE, 2f);
-        Move(dir);
+        if (Move(dir)) {
+            audioSource.PlayOneShot(moveSE, 1.5f);
+        }
+        else {
+            audioSource.PlayOneShot(stuckSE, 1f);
+        }
     }
 
     private bool Move(string direction) {
@@ -95,7 +99,6 @@ public class PushBlock : MovableObject
         else if (grid[nX, nY] != null) {
             grid[nX, nY].Add(this);
         }
-        //Debug.Log("Grid Coords: " + nX + " / " + nY);
 
         //rotate model
         string dir = (nX - X) + "/" + (nY - Y);

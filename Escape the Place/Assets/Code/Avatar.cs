@@ -44,12 +44,11 @@ public class Avatar : MovableObject {
         collision = true;
 
         //Sound stuff
-        audioSource = model.AddComponent<AudioSource>();
         moveSE = Resources.Load<AudioClip>("Audio/Upload/CharacterMove");
-        audioSource.clip = moveSE;
-        explodeSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        //audioSource.clip = moveSE;
+        //audioSource.volume = 10f;
+        explodeSE = Resources.Load<AudioClip>("Audio/Upload/CharacterExplosion");
         slipSE = Resources.Load<AudioClip>("Audio/Upload/CharacterSlip");
-        //explodeSE = Resources.Load<AudioClip>("Audio/Upload/CharacterExplosion");
 
         explodeOn = explodeOn - 1;
         countdown = explodeOn;
@@ -77,7 +76,6 @@ public class Avatar : MovableObject {
     protected override void Update() {
         base.Update();
         if (currTime >= targetTime - 0.5f && triggerExplosion1) {
-            audioSource.Stop();
             audioSource.PlayOneShot(slipSE);
             GetComponent<Animator>().Play("EXPLODE");
             triggerExplosion1 = false;
@@ -97,7 +95,7 @@ public class Avatar : MovableObject {
 
     public override void Move() {
         //audioSource.PlayOneShot(moveSE);
-        audioSource.Play();
+        audioSource.PlayOneShot(moveSE, 5f);
         base.Move();
         countdown -= 1;
         if (countdown == 0) {

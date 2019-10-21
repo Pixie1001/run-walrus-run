@@ -29,6 +29,7 @@ public abstract class EntityType : MonoBehaviour
         model = this.gameObject;
         audioSource = (AudioSource)model.AddComponent<AudioSource>();
         grid = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().grid;
+        List<EntityType> test = grid[x, y];
         Initialize();
     }
 
