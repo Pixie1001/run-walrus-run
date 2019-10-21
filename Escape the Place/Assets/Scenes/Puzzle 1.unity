@@ -2695,6 +2695,7 @@ MonoBehaviour:
   movableList: []
   targetSteps: 16
   loseState: 0
+  pause: 0
   explodePause: 0
 --- !u!1 &1036002243
 GameObject:
@@ -3885,7 +3886,7 @@ PrefabInstance:
     - target: {fileID: 2102677341377395754, guid: ce8407e9ccfdfcd4fa0f738ef185d33b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8903883
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2102677341377395754, guid: ce8407e9ccfdfcd4fa0f738ef185d33b,
         type: 3}
@@ -3895,7 +3896,7 @@ PrefabInstance:
     - target: {fileID: 2102677341377395754, guid: ce8407e9ccfdfcd4fa0f738ef185d33b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.041811705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2102677341377395754, guid: ce8407e9ccfdfcd4fa0f738ef185d33b,
         type: 3}

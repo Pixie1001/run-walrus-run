@@ -18,6 +18,9 @@ TagManager:
   - Lvl4
   - Lvl5
   - Level 2
+  - beginScreen
+  - Lvl2
+  - failScreen
   layers:
   - Default
   - TransparentFX

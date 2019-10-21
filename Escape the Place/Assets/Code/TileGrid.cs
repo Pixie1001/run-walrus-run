@@ -23,9 +23,10 @@ public class TileGrid : MonoBehaviour
     int[] goal;
     int steps = 0;
     int levelId;
-    bool pause = true;
+    public bool pause = false;
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
+    private GameObject failScreen;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -33,6 +34,8 @@ public class TileGrid : MonoBehaviour
     float turnTimer = 0f;
 
     void Awake() {
+        failScreen = GameObject.FindGameObjectWithTag("failScreen");
+        failScreen.SetActive(false);
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
         explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
@@ -122,6 +125,7 @@ public class TileGrid : MonoBehaviour
         //Check for inputs
         turnTimer += Time.deltaTime;
 
+        /*
         //Pause for transition - set to 0f to disable
         if (turnTimer >= 0f && pause) {
             pause = false;
@@ -134,6 +138,7 @@ public class TileGrid : MonoBehaviour
                 Debug.Log("Error: No transition object found");
             }
         }
+        */
 
         //Delay for extended explosion animation
         if (turnTimer >= 1.5f && explodePause) {
@@ -516,6 +521,10 @@ public class TileGrid : MonoBehaviour
 
     public void LoseGame() {
         Debug.Log("You lose :(");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        failScreen.SetActive(true);
+        loseState = true;
+        pause = true;
+        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

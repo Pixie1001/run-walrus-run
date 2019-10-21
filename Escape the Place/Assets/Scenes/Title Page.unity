@@ -367,7 +367,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1066762246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1066762248}
+        m_MethodName: Level_3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1066762248
@@ -440,7 +451,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1219096632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1219096634}
+        m_MethodName: Level_4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1219096634
@@ -778,6 +800,31 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lvl3
       objectReference: {fileID: 0}
+    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 54508696}
+    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1217979415534425147, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
         type: 3}
       propertyPath: m_IsActive
@@ -848,35 +895,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lvl2
       objectReference: {fileID: 0}
+    - target: {fileID: 2632692856247803886, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1076575757414572034, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
         type: 3}
       propertyPath: m_Color.a
       value: 0.8117647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 54508696}
-    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.63529414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2821583460232934897, guid: 3ed6b798d94cc0a4bb3f16a70bf54871, type: 3}
@@ -940,7 +967,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2013846280}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2013846282}
+        m_MethodName: Level_2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2013846282
