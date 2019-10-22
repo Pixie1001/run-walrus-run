@@ -1658,8 +1658,8 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4bfd142d5c3d57a4089baf980212d693, type: 3}
-  - {fileID: 2100002, guid: 4bfd142d5c3d57a4089baf980212d693, type: 3}
-  - {fileID: 2100004, guid: 4bfd142d5c3d57a4089baf980212d693, type: 3}
+  - {fileID: 2100000, guid: cf78a4f99e0d75e499c3ce20afd56449, type: 2}
+  - {fileID: 2100000, guid: 2a8148d373036684db0801172ec1c57f, type: 2}
   - {fileID: 2100006, guid: 4bfd142d5c3d57a4089baf980212d693, type: 3}
   - {fileID: 2100008, guid: 4bfd142d5c3d57a4089baf980212d693, type: 3}
   m_StaticBatchInfo:
