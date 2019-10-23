@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44971108, g: 0.49977887, b: 0.57563585, a: 1}
+  m_IndirectSpecularColor: {r: 0.44971073, g: 0.4997784, b: 0.57563484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -658,16 +658,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.2865
       objectReference: {fileID: 0}
-    - target: {fileID: 5304133190291424863, guid: 919cacbf5450781448a9877c93c0aa1a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 822575548aa88f745b1c23fb45b1f9e5, type: 2}
     - target: {fileID: 5550082872693225477, guid: 919cacbf5450781448a9877c93c0aa1a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f8c2b7387d844694a8bdf1d4e72cf5e3, type: 2}
+    - target: {fileID: 5304133190291424863, guid: 919cacbf5450781448a9877c93c0aa1a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 822575548aa88f745b1c23fb45b1f9e5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919cacbf5450781448a9877c93c0aa1a, type: 3}
 --- !u!4 &198907035 stripped
@@ -2601,6 +2601,7 @@ GameObject:
   - component: {fileID: 983320054}
   - component: {fileID: 983320053}
   - component: {fileID: 983320057}
+  - component: {fileID: 983320058}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2697,6 +2698,25 @@ MonoBehaviour:
   loseState: 0
   pause: 0
   explodePause: 0
+--- !u!95 &983320058
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983320052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ab16f97d7d66f04a828357b0bc25fda, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1036002243
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,6 +4896,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.8919067
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000031551911850053, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887321190227991445, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8928534187480506658, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828746096437227955, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_Text
+      value: how to play
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed6b798d94cc0a4bb3f16a70bf54871, type: 3}
