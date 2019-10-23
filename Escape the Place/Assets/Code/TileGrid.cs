@@ -15,7 +15,7 @@ public class TileGrid : MonoBehaviour
     public List<EntityType>[,] grid;
     public List<EntityType> movableList;
     public int targetSteps = 0;
-    [HideInInspector] public bool loseState = false;
+    bool loseState = false, winState = false;
     Avatar avatar;
     List<string> inputLog;
     int width = 0;
@@ -173,6 +173,13 @@ public class TileGrid : MonoBehaviour
                 }
                 Debug.Log(output);
             }
+        }
+
+        if (!winState && loseState) {
+            Debug.Log("You lose :(");
+            failScreen.SetActive(true);
+            loseState = true;
+            pause = true;
         }
     }
 
@@ -340,6 +347,7 @@ public class TileGrid : MonoBehaviour
             Dispose();
             //Check win state
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
+                winState = true;
                 Debug.Log("You win!!!");
                 //Save step count
                 if (OnLoad.Levels[levelId].steps > steps) {
@@ -520,10 +528,9 @@ public class TileGrid : MonoBehaviour
     }
 
     public void LoseGame() {
-        Debug.Log("You lose :(");
-        failScreen.SetActive(true);
-        loseState = true;
-        pause = true;
+        if (!winState) {
+            loseState = true;
+        }
         
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

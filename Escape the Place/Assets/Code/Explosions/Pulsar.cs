@@ -36,7 +36,7 @@ public class Pulsar : ExplosionType
         }
         //Spawn thing
         //GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject);
-        GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Crack_01") as GameObject);
+        GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Rubble_01") as GameObject);
         //model.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Controllers/pulse_controller") as RuntimeAnimatorController;
         ExplosionPulse pulse = (ExplosionPulse) model.AddComponent(System.Type.GetType("ExplosionPulse"));
         pulse.Model = model;

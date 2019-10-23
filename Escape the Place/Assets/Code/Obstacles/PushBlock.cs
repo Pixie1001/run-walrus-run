@@ -25,6 +25,7 @@ public class PushBlock : MovableObject
 
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
+        Model.GetComponent<Animator>().Play("EXPLODE");
         //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
         if (Move(dir)) {
             audioSource.PlayOneShot(moveSE, 1.5f);

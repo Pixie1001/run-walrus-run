@@ -21,6 +21,7 @@ TagManager:
   - beginScreen
   - Lvl2
   - failScreen
+  - FallIcon
   layers:
   - Default
   - TransparentFX

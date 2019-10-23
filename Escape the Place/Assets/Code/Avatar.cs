@@ -59,6 +59,7 @@ public class Avatar : MovableObject {
             //Adjust colour to signal imminent explosion
             if (countdown == 1) {
                 display.GetComponent<Text>().color = Color.red;
+                GameObject.FindGameObjectWithTag("FallIcon").GetComponent<Animator>().Play("EXPLODE");
             }
             else {
                 display.GetComponent<Text>().color = Color.white;
@@ -86,6 +87,7 @@ public class Avatar : MovableObject {
             audioSource.PlayOneShot(explodeSE);
             explosionType.Explode(this, grid);
             DustCloud();
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().Play("EXPLODE");
             triggerExplosion2 = false;
         }
         else {
@@ -121,6 +123,7 @@ public class Avatar : MovableObject {
             //Adjust colour to signal imminent explosion
             if (countdown == 1) {
                 display.GetComponent<Text>().color = Color.red;
+                GameObject.FindGameObjectWithTag("FallIcon").GetComponent<Animator>().Play("EXPLODE");
             }
             else {
                 display.GetComponent<Text>().color = Color.white;

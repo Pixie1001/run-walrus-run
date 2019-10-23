@@ -21,7 +21,8 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     protected override void Start() {
         base.Start();
         PushBlock pushCheck;
-        model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
+        //model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
+        model.GetComponent<Animator>().Play("MOVE");
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
         pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
@@ -299,7 +300,8 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     public override void OnExplode(string dir) {
         Debug.Log(name + " exploded :o");
         terminate = true;
-        Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
+        //Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
+        Model.GetComponent<Animator>().Play("EXPLODE");
     }
 
     protected override void Update() {
