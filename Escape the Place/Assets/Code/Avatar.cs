@@ -99,6 +99,7 @@ public class Avatar : MovableObject {
         //audioSource.PlayOneShot(moveSE);
         audioSource.PlayOneShot(moveSE, 5f);
         base.Move();
+        GameObject.FindGameObjectWithTag("FallIcon").GetComponent<Animator>().Play("STOP");
         countdown -= 1;
         if (countdown == 0) {
             triggerExplosion1 = true;
