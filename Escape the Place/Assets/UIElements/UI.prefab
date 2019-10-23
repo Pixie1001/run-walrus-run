@@ -2134,8 +2134,8 @@ GameObject:
   - component: {fileID: 8809304144103615283}
   - component: {fileID: 6148131630292039179}
   - component: {fileID: 4800878961136991022}
-  - component: {fileID: 7011534666609434029}
   - component: {fileID: 6520075340364772969}
+  - component: {fileID: 5369113083988307083}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -2212,8 +2212,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7011534666609434029}
-        m_MethodName: Continue
+      - m_Target: {fileID: 5369113083988307083}
+        m_MethodName: Finish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2225,19 +2225,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7011534666609434029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2981364177695928250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0018753d89d59ff46aef4bdab8889ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  legend: {fileID: 8887321190227991445}
 --- !u!95 &6520075340364772969
 Animator:
   serializedVersion: 3
@@ -2257,6 +2244,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5369113083988307083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981364177695928250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c75808a024f5f41af15f8aa2efdeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3376549703124392686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6247,7 +6246,7 @@ GameObject:
   - component: {fileID: 8887321190308837619}
   m_Layer: 5
   m_Name: InGameMenu
-  m_TagString: Untagged
+  m_TagString: InGameMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,6 +22,7 @@ TagManager:
   - Lvl2
   - failScreen
   - FallIcon
+  - InGameMenu
   layers:
   - Default
   - TransparentFX

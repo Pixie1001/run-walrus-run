@@ -17,6 +17,13 @@ public class btnFinish : MonoBehaviour
     }
 
     public void Finish() {
-
+        if (levelId == OnLoad.Levels.Length - 1) {
+            SceneManager.LoadScene(OnLoad.Levels[0].name);
+            Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
+        }
+        else {
+            SceneManager.LoadScene(OnLoad.Levels[levelId + 1].name);
+            Debug.Log("Load " + OnLoad.Levels[levelId + 1]);
+        }
     }
 }

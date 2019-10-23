@@ -26,7 +26,7 @@ public class TileGrid : MonoBehaviour
     public bool pause = false;
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
-    private GameObject failScreen;
+    private GameObject failScreen, finishScreen, finishButton, walrusIcon;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -34,8 +34,13 @@ public class TileGrid : MonoBehaviour
     float turnTimer = 0f;
 
     void Awake() {
+        //Get GameObjects
         failScreen = GameObject.FindGameObjectWithTag("failScreen");
         failScreen.SetActive(false);
+        finishScreen = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(0).gameObject;
+        walrusIcon = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(1).gameObject;
+        finishButton = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(2).gameObject;
+        finishScreen.SetActive(false);
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
         explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
@@ -353,17 +358,17 @@ public class TileGrid : MonoBehaviour
                 if (OnLoad.Levels[levelId].steps > steps) {
                     OnLoad.Levels[levelId].steps = steps;
                 }
-                //Navigate to next level
+                //Save progress
                 if (levelId == OnLoad.Levels.Length - 1) {
                     SaveGame(levelId);
-                    SceneManager.LoadScene(OnLoad.Levels[0].name);
-                    Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
                 }
                 else {
                     SaveGame(levelId + 1);
-                    SceneManager.LoadScene(OnLoad.Levels[levelId + 1].name);
-                    Debug.Log("Load " + OnLoad.Levels[levelId + 1]);
                 }
+                //Dislay finish screen
+                finishScreen.SetActive(true);
+                finishButton.SetActive(true);
+                walrusIcon.GetComponent<Animator>().Play("WIN"); ;
             }
             turnTimer = 0f;
         }
