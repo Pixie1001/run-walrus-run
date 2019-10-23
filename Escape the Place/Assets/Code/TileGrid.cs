@@ -45,7 +45,7 @@ public class TileGrid : MonoBehaviour
 
         //Find goal
         if (GameObject.FindWithTag("End") != null) {
-            goal = new int[2] { (int)GameObject.FindWithTag("End").transform.position.x, (int)GameObject.FindWithTag("End").transform.position.z };
+            goal = new int[2] { (int)Math.Round(GameObject.FindWithTag("End").transform.position.x), (int)Math.Round(GameObject.FindWithTag("End").transform.position.z) };
         }
         else {
             goal = new int[2] { 0, 0 };
