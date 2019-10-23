@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5879376767236247753}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.09, y: 1.1976588, z: -0.05}
+  m_LocalPosition: {x: 0.04, y: 0.86, z: -0.05}
   m_LocalScale: {x: 1.4015418, y: 1.4015416, z: 1.4015418}
   m_Children: []
   m_Father: {fileID: 444884712410686862}
@@ -120,8 +120,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.754717, g: 0.6579758, b: 0.3737985, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.5896226, g: 1, b: 0.9090096, a: 1}
+  m_Intensity: 2.81
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -222,11 +222,11 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: ac041ad7f2baa754496e48bf72473015, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ef5009a14d7dcba43b6670bbf9387393, type: 2}
+      objectReference: {fileID: 2100000, guid: fb9634a7ff4dfcc4b88539203bb8dc5b, type: 2}
     - target: {fileID: 2300000, guid: ac041ad7f2baa754496e48bf72473015, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ef5009a14d7dcba43b6670bbf9387393, type: 2}
+      objectReference: {fileID: 2100000, guid: fbeb6831a0bb67b46acf1f99e2b0f336, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac041ad7f2baa754496e48bf72473015, type: 3}
 --- !u!4 &2466508705768146686 stripped
