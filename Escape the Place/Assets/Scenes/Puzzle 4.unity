@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44971097, g: 0.4997794, b: 0.5756361, a: 1}
+  m_IndirectSpecularColor: {r: 0.44971067, g: 0.499779, b: 0.57563514, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -119,11 +119,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,6 +188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2526251
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6785305984760597203, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
@@ -381,10 +381,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
-      propertyPath: m_Name
-      value: phone (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.546
@@ -440,6 +436,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
+      propertyPath: m_Name
+      value: phone (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
@@ -1051,16 +1051,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 728587150}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1125,6 +1115,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2526233
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cf27a90488349983b62c809a88ec, type: 3}
@@ -1765,10 +1765,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
-      propertyPath: m_Name
-      value: 3seatcouch (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5
@@ -1824,6 +1820,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.41628793
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
+      propertyPath: m_Name
+      value: 3seatcouch (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3304,16 +3304,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 728587150}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair
-      objectReference: {fileID: 0}
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3378,6 +3368,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2526233
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cf27a90488349983b62c809a88ec, type: 3}
@@ -4683,6 +4683,8 @@ MonoBehaviour:
   movableList: []
   targetSteps: 18
   loseState: 0
+  pause: 0
+  explodePause: 0
 --- !u!1001 &988427836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4832,10 +4834,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
-      propertyPath: m_Name
-      value: phone (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.838
@@ -4891,6 +4889,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
+      propertyPath: m_Name
+      value: phone (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
@@ -5191,16 +5193,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 728587150}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5265,6 +5257,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2526233
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cf27a90488349983b62c809a88ec, type: 3}
@@ -7100,16 +7102,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 728587150}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7174,6 +7166,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2526233
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cf27a90488349983b62c809a88ec, type: 3}
@@ -7518,16 +7520,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 728587150}
     m_Modifications:
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_Name
-      value: chair (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 774340560731153357, guid: 3b26cf27a90488349983b62c809a88ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7593,6 +7585,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2526233
       objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_Name
+      value: chair (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 774340560730800109, guid: 3b26cf27a90488349983b62c809a88ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cf27a90488349983b62c809a88ec, type: 3}
 --- !u!1 &1726442855 stripped
@@ -7633,10 +7635,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
-      propertyPath: m_Name
-      value: phone (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.496
@@ -7692,6 +7690,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
+      propertyPath: m_Name
+      value: phone (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
@@ -8046,16 +8048,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6412146110709825513, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582926155573849239, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.8919067
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed6b798d94cc0a4bb3f16a70bf54871, type: 3}
@@ -10137,10 +10129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
-      propertyPath: m_Name
-      value: 3seatcouch
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.1099
@@ -10196,6 +10184,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.47336566
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
+      propertyPath: m_Name
+      value: 3seatcouch
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 8e1f62a0030dbfe4795e4e7ea803b0d3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10351,6 +10343,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
+    - target: {fileID: 2300000, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6929810cf2115f2448d6e99d67be89f2, type: 2}
     - target: {fileID: 400006, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.07247906
@@ -10367,14 +10367,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.054
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 92a3f0350792bbb4bb780000a1fd73a5, type: 2}
-    - target: {fileID: 2300000, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6929810cf2115f2448d6e99d67be89f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3cfc9c535d683145aec8a6570de4eaf, type: 3}
 --- !u!1 &7226864667538151257
@@ -10475,10 +10467,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100006, guid: 4b9415bb2d6f27d4baad9cb706b07cd2, type: 3}
-      propertyPath: m_Name
-      value: trash_can
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 4b9415bb2d6f27d4baad9cb706b07cd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.093
@@ -10535,6 +10523,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.4303341
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 4b9415bb2d6f27d4baad9cb706b07cd2, type: 3}
+      propertyPath: m_Name
+      value: trash_can
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9415bb2d6f27d4baad9cb706b07cd2, type: 3}
 --- !u!1001 &7226864667690112478
@@ -10544,10 +10536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
-      propertyPath: m_Name
-      value: phone
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.496
@@ -10603,6 +10591,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
+      propertyPath: m_Name
+      value: phone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67ad55fb74548343805cc752bacfa96, type: 3}
@@ -10682,10 +10674,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
-      propertyPath: m_Name
-      value: Whiteboard
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9239998
@@ -10741,6 +10729,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalScale.z
       value: 16.348759
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
+      propertyPath: m_Name
+      value: Whiteboard
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10856,10 +10848,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
-      propertyPath: m_Name
-      value: Whiteboard (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.9779997
@@ -10915,6 +10903,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalScale.z
       value: 13.1641865
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
+      propertyPath: m_Name
+      value: Whiteboard (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11188,10 +11180,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7226864668337019992}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
-      propertyPath: m_Name
-      value: Whiteboard (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.295
@@ -11247,6 +11235,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_LocalScale.z
       value: 13.1641865
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
+      propertyPath: m_Name
+      value: Whiteboard (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6d2b27223015594489a05cd5256d607f, type: 3}
       propertyPath: m_Materials.Array.data[0]

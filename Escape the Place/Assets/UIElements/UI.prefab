@@ -411,8 +411,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ea5a21047992f4f14bd29a437179d87b, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cbe5a70a5c06ab342b5ad4edbc0aa456, type: 3}
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -485,8 +485,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ea5a21047992f4f14bd29a437179d87b, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cbe5a70a5c06ab342b5ad4edbc0aa456, type: 3}
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3201,7 +3201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.377, y: 0.5842592}
   m_AnchorMax: {x: 0.82483345, y: 0.75559264}
-  m_AnchoredPosition: {x: 446.57214, y: -725}
+  m_AnchoredPosition: {x: 446.57214, y: -733}
   m_SizeDelta: {x: 0, y: -15.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7871351704336920216
@@ -3234,7 +3234,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3245,8 +3245,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "every level can be completed in a minimum \nnumber of steps. Earn Gold
-    medals by using \nas few steps as possible."
+  m_Text: "Earn a Gold, Silver or Bronze medal by \nexiting the room in the least
+    steps. "
 --- !u!1 &4508609541143606897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,7 +3586,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3597,8 +3597,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Mr Walrus falls every 4 steps. \nKeep an eye on the counter \nfor his next
-    fall. "
+  m_Text: "Mr Walrus falls every few steps. \nKeep an eye on the counter \nfor his
+    next tumble. "
 --- !u!1 &4801667131296428658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,7 +3666,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3677,7 +3677,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Move Mr Walrus using the WASD \nor the arrow keys"
+  m_Text: "Move Mr Walrus using the WASD \nor the arrow keys."
 --- !u!1 &4914501078334725070
 GameObject:
   m_ObjectHideFlags: 0
@@ -5933,7 +5933,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5944,7 +5944,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "If you destroy this \nobject you FAIL!"
+  m_Text: "If you destroy this \nobject you're FIRED!!"
 --- !u!1 &8887321190048281284
 GameObject:
   m_ObjectHideFlags: 0
@@ -6224,7 +6224,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6235,7 +6235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You cannot move through\n these ojects but \nexplosions CAN destroy them."
+  m_Text: "You cannot move through\n these ojects but \nshock waves CAN destroy them."
 --- !u!1 &8887321190308837620
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,7 +6345,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6356,7 +6356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You cannot move through \nthese ojects and explosions \nCANNOT destroy
+  m_Text: "You cannot move through \nthese ojects and shock waves \nCANNOT destroy
     them."
 --- !u!1 &8887321190352158389
 GameObject:
@@ -7258,7 +7258,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 422afe7260ec30d4b950b49da20fea6f, type: 3}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7269,8 +7269,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "These objects can be pushed\nalong by destructive pluses and can \nonly
-    be pushed into empty squares. \r"
+  m_Text: "These objects can be pushed\nalong by shock waves and can \nonly be pushed
+    into empty squares. \r"
 --- !u!1 &8887321191285199992
 GameObject:
   m_ObjectHideFlags: 0
