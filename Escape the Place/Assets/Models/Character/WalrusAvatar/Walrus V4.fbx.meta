@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: c1a41528d9174db4b93942e6b45f3773
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Chest_CTRL
+    100002: Collar
+    100004: group1
+    100006: Head_CTRL
+    100008: Head_J
+    100010: Hip_CTRL
+    100012: Hip_J
+    100014: L_Clavicle_J
+    100016: L_Foot_CTRL
+    100018: L_Foot_J
+    100020: L_Hand_J
+    100022: L_Knee_J
+    100024: L_LegT_J
+    100026: L_Shoulder_J
+    100028: L_Shoulder_J 1
+    100030: L_Toe_J
+    100032: L_ToeTip_J
+    100034: L_Wrist_CTRL
+    100036: L_Wrist_J
+    100038: Left_Eye
+    100040: Master_CTRL
+    100042: Neck_J
+    100044: polySurface1
+    100046: polySurface2
+    100048: polySurface3
+    100050: R_Clavicle_J
+    100052: R_Foot_CTRL
+    100054: R_Foot_J
+    100056: R_Hand_J
+    100058: R_Knee_J
+    100060: R_LegT_J
+    100062: R_Shoulder_J
+    100064: R_Shoulder_J 1
+    100066: R_Toe_J
+    100068: R_ToeTip_J
+    100070: R_Wrist_CTREL
+    100072: R_Wrist_J
+    100074: Right_Eye
+    100076: Spine02_J
+    100078: Spine03_J
+    100080: Spine_01_J
+    100082: Tie
+    100084: transform1
+    100086: transform2
+    100088: transform3
+    100090: transform4
+    100092: transform5
+    100094: transform6
+    100096: transform7
+    100098: transform8
+    100100: Walrus
+    100102: Walrus 1
+    100104: //RootNode
+    100106: Walrus1
+    400000: Chest_CTRL
+    400002: Collar
+    400004: group1
+    400006: Head_CTRL
+    400008: Head_J
+    400010: Hip_CTRL
+    400012: Hip_J
+    400014: L_Clavicle_J
+    400016: L_Foot_CTRL
+    400018: L_Foot_J
+    400020: L_Hand_J
+    400022: L_Knee_J
+    400024: L_LegT_J
+    400026: L_Shoulder_J
+    400028: L_Shoulder_J 1
+    400030: L_Toe_J
+    400032: L_ToeTip_J
+    400034: L_Wrist_CTRL
+    400036: L_Wrist_J
+    400038: Left_Eye
+    400040: Master_CTRL
+    400042: Neck_J
+    400044: polySurface1
+    400046: polySurface2
+    400048: polySurface3
+    400050: R_Clavicle_J
+    400052: R_Foot_CTRL
+    400054: R_Foot_J
+    400056: R_Hand_J
+    400058: R_Knee_J
+    400060: R_LegT_J
+    400062: R_Shoulder_J
+    400064: R_Shoulder_J 1
+    400066: R_Toe_J
+    400068: R_ToeTip_J
+    400070: R_Wrist_CTREL
+    400072: R_Wrist_J
+    400074: Right_Eye
+    400076: Spine02_J
+    400078: Spine03_J
+    400080: Spine_01_J
+    400082: Tie
+    400084: transform1
+    400086: transform2
+    400088: transform3
+    400090: transform4
+    400092: transform5
+    400094: transform6
+    400096: transform7
+    400098: transform8
+    400100: Walrus
+    400102: Walrus 1
+    400104: //RootNode
+    400106: Walrus1
+    2100000: lambert6
+    2100002: lambert4
+    2100004: lambert2
+    2100006: lambert3
+    2100008: lambert1
+    4300000: Walrus1
+    7400000: Idle
+    7400002: Walk
+    7400004: Fall
+    9500000: //RootNode
+    13700000: Walrus1
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 104
+      lastFrame: 128
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Fall
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 76
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
