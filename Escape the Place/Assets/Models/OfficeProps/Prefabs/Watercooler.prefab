@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8911003458749539767}
   - component: {fileID: 5695157965981882190}
+  - component: {fileID: 2478549941876624541}
   m_Layer: 0
   m_Name: Watercooler
   m_TagString: Untagged
@@ -53,6 +54,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2478549941876624541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8911003458749643159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7068e5d67008a4cadf02f8b986c6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collision: 1
+  x: 0
+  y: 0
+  audioSource: {fileID: 0}
+  terminate: 0
 --- !u!1001 &2437922849113116981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,10 +78,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8911003458749539767}
     m_Modifications:
-    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
-      propertyPath: m_Name
-      value: FloorCube
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -120,6 +134,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 14.645147
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
+      propertyPath: m_Name
+      value: FloorCube
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -146,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
       propertyPath: m_Name
       value: Watercooler
+      objectReference: {fileID: 0}
+    - target: {fileID: 100070, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
+      propertyPath: m_Name
+      value: body
       objectReference: {fileID: 0}
     - target: {fileID: 100058, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
       propertyPath: m_Name
@@ -206,10 +228,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.063447
-      objectReference: {fileID: 0}
-    - target: {fileID: 100070, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
-      propertyPath: m_Name
-      value: body
       objectReference: {fileID: 0}
     - target: {fileID: 2300006, guid: f390dd1fcef912a48904e91590bb751b, type: 3}
       propertyPath: m_Materials.Array.data[0]

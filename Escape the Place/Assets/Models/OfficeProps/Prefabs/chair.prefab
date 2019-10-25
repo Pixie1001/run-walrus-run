@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 774340560734053357}
   - component: {fileID: 774340560733053229}
   - component: {fileID: 7047319997056087523}
+  - component: {fileID: 5562374702613144898}
   m_Layer: 0
   m_Name: chair
   m_TagString: Untagged
@@ -100,6 +101,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5562374702613144898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774340560730800109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c250c2f15abdc9a4091f56864ff0ef36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collision: 1
+  x: 0
+  y: 0
+  audioSource: {fileID: 0}
+  moveChecked: 0
+  newX: 0
+  newY: 0
 --- !u!1001 &2647688242342695604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,10 +210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 774340560731153357}
     m_Modifications:
-    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
-      propertyPath: m_Name
-      value: FloorCube
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -249,6 +265,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_LocalScale.z
       value: 7.9832487
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
+      propertyPath: m_Name
+      value: FloorCube
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
