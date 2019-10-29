@@ -127,17 +127,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 774340560731153357}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
+      propertyPath: m_Name
+      value: Chair01
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010366
+      value: 0.014232
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000056822
+      value: -0.000078009
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalRotation.x
@@ -173,19 +177,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2754399
+      value: 0.99484307
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2754401
+      value: 0.99484324
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2754405
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
-      propertyPath: m_Name
-      value: Chair01
+      value: 0.99484354
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 0196f9070a980cd4ca156a51c0bdf125, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -210,6 +210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 774340560731153357}
     m_Modifications:
+    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
+      propertyPath: m_Name
+      value: FloorCube
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -265,10 +269,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_LocalScale.z
       value: 7.9832487
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
-      propertyPath: m_Name
-      value: FloorCube
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 47a49ed3b077bb24aa5f6b0e6b07af3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
