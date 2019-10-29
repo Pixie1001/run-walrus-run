@@ -27,6 +27,7 @@ public class TileGrid : MonoBehaviour
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
     private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
+    AudioSource audio;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -42,6 +43,12 @@ public class TileGrid : MonoBehaviour
         finishButton = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(2).gameObject;
         finishScreen.SetActive(false);
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
+
+        audio = (AudioSource)gameObject.AddComponent<AudioSource>();
+        audio.clip = Resources.Load<AudioClip>("Audio/BGM_1");
+        audio.loop = true;
+        audio.Play();
+        audio.volume = 0.25f;
 
         explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
         characterHitWallSE = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
