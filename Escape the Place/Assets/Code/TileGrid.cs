@@ -23,10 +23,10 @@ public class TileGrid : MonoBehaviour
     int[] goal;
     int steps = 0;
     int levelId;
-    public bool pause = false;
+    [HideInInspector] public bool pause = false;
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
-    private GameObject failScreen, finishScreen, finishButton, walrusIcon;
+    private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -61,6 +61,27 @@ public class TileGrid : MonoBehaviour
         try {
             GameObject display = GameObject.FindGameObjectWithTag("UI (Steps)");
             display.GetComponent<Text>().text = 0.ToString();
+        }
+        catch {
+            Debug.Log("Error: No UI element deteted");
+        }
+
+        //Set base steps value
+        try {
+            gold = GameObject.FindGameObjectWithTag("Gold");
+            Color temp = gold.GetComponent<Image>().color;
+            temp.a = 1f;
+            gold.GetComponent<Image>().color = temp;
+
+            silver = GameObject.FindGameObjectWithTag("Silver");
+            temp = silver.GetComponent<Image>().color;
+            temp.a = .33f;
+            silver.GetComponent<Image>().color = temp;
+
+            bronze = GameObject.FindGameObjectWithTag("Bronze");
+            temp = bronze.GetComponent<Image>().color;
+            temp.a = .33f;
+            bronze.GetComponent<Image>().color = temp;
         }
         catch {
             Debug.Log("Error: No UI element deteted");
@@ -221,6 +242,50 @@ public class TileGrid : MonoBehaviour
         if (!(avatar.newX == avatar.X && avatar.newY == avatar.Y)) {
             //Update step count
             steps += 1;
+            Color temp;
+            //Display correct medal
+            if (steps <= targetSteps) {
+                //gold
+                temp = gold.GetComponent<Image>().color;
+                temp.a = 1f;
+                gold.GetComponent<Image>().color = temp;
+
+                temp = silver.GetComponent<Image>().color;
+                temp.a = .33f;
+                silver.GetComponent<Image>().color = temp;
+
+                temp = bronze.GetComponent<Image>().color;
+                temp.a = .33f;
+                bronze.GetComponent<Image>().color = temp;
+            }
+            else if (steps <= targetSteps + 2) {
+                //Silver
+                temp = gold.GetComponent<Image>().color;
+                temp.a = .33f;
+                gold.GetComponent<Image>().color = temp;
+
+                temp = silver.GetComponent<Image>().color;
+                temp.a = 1f;
+                silver.GetComponent<Image>().color = temp;
+
+                temp = bronze.GetComponent<Image>().color;
+                temp.a = .33f;
+                bronze.GetComponent<Image>().color = temp;
+            }
+            else {
+                //bronze
+                temp = gold.GetComponent<Image>().color;
+                temp.a = .33f;
+                gold.GetComponent<Image>().color = temp;
+
+                temp = silver.GetComponent<Image>().color;
+                temp.a = .33f;
+                silver.GetComponent<Image>().color = temp;
+
+                temp = bronze.GetComponent<Image>().color;
+                temp.a = 1f;
+                bronze.GetComponent<Image>().color = temp;
+            }
             try {
                 GameObject display = GameObject.FindGameObjectWithTag("UI (Steps)");
                 display.GetComponent<Text>().text = steps.ToString();
@@ -354,6 +419,8 @@ public class TileGrid : MonoBehaviour
             if (avatar.X == goal[0] && avatar.Y == goal[1]) {
                 winState = true;
                 Debug.Log("You win!!!");
+                //Update cleared status
+                OnLoad.Levels[levelId].cleared = true;
                 //Save step count
                 if (OnLoad.Levels[levelId].steps > steps) {
                     OnLoad.Levels[levelId].steps = steps;

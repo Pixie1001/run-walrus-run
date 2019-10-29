@@ -11,16 +11,20 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     PulseTail tail;
     int tailX = 0, tailY = 0;
     AudioClip moveSE, pulseCollisionSE, hitWallSE;
+    private List<TelegraphTile> telegraphList;
 
     public ExplosionPulse() : base(false) {
         //model = Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject;
         //model.AddComponent(Type.GetType("ExplosionPulse"));
         //Debug.Log("New EP script created");
+        telegraphList = new List<TelegraphTile>();
     }
 
     protected override void Start() {
         base.Start();
+        ObjectSpawner spawner = new ObjectSpawner();
         PushBlock pushCheck;
+        bool impact = false;
         //model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
         model.GetComponent<Animator>().Play("MOVE");
         //Sound stuff
@@ -36,7 +40,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         }
         else if (grid[X, Y].Count > 1) {
             //Explode stuff
-            bool impact = false;
+            impact = false;
 
             //Check everything in space
             try {
@@ -87,23 +91,8 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                     grid[X, Y][i].OnExplode(direction);
                 }
             }
-            if (impact) {
-                Debug.Log("self explode");
-                if (counterPulse) {
-                    Debug.Log("Counterpulse");
-                    audioSource.PlayOneShot(pulseCollisionSE);
-                }
-                OnExplode(null);
-            }
         }
         Debug.Log(name + " triggered a telegraph");
-        //Get grid, find x and y
-        //start loop
-        //Check tile. If empty, out of bounds or Pit, end loop
-        //if chair, check if there's a thing behind it, and mark 'pushing'. If pushing already true, end loop.
-        //otherwise create primitive plane with TelegraphTile script (Orange).
-        //Use SpawnTile to generate
-        //end loop
         int checkX = X;
         int checkY = Y;
         int pushCheckX = 0;
@@ -180,7 +169,6 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 GameObject telegraph = GameObject.CreatePrimitive(PrimitiveType.Plane);
                 //TelegraphTile tileScript = new TelegraphTile();
                 TelegraphTile tileScript = (TelegraphTile)telegraph.AddComponent(System.Type.GetType("TelegraphTile"));
-                tileScript.enabled = true;
                 if (interrupted) {
                     telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(0.333f, .0196f, .0f, 0.1f));
                 }
@@ -188,7 +176,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                     telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 0.4f, .039f, 0.1f));
                 }
                 telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                new ObjectSpawner().SpawnTile(telegraph, checkX, checkY, 0.02f, grid);
+                //telegraphList.Add(spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).);
+                tileScript = spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).GetComponent<TelegraphTile>();
+                telegraphList.Add(tileScript);
             }
 
             switch (direction) {
@@ -209,16 +199,29 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                     break;
             }
         }
+        if (impact) {
+            Debug.Log("self explode");
+            if (counterPulse) {
+                Debug.Log("Counterpulse");
+                audioSource.PlayOneShot(pulseCollisionSE);
+            }
+            OnExplode(null);
+        }
     }
 
     public override void Move() {
         audioSource.PlayOneShot(moveSE, 0.3f);
-        /*
-        tailX = X;
-        tailY = Y;
-        tailTrigger = true;
-        */
-        base.Move();
+        for (int i = 0; i < grid[X, Y].Count; i++) {
+            if (grid[X, Y][i] != null) {
+                for (int c = 0; c < telegraphList.Count; c++) {
+                    if (telegraphList[c] == grid[X, Y][i]) {
+                        telegraphList.Remove(grid[X, Y][i] as TelegraphTile);
+                        Destroy(grid[X, Y][i].gameObject);
+                    }
+                }
+            }
+        }
+        base.Move();  
     }
 
     public override bool GetDestination(string unused, bool verified) {
@@ -302,6 +305,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         terminate = true;
         //Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
         Model.GetComponent<Animator>().Play("EXPLODE");
+        for (int c = 0; c < telegraphList.Count; c++) {
+            Destroy(telegraphList[c].gameObject);
+        }
     }
 
     protected override void Update() {

@@ -23,6 +23,10 @@ TagManager:
   - failScreen
   - FallIcon
   - InGameMenu
+  - Gold
+  - Silver
+  - Bronze
+  - Lvl6
   layers:
   - Default
   - TransparentFX

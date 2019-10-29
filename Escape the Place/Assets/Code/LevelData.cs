@@ -5,6 +5,7 @@ using System.Collections;
 public class LevelData
 {
     public string name;
+    public bool cleared = false;
     public int steps = 0;
     public int targetSteps;
 

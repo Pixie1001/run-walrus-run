@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 2110454791333132133}
   m_Layer: 5
   m_Name: bronze
-  m_TagString: Untagged
+  m_TagString: Bronze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5534,7 +5534,7 @@ GameObject:
   - component: {fileID: 3090949845156647777}
   m_Layer: 5
   m_Name: silver
-  m_TagString: Untagged
+  m_TagString: Silver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5804,7 +5804,7 @@ GameObject:
   - component: {fileID: 8601918368987006557}
   m_Layer: 5
   m_Name: gold
-  m_TagString: Untagged
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
