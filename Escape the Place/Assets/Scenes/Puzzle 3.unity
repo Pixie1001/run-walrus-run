@@ -5308,6 +5308,7 @@ GameObject:
   - component: {fileID: 983320053}
   - component: {fileID: 983320057}
   - component: {fileID: 983320058}
+  - component: {fileID: 983320059}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5422,6 +5423,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &983320059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983320052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5778e5e62bdc02248ba9cfd83c52e3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VignetteFalloff: 2.2
+  VignetteOuterValue: 1
+  VignetteInnerValue: 0
+  VignetteInnerValueDistance: 0
+  VignetteOuterValueDistance: 0.7
+  VignetteMode: 1
+  VignetteCenter: {x: 0.5, y: 0.5}
+  VignetteInnerColor: {r: 0, g: 0, b: 0, a: 0}
+  VignetteOuterColor: {r: 0, g: 0, b: 0, a: 1}
+  VignetteInnerSaturation: 1
+  VignetteOuterSaturation: 0
+  VignetteDebugEnabled: 0
+  IsAnamorphicVignette: 0
+  EnableSaturationVignette: 0
+  IntegrationType: 2
+  IntegrationStage: 1
+  FinalVignetteShader: {fileID: 4800000, guid: d4c4c6a3a749d0f49a5275153224efbf, type: 3}
+  isHDR: 1
+  isSPSR: 0
+  pipelineFoldout: 0
+  aboutFoldout: 0
 --- !u!1001 &985117825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10839,7 +10873,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30.00003, z: 30.00003}
   m_Children: []
   m_Father: {fileID: 7226864668337019992}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1718407278824503360
 GameObject:
@@ -12456,11 +12490,11 @@ Transform:
   - {fileID: 7226864667538151262}
   - {fileID: 8253202157124861003}
   - {fileID: 8253202155801160403}
+  - {fileID: 1718407278824006752}
   - {fileID: 6396928810517771148}
   - {fileID: 5304956470470954845}
-  - {fileID: 1718407278824006752}
-  - {fileID: 67778099}
   - {fileID: 8328274398433414226}
+  - {fileID: 67778099}
   - {fileID: 797138943}
   - {fileID: 295719604}
   - {fileID: 422508183}
@@ -12481,8 +12515,8 @@ Transform:
   - {fileID: 713395810}
   - {fileID: 36547754}
   - {fileID: 23273390}
-  - {fileID: 1075866367}
   - {fileID: 1446527988}
+  - {fileID: 1075866367}
   - {fileID: 498884135}
   - {fileID: 511018296}
   - {fileID: 526326995}
@@ -13054,7 +13088,7 @@ Transform:
   m_LocalScale: {x: 23.663399, y: 23.663424, z: 23.663424}
   m_Children: []
   m_Father: {fileID: 7226864668337019992}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &8328274398433579122
 GameObject:
