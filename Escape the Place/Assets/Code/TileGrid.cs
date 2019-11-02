@@ -28,6 +28,7 @@ public class TileGrid : MonoBehaviour
     AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
     private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
     AudioSource audio;
+    public List<GameObject> TelegraphPool;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -54,6 +55,14 @@ public class TileGrid : MonoBehaviour
         characterHitWallSE = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
         explosionHitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWall");
         chairStuckSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairCantMove");
+
+        //Set up object pool
+        TelegraphPool = new List<GameObject>();
+        for (int i = 0; i < 30; i++) {
+            GameObject objRef = Instantiate(Resources.Load("Prefabs/TelegraphTest") as GameObject);
+            //objRef.SetActive(false);
+            TelegraphPool.Add(objRef);
+        }
 
         //Find goal
         if (GameObject.FindWithTag("End") != null) {

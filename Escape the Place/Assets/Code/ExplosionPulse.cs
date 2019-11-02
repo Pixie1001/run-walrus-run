@@ -12,12 +12,16 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     int tailX = 0, tailY = 0;
     AudioClip moveSE, pulseCollisionSE, hitWallSE;
     private List<TelegraphTile> telegraphList;
+    private List<TelegraphData> telegraphQueue;
+    private float telegraphTimer = 0f;
+    private int telegraphCount = 0;
 
     public ExplosionPulse() : base(false) {
         //model = Resources.Load("Prefabs/Polygonal Metalon Red") as GameObject;
         //model.AddComponent(Type.GetType("ExplosionPulse"));
         //Debug.Log("New EP script created");
         telegraphList = new List<TelegraphTile>();
+        telegraphQueue = new List<TelegraphData>();
     }
 
     protected override void Start() {
@@ -166,19 +170,19 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             }
             if (!outOfBounds && !(interrupted && hitChair)) {
                 //Generate telegraph tile
-                GameObject telegraph = GameObject.CreatePrimitive(PrimitiveType.Plane);
+                GameObject telegraph = Resources.Load("Prefabs/TelegraphTest") as GameObject;
                 //TelegraphTile tileScript = new TelegraphTile();
                 TelegraphTile tileScript = (TelegraphTile)telegraph.AddComponent(System.Type.GetType("TelegraphTile"));
+                Color telegraphColor;
                 if (interrupted) {
-                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(0.333f, .0196f, .0f, 0.1f));
+                    telegraphColor = new Color(0.333f, .0196f, .0f, 0.1f);
                 }
                 else {
-                    telegraph.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 0.4f, .039f, 0.1f));
+                    telegraphColor = new Color(1f, 0.4f, .039f, 0.1f);
                 }
-                telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                //telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 //telegraphList.Add(spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).);
-                tileScript = spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).GetComponent<TelegraphTile>();
-                telegraphList.Add(tileScript);
+                telegraphQueue.Add(new TelegraphData(telegraph, checkX, checkY, telegraphColor));
             }
 
             switch (direction) {
@@ -206,6 +210,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 audioSource.PlayOneShot(pulseCollisionSE);
             }
             OnExplode(null);
+            telegraphQueue.Clear();
         }
     }
 
@@ -216,7 +221,10 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 for (int c = 0; c < telegraphList.Count; c++) {
                     if (telegraphList[c] == grid[X, Y][i]) {
                         telegraphList.Remove(grid[X, Y][i] as TelegraphTile);
-                        Destroy(grid[X, Y][i].gameObject);
+                        //grid[X, Y][i].gameObject.SetActive(false);
+                        grid[X, Y][i].gameObject.transform.position = new Vector3(0, 0, 1000);
+                        GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().TelegraphPool.Add(grid[X, Y][i].gameObject);
+                        Destroy(grid[X, Y][i].gameObject.GetComponent<TelegraphTile>());
                     }
                 }
             }
@@ -306,26 +314,26 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         //Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
         Model.GetComponent<Animator>().Play("EXPLODE");
         for (int c = 0; c < telegraphList.Count; c++) {
-            Destroy(telegraphList[c].gameObject);
+            //telegraphList[c].gameObject.SetActive(false);
+            telegraphList[c].gameObject.transform.position = new Vector3(0, 0, 1000);
+            GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().TelegraphPool.Add(telegraphList[c].gameObject);
+            Destroy(telegraphList[c]);
         }
     }
 
     protected override void Update() {
         base.Update();
-        if (currTime >= targetTime - 0.6f && tailTrigger) {
-            if (!tailEnabled) {
-                tailEnabled = true;
-                GameObject model = GameObject.Instantiate(Resources.Load("Prefabs/Crack_02") as GameObject);
-                //Add script and animator to prefab
-                model = new ObjectSpawner().SpawnTail(model, tailX, tailY, 0.03f, direction, grid);
-                tail = model.GetComponent<PulseTail>();
-            }
-            else {
-                Debug.Log("Move crack");
-                tail.Move(tailX, tailY);
-                //Add code for OnExplode
-            }
-            tailTrigger = false;
+        if (telegraphCount < telegraphQueue.Count) {
+            telegraphTimer += Time.deltaTime;
+        }
+
+        if (telegraphCount < telegraphQueue.Count && telegraphTimer >= 0.25f) {
+            //telegraphQueue[telegraphCount]; - spawn a thing
+            TelegraphTile tileScript = new ObjectSpawner().SpawnTile(telegraphQueue[telegraphCount].x, telegraphQueue[telegraphCount].y, 0.02f, grid).AddComponent<TelegraphTile>();
+            tileScript.gameObject.GetComponent<Renderer>().material.SetColor("_Color", telegraphQueue[telegraphCount].color);
+            telegraphList.Add(tileScript);
+            telegraphCount += 1;
+            telegraphTimer = 0f;
         }
 
         if (terminate) {

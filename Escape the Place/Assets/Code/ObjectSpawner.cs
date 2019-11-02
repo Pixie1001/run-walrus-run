@@ -51,6 +51,14 @@ public class ObjectSpawner
         return temp;
     }
 
+    public GameObject SpawnTile(int x, int y, float elevation, List<EntityType>[,] grid) {
+        GameObject temp = GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().TelegraphPool[0];
+        GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().TelegraphPool.Remove(temp);
+        temp.transform.position = (getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation));
+        //temp.SetActive(true);
+        return temp;
+    }
+
     public GameObject SpawnTail(GameObject model, int x, int y, float elevation, string facing, List<EntityType>[,] grid) {
         GameObject temp = GameObject.Instantiate(model, getSpawnLocation(x, y, grid.GetLength(0), grid.GetLength(1), elevation), Quaternion.identity);
         GameObject.Destroy(model);
