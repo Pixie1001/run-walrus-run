@@ -91,7 +91,7 @@ public class btnLevelSelect : MonoBehaviour
             //gold
             medal.GetComponent<Image>().color = new Color(1f, .745f, 0.3647f);
         }
-        else if (OnLoad.Levels[levelNum].steps <= OnLoad.Levels[levelNum].targetSteps + 2) {
+        else if (OnLoad.Levels[levelNum].steps <= OnLoad.Levels[levelNum].targetSteps + 3) {
             //Silver
             medal.GetComponent<Image>().color = new Color(0.8117f, 0.8117f, 0.8117f);
         }

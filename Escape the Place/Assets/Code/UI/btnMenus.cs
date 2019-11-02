@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class btnMenus : MonoBehaviour
 {
     public GameObject legend;
+    public GameObject popup;
 
     protected void Start() {
         
@@ -23,7 +24,7 @@ public class btnMenus : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Puzzle 1");
+        popup.SetActive(true);
     }
 
     public void Continue() {
