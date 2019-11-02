@@ -170,9 +170,6 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             }
             if (!outOfBounds && !(interrupted && hitChair)) {
                 //Generate telegraph tile
-                GameObject telegraph = Resources.Load("Prefabs/TelegraphTest") as GameObject;
-                //TelegraphTile tileScript = new TelegraphTile();
-                TelegraphTile tileScript = (TelegraphTile)telegraph.AddComponent(System.Type.GetType("TelegraphTile"));
                 Color telegraphColor;
                 if (interrupted) {
                     telegraphColor = new Color(0.333f, .0196f, .0f, 0.1f);
@@ -182,7 +179,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 }
                 //telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 //telegraphList.Add(spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).);
-                telegraphQueue.Add(new TelegraphData(telegraph, checkX, checkY, telegraphColor));
+                telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
             }
 
             switch (direction) {

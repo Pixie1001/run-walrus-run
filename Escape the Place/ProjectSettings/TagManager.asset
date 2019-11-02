@@ -27,6 +27,8 @@ TagManager:
   - Silver
   - Bronze
   - Lvl6
+  - Telegraph
+  - Wall
   layers:
   - Default
   - TransparentFX

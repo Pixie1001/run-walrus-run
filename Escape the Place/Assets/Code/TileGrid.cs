@@ -57,11 +57,11 @@ public class TileGrid : MonoBehaviour
         chairStuckSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairCantMove");
 
         //Set up object pool
-        TelegraphPool = new List<GameObject>();
         for (int i = 0; i < 30; i++) {
-            GameObject objRef = Instantiate(Resources.Load("Prefabs/TelegraphTest") as GameObject);
+            //GameObject objRef = Instantiate(Resources.Load("Prefabs/TelegraphTest") as GameObject);
             //objRef.SetActive(false);
-            TelegraphPool.Add(objRef);
+            //TelegraphPool.Add(objRef);
+            TelegraphPool = new List<GameObject>(GameObject.FindGameObjectsWithTag("Telegraph"));
         }
 
         //Find goal
