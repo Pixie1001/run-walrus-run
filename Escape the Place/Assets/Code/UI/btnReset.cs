@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class btnReset : MonoBehaviour
+public class btnReset : ButtonType
 {
 
     public void Reset() {
+        PlaySE();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

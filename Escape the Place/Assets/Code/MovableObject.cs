@@ -108,13 +108,7 @@ public abstract class MovableObject : EntityType
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
 
             //Play walking animation
-            //if (this as ExplosionPulse == null) {
-            if (true) {
-                GetComponent<Animator>().Play("MOVE");
-            }
-            else {
-                model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
-            }
+            GetComponent<Animator>().Play("MOVE");
 
             //Move model
             //transform.transform.Translate(0f, 0f, speed);

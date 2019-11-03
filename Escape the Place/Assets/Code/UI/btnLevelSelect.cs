@@ -6,17 +6,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class btnLevelSelect : MonoBehaviour
+public class btnLevelSelect : ButtonType
 {
     public GameObject selectScreen;
     float alpha = 0.2f;
 
-    protected void Start() {
+    override protected void Start() {
+        base.Start();
         Debug.Log("Progress: " + OnLoad.Progress);
     }
 
     public void SelectMenu() {
         if (!selectScreen.activeSelf) {
+            PlaySE();
             selectScreen.SetActive(true);
             //Change button colours based on prog
             if (OnLoad.Progress < 1) {
@@ -49,33 +51,40 @@ public class btnLevelSelect : MonoBehaviour
             DisplayMedal(GameObject.FindGameObjectWithTag("Lvl6").transform.GetChild(1).gameObject, 5);
         }
         else {
+            GameObject.FindGameObjectWithTag("CloseSE").GetComponent<ButtonType>().PlaySE();
             selectScreen.SetActive(false);
+
         }
     }
 
     public void Level_1() {
+        PlaySE();
         SceneManager.LoadScene(OnLoad.Levels[0].name);
     }
 
     public void Level_2() {
+        PlaySE();
         if (OnLoad.Progress >= 1) {
             SceneManager.LoadScene(OnLoad.Levels[1].name);
         }
     }
 
     public void Level_3() {
+        PlaySE();
         if (OnLoad.Progress >= 2) {
             SceneManager.LoadScene(OnLoad.Levels[2].name);
         }
     }
 
     public void Level_4() {
+        PlaySE();
         if (OnLoad.Progress >= 3) {
             SceneManager.LoadScene(OnLoad.Levels[3].name);
         }
     }
 
     public void Level_5() {
+        PlaySE();
         if (OnLoad.Progress >= 4) {
             SceneManager.LoadScene(OnLoad.Levels[4].name);
         }
