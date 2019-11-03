@@ -25,7 +25,7 @@ public class Pulsar : ExplosionType
             if (grid[x, y] != null) {
                 foreach (EntityType obj in grid[x, y]) {
                     //Check if space is occupied
-                    if (obj as Pit != null) {
+                    if (obj as Pit != null || obj as ExplosionPulse != null) {
                         return false;
                     }
                 }
@@ -42,7 +42,7 @@ public class Pulsar : ExplosionType
         pulse.Model = model;
         pulse.direction = direction;
         //spawner.Spawn(pulse, x, y, 0.2f, direction, 0.2f, grid);
-        spawner.Spawn(pulse, x, y, 0.03f, direction, null, grid);
+        spawner.Spawn(pulse, x, y, 0.15f, direction, .6f, grid);
         return true;
     }
 
