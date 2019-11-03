@@ -176,11 +176,11 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 //Generate telegraph tile
                 Color telegraphColor;
                 if (red) {
-                    telegraphColor = new Color(0.333f, .0196f, .0f, 0.1f);
+                    telegraphColor = new Color(254f/255f, 104f/255f, 59f/255f);
                     telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
                 }
                 else if (!red && !interrupted) {
-                    telegraphColor = new Color(1f, 0.4f, .039f, 0.1f);
+                    telegraphColor = new Color(93f/255f, 255f/255f, 249f/255f);
                     telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
                 }
                 //telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -332,7 +332,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         if (telegraphCount < telegraphQueue.Count && telegraphTimer >= 0.25f) {
             //telegraphQueue[telegraphCount]; - spawn a thing
             TelegraphTile tileScript = new ObjectSpawner().SpawnTile(telegraphQueue[telegraphCount].x, telegraphQueue[telegraphCount].y, 0.02f, grid).AddComponent<TelegraphTile>();
-            tileScript.gameObject.GetComponent<Renderer>().material.SetColor("_Color", telegraphQueue[telegraphCount].color);
+            tileScript.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = telegraphQueue[telegraphCount].color;
             telegraphList.Add(tileScript);
             telegraphCount += 1;
             telegraphTimer = 0f;
