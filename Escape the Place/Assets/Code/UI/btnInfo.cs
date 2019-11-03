@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class btnInfo: MonoBehaviour
+public class btnInfo: ButtonType
 {
     public GameObject legend;
 
-    protected void Start() {
-    }
-
     public void ToggleInfo () {
+        PlaySE();
         if (!legend.activeSelf) {
             legend.SetActive(true);
         }

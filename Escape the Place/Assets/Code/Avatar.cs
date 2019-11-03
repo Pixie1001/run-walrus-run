@@ -43,6 +43,25 @@ public class Avatar : MovableObject {
         base.Start();
         collision = true;
 
+        //Intro animation
+        destination = gameObject.transform.position;
+        float rotation = gameObject.transform.eulerAngles.y;
+        GetComponent<Animator>().Play("MOVE");
+        if (rotation == 0f || rotation == 360f) {
+            start = destination + new Vector3(0, 0, -1);
+        }
+        else if (rotation == 90f || rotation == -270f) {
+            start = destination + new Vector3(-1, 0, 0);
+        }
+        else if (rotation == 180f || rotation == -180f) {
+            start = destination + new Vector3(0, 0, 1);
+        }
+        else if (rotation == 270f || rotation == -90f) {
+            start = destination + new Vector3(1, 0, 0);
+        }
+        
+        currTime = 0;
+
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/CharacterMove");
         //audioSource.clip = moveSE;

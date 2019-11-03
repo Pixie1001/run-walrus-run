@@ -5,37 +5,39 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class btnMenus : MonoBehaviour
+public class btnMenus : ButtonType
 {
     public GameObject legend;
     public GameObject popup;
 
-    protected void Start() {
-        
-    }
-
     public void Rules() {
         if (!legend.activeSelf) {
+            PlaySE();
             legend.SetActive(true);
         }
         else {
+            GameObject.FindGameObjectWithTag("CloseSE").GetComponent<ButtonType>().PlaySE();
             legend.SetActive(false);
         }
     }
 
     public void StartGame() {
+        PlaySE();
         popup.SetActive(true);
     }
 
     public void Continue() {
+        PlaySE();
         SceneManager.LoadScene(OnLoad.Levels[OnLoad.Progress].name);
     }
 
     public void Return() {
+        PlaySE();
         SceneManager.LoadScene("Title Page");
     }
 
     public void Exit() {
+        PlaySE();
         Debug.Log("Quitting application");
         Application.Quit();
     }

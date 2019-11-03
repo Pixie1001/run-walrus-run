@@ -29,6 +29,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         ObjectSpawner spawner = new ObjectSpawner();
         PushBlock pushCheck;
         bool impact = false;
+        bool red = false;
         //model.transform.GetChild(0).GetComponent<Animator>().Play("MOVE");
         model.GetComponent<Animator>().Play("MOVE");
         //Sound stuff
@@ -158,6 +159,9 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                             }
                             else {
                                 interrupted = true;
+                                if (obj as Fragile != null) {
+                                    red = true;
+                                }
                             }
                         }
 
@@ -171,15 +175,16 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             if (!outOfBounds && !(interrupted && hitChair)) {
                 //Generate telegraph tile
                 Color telegraphColor;
-                if (interrupted) {
+                if (red) {
                     telegraphColor = new Color(0.333f, .0196f, .0f, 0.1f);
+                    telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
                 }
-                else {
+                else if (!red && !interrupted) {
                     telegraphColor = new Color(1f, 0.4f, .039f, 0.1f);
+                    telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
                 }
                 //telegraph.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 //telegraphList.Add(spawner.SpawnTile(telegraph, checkX, checkY, 0.02f, grid).);
-                telegraphQueue.Add(new TelegraphData(checkX, checkY, telegraphColor));
             }
 
             switch (direction) {

@@ -46,7 +46,7 @@ public class TileGrid : MonoBehaviour
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();
 
         audio = (AudioSource)gameObject.AddComponent<AudioSource>();
-        audio.clip = Resources.Load<AudioClip>("Audio/BGM_1");
+        audio.clip = Resources.Load<AudioClip>("Audio/BGM");
         audio.loop = true;
         audio.Play();
         audio.volume = 0.25f;

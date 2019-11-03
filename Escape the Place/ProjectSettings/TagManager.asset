@@ -29,6 +29,7 @@ TagManager:
   - Lvl6
   - Telegraph
   - Wall
+  - CloseSE
   layers:
   - Default
   - TransparentFX

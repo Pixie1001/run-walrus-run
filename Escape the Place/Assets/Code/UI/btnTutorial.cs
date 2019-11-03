@@ -2,9 +2,10 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class btnTutorial : MonoBehaviour
+public class btnTutorial : ButtonType
 {
     public void Close() {
+        PlaySE();
         SceneManager.LoadScene("Puzzle 1");
     }
 }
