@@ -45,7 +45,7 @@ public class Avatar : MovableObject {
 
         //Intro animation
         destination = gameObject.transform.position;
-        float rotation = gameObject.transform.eulerAngles.y;
+        float rotation = (float)Math.Round(gameObject.transform.eulerAngles.y);
         GetComponent<Animator>().Play("MOVE");
         if (rotation == 0f || rotation == 360f) {
             start = destination + new Vector3(0, 0, -1);
