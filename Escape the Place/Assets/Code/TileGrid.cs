@@ -224,7 +224,7 @@ public class TileGrid : MonoBehaviour
         }
     }
 
-    private void ProcessTurn(string pDirection) {
+    public void ProcessTurn(string pDirection) {
         //Get each MovableObject to run a method that calcs their nX and nY (Don't change it if they hit a level boundary - some might also explode here)
         //Get nX and nY of each movable object
         //Check each object's nX and nY against each other to see if any would collide.
