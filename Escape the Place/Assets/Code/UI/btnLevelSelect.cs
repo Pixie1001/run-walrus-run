@@ -98,14 +98,17 @@ public class btnLevelSelect : ButtonType
         }
         else if (OnLoad.Levels[levelNum].steps <= OnLoad.Levels[levelNum].targetSteps) {
             //gold
+            Debug.Log("Gold: " + OnLoad.Levels[levelNum].steps + " <=  " + OnLoad.Levels[levelNum].targetSteps);
             medal.GetComponent<Image>().color = new Color(1f, .745f, 0.3647f);
         }
         else if (OnLoad.Levels[levelNum].steps <= OnLoad.Levels[levelNum].targetSteps + 3) {
             //Silver
+            Debug.Log("Silver: " + OnLoad.Levels[levelNum].steps + " <=  " + OnLoad.Levels[levelNum].targetSteps + 3);
             medal.GetComponent<Image>().color = new Color(0.8117f, 0.8117f, 0.8117f);
         }
         else {
             //bronze
+            Debug.Log("Bronze: " + OnLoad.Levels[levelNum].steps + " >  " + OnLoad.Levels[levelNum].targetSteps + 3);
             medal.GetComponent<Image>().color = new Color(0.7372f, 0.6078f, 0.5098f);
         }
     }

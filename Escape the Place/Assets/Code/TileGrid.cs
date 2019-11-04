@@ -218,7 +218,6 @@ public class TileGrid : MonoBehaviour
         }
 
         if (!winState && loseState) {
-            Debug.Log("You lose :(");
             failScreen.SetActive(true);
             loseState = true;
             pause = true;

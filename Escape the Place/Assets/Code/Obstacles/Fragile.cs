@@ -24,17 +24,20 @@ public class Fragile : EntityType, IRemovable
         audioSource.PlayOneShot(explodeSE);
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");
+            Model.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 
     protected override void Update() {
         base.Update();
+        /*
         if (terminate) {
             deathTimer -= Time.deltaTime;
         }
         if (deathTimer <= 0) {
             GameObject.Destroy(Model);
         }
+        */
     }
 
     public bool Terminate

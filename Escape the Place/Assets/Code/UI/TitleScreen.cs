@@ -19,6 +19,7 @@ public class TitleScreen : MonoBehaviour
                 file.Close();
 
                 OnLoad.Progress = data.progress;
+                OnLoad.Levels = data.levels;
             }
             catch {
                 Debug.Log("Error: Save data corrupted!");
@@ -32,6 +33,7 @@ public class TitleScreen : MonoBehaviour
         else {
             Debug.Log("No save data found");
         }
+
     }
 
     // Update is called once per frame
