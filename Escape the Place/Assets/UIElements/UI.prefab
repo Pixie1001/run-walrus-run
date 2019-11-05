@@ -1635,6 +1635,7 @@ GameObject:
   - component: {fileID: 8681878464045278183}
   - component: {fileID: 1225351917634855092}
   - component: {fileID: 9011610325599653757}
+  - component: {fileID: 697463109933353457}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -1736,6 +1737,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f01d280cf83df4dac5b470d7a9c212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &697463109933353457
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556081811417023036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd56cbcfe6a9e146b68aeeb90e4e164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1787409173283638906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2885,7 @@ GameObject:
   - component: {fileID: 2199346290640752600}
   - component: {fileID: 4228680938523850057}
   - component: {fileID: 7834687889203219}
+  - component: {fileID: 746174116637457110}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2968,6 +2989,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   legend: {fileID: 0}
   popup: {fileID: 0}
+--- !u!95 &746174116637457110
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3377051088582496934}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfd56cbcfe6a9e146b68aeeb90e4e164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3622775382680842557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,6 +6457,7 @@ GameObject:
   - component: {fileID: 5026002950677491443}
   - component: {fileID: 7481538525201786380}
   - component: {fileID: 7066369371010332359}
+  - component: {fileID: 441959287157438157}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -6464,7 +6505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.827451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6480,6 +6521,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &441959287157438157
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8034827023705020552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c24982f8f3b89346b86ef600ca2001e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8138661575422187352
 GameObject:
   m_ObjectHideFlags: 0
