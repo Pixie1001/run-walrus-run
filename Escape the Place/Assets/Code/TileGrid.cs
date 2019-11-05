@@ -204,17 +204,13 @@ public class TileGrid : MonoBehaviour
             { // D
                 ProcessTurn("right");
             }
-            if (Input.GetKeyUp(KeyCode.R)) { // R
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            if (Input.GetKeyUp(KeyCode.Q)) { //Q
-                Dispose();
-                string output = "";
-                foreach (EntityType obj in movableList) {
-                    output += obj.name + ", ";
-                }
-                Debug.Log(output);
-            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.R)) { // R
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyUp(KeyCode.Escape)) { // Esc
+            SceneManager.LoadScene("Title Page");
         }
 
         if (!winState && loseState) {
