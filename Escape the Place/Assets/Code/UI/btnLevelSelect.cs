@@ -90,6 +90,13 @@ public class btnLevelSelect : ButtonType
         }
     }
 
+    public void Level_6() {
+        PlaySE();
+        if (OnLoad.Progress >= 5) {
+            SceneManager.LoadScene(OnLoad.Levels[5].name);
+        }
+    }
+
     private void DisplayMedal(GameObject medal, int levelNum) {
         //Display correct medal
         if (!OnLoad.Levels[levelNum].cleared) {

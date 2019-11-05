@@ -212,6 +212,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 audioSource.PlayOneShot(pulseCollisionSE);
             }
             OnExplode(null);
+            Model.transform.GetChild(0).gameObject.SetActive(false);
             telegraphQueue.Clear();
         }
     }
