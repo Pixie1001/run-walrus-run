@@ -974,6 +974,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lvl3
       objectReference: {fileID: 0}
+    - target: {fileID: 2470785998864558623, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.199997
+      objectReference: {fileID: 0}
     - target: {fileID: 4837858352486568522, guid: 3ed6b798d94cc0a4bb3f16a70bf54871,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -21,7 +21,7 @@ public class Fragile : EntityType, IRemovable
         base.OnExplode(dir);
         terminate = true;
         GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().LoseGame();
-        audioSource.PlayOneShot(explodeSE);
+        audioSource.PlayOneShot(explodeSE, .75f);
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");
             Model.transform.GetChild(2).gameObject.SetActive(true);
