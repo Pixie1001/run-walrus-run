@@ -29,6 +29,7 @@ public class TileGrid : MonoBehaviour
     private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
     AudioSource audio;
     public List<GameObject> TelegraphPool;
+    float failTimer = 0f;
 
     [HideInInspector]
     public bool explodePause = false;
@@ -182,6 +183,14 @@ public class TileGrid : MonoBehaviour
         }
         */
 
+        //Delay fail popup
+        if (failTimer >= 1f && loseState) {
+            failScreen.SetActive(true);
+        }
+        else if (loseState) {
+            failTimer += Time.deltaTime;
+        }
+
         //Delay for extended explosion animation
         if (turnTimer >= 1.5f && explodePause) {
             explodePause = false;
@@ -214,7 +223,6 @@ public class TileGrid : MonoBehaviour
         }
 
         if (!winState && loseState) {
-            failScreen.SetActive(true);
             loseState = true;
             pause = true;
         }
