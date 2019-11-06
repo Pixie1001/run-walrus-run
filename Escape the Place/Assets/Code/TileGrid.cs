@@ -186,6 +186,7 @@ public class TileGrid : MonoBehaviour
         //Delay fail popup
         if (failTimer >= 1f && loseState) {
             failScreen.SetActive(true);
+            walrusIcon.GetComponent<Animator>().Play("LOSE");
         }
         else if (loseState) {
             failTimer += Time.deltaTime;
