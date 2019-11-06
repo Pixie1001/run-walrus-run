@@ -192,26 +192,22 @@ public class TileGrid : MonoBehaviour
         }
 
         //Delay for extended explosion animation
-        if (turnTimer >= 1.5f && explodePause) {
+        if (turnTimer >= 1.2f && explodePause) {
             explodePause = false;
             //turnTimer = 3f;
         }
 
         if (turnTimer >= 0.3f && !pause && !explodePause) {
-            //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { // W
-            if (Input.GetAxis("Vertical") > 0) { // W
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { // W
                 ProcessTurn("up");
             }
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
-            { // A
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { // A
                 ProcessTurn("left");
             }
-            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
-            { // S
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { // S
                 ProcessTurn("down");
             }
-            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
-            { // D
+            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { // D
                 ProcessTurn("right");
             }
         }

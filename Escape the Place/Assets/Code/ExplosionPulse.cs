@@ -317,10 +317,11 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         //Model.transform.GetChild(0).GetComponent<Animator>().Play("EXPLODE");
         Model.GetComponent<Animator>().Play("EXPLODE");
         for (int c = 0; c < telegraphList.Count; c++) {
-            //telegraphList[c].gameObject.SetActive(false);
             telegraphList[c].gameObject.transform.position = new Vector3(0, 0, 1000);
             GameObject.FindWithTag("MainCamera").GetComponent<TileGrid>().TelegraphPool.Add(telegraphList[c].gameObject);
-            Destroy(telegraphList[c]);
+            TelegraphTile temp = telegraphList[c];
+            //telegraphList.Remove(temp);
+            Destroy(temp);
         }
     }
 
