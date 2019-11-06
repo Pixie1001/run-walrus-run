@@ -25,7 +25,7 @@ public class TileGrid : MonoBehaviour
     int levelId;
     [HideInInspector] public bool pause = false;
     public GameObject[,] tiles;
-    AudioClip characterHitWallSE, explosionHitWallSE, explosionPulseCollisionSE, chairStuckSE;
+    AudioClip characterHitWallSE, explosionHitWallSE, chairStuckSE;
     private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
     AudioSource audio;
     public List<GameObject> TelegraphPool;
@@ -52,7 +52,7 @@ public class TileGrid : MonoBehaviour
         audio.Play();
         audio.volume = 0.25f * OnLoad.bgm;
 
-        explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        //explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
         characterHitWallSE = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
         explosionHitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWall");
         chairStuckSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionChairCantMove");
@@ -407,7 +407,6 @@ public class TileGrid : MonoBehaviour
                             }
                             //Handle 2 pulses colliding
                             else if (pushCheck1 == null && pushCheck2 == null) {
-                                obj.audioSource.PlayOneShot(explosionPulseCollisionSE, OnLoad.sfx);
                                 Debug.Log("Trigger collision explosion" + obj.name + " and " + comp.name);
                                 if (!obj.moveChecked) {
                                     obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));

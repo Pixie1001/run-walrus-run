@@ -10,7 +10,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
     bool tailEnabled = false, tailTrigger = false, counterPulse = false;
     PulseTail tail;
     int tailX = 0, tailY = 0;
-    AudioClip moveSE, pulseCollisionSE, hitWallSE;
+    AudioClip moveSE, hitWallSE;
     private List<TelegraphTile> telegraphList;
     private List<TelegraphData> telegraphQueue;
     private float telegraphTimer = 0f;
@@ -34,7 +34,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         model.GetComponent<Animator>().Play("MOVE");
         //Sound stuff
         moveSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionMove");
-        pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
+        //pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
         //pulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitFailState");
         hitWallSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionHitWallSE");
 
@@ -207,6 +207,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
         }
         if (impact) {
             Debug.Log("self explode");
+            /*
             if (counterPulse) {
                 Debug.Log("Counterpulse");
                 audioSource.PlayOneShot(pulseCollisionSE, OnLoad.sfx);
@@ -214,6 +215,7 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             OnExplode(null);
             Model.transform.GetChild(0).gameObject.SetActive(false);
             telegraphQueue.Clear();
+            */
         }
     }
 
