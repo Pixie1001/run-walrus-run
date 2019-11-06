@@ -18,6 +18,6 @@ public class Wall : EntityType
 
     public override void OnExplode(string dir) {
         base.OnExplode(dir);
-        audioSource.PlayOneShot(explodeSE);
+        audioSource.PlayOneShot(explodeSE, OnLoad.sfx);
     }
 }

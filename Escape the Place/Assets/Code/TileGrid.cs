@@ -50,7 +50,7 @@ public class TileGrid : MonoBehaviour
         audio.clip = Resources.Load<AudioClip>("Audio/BGM");
         audio.loop = true;
         audio.Play();
-        audio.volume = 0.25f;
+        audio.volume = 0.25f * OnLoad.bgm;
 
         explosionPulseCollisionSE = Resources.Load<AudioClip>("Audio/Upload/ExplosionPulseCollision");
         characterHitWallSE = Resources.Load<AudioClip>("Audio/Upload/CharacterWalkIntoObject");
@@ -320,7 +320,7 @@ public class TileGrid : MonoBehaviour
             //Explode objects that collide with level edge
             foreach (MovableObject obj in movableList) {
                 if (!obj.GetDestination(pDirection, true)) {
-                    obj.audioSource.PlayOneShot(explosionHitWallSE);
+                    obj.audioSource.PlayOneShot(explosionHitWallSE, OnLoad.sfx);
                     obj.OnExplode(null);
                 }
             }
@@ -369,7 +369,7 @@ public class TileGrid : MonoBehaviour
                                         }
                                         else {
                                             Debug.Log(obj.name + " is blocked from moving :(");
-                                            obj.audioSource.PlayOneShot(chairStuckSE, 1f);
+                                            obj.audioSource.PlayOneShot(chairStuckSE, OnLoad.sfx);
                                             comp.OnExplode(CalcDirection(obj.X, obj.Y, obj.newX, obj.newY));
                                         }
                                     }
@@ -398,7 +398,7 @@ public class TileGrid : MonoBehaviour
                                     }
                                     else {
                                         Debug.Log(comp.name + " is blocked from moving :(");
-                                        comp.audioSource.PlayOneShot(chairStuckSE, 1f);
+                                        comp.audioSource.PlayOneShot(chairStuckSE, OnLoad.sfx);
                                         obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
                                     }
                                 }
@@ -407,7 +407,7 @@ public class TileGrid : MonoBehaviour
                             }
                             //Handle 2 pulses colliding
                             else if (pushCheck1 == null && pushCheck2 == null) {
-                                obj.audioSource.PlayOneShot(explosionPulseCollisionSE);
+                                obj.audioSource.PlayOneShot(explosionPulseCollisionSE, OnLoad.sfx);
                                 Debug.Log("Trigger collision explosion" + obj.name + " and " + comp.name);
                                 if (!obj.moveChecked) {
                                     obj.OnExplode(CalcDirection(comp.X, comp.Y, comp.newX, comp.newY));
@@ -457,7 +457,7 @@ public class TileGrid : MonoBehaviour
             turnTimer = 0f;
         }
         else {
-            avatar.audioSource.PlayOneShot(characterHitWallSE);
+            avatar.audioSource.PlayOneShot(characterHitWallSE, OnLoad.sfx);
             avatar.Rotate(pDirection);
         }
         Dispose();
@@ -489,7 +489,7 @@ public class TileGrid : MonoBehaviour
 
     private void SaveGame (int progress) {
         OnLoad.Progress = progress;
-        Save save = new Save(OnLoad.Progress, OnLoad.Levels);
+        Save save = new Save(OnLoad.Progress, OnLoad.Levels, OnLoad.sfx, OnLoad.bgm);
         
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");

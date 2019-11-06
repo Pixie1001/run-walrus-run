@@ -12,6 +12,6 @@ public class ButtonType : MonoBehaviour
     }
 
     public void PlaySE() {
-        audioSource.PlayOneShot(soundEffects);
+        audioSource.PlayOneShot(soundEffects, OnLoad.sfx);
     }
 }

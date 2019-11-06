@@ -28,10 +28,10 @@ public class PushBlock : MovableObject
         Model.GetComponent<Animator>().Play("EXPLODE");
         //Debug.Log(name + " exploded towards " + dir + " newX=" + newX + ", newY=" + newY);
         if (Move(dir)) {
-            audioSource.PlayOneShot(moveSE, 1.5f);
+            audioSource.PlayOneShot(moveSE, 1.5f * OnLoad.sfx);
         }
         else {
-            audioSource.PlayOneShot(stuckSE, 1f);
+            audioSource.PlayOneShot(stuckSE, OnLoad.sfx);
         }
     }
 

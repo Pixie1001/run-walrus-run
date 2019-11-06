@@ -96,14 +96,14 @@ public class Avatar : MovableObject {
     protected override void Update() {
         base.Update();
         if (currTime >= targetTime - 0.5f && triggerExplosion1) {
-            audioSource.PlayOneShot(slipSE);
+            audioSource.PlayOneShot(slipSE, OnLoad.sfx);
             GetComponent<Animator>().Play("EXPLODE");
             triggerExplosion1 = false;
             triggerExplosion2 = true;
         }
 
         if (expClock >= expTime && triggerExplosion2) {
-            audioSource.PlayOneShot(explodeSE);
+            audioSource.PlayOneShot(explodeSE, OnLoad.sfx);
             explosionType.Explode(this, grid);
             DustCloud();
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().Play("EXPLODE");
@@ -116,7 +116,7 @@ public class Avatar : MovableObject {
 
     public override void Move() {
         //audioSource.PlayOneShot(moveSE);
-        audioSource.PlayOneShot(moveSE, 5f);
+        audioSource.PlayOneShot(moveSE, 5f * OnLoad.sfx);
         base.Move();
         GameObject.FindGameObjectWithTag("FallIcon").GetComponent<Animator>().Play("STOP");
         countdown -= 1;
@@ -175,7 +175,7 @@ public class Avatar : MovableObject {
                 break;
         }
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, rotate, transform.eulerAngles.z);
-        audioSource.PlayOneShot(walkIntoObjectSE);
+        audioSource.PlayOneShot(walkIntoObjectSE, OnLoad.sfx);
     }
 
     private void DustCloud() {

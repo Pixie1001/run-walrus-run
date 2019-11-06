@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class TitleScreen : MonoBehaviour
 {
     FileStream file;
+    AudioSource audio;
 
     // Use this for initialization
     void Start() {
@@ -18,8 +19,12 @@ public class TitleScreen : MonoBehaviour
                 Save data = (Save)bf.Deserialize(file);
                 file.Close();
 
+                Debug.Log("sfx = " + data.sfx);
+
                 OnLoad.Progress = data.progress;
                 OnLoad.Levels = data.levels;
+                OnLoad.sfx = data.sfx;
+                OnLoad.bgm = data.bgm;
             }
             catch {
                 Debug.Log("Error: Save data corrupted!");
@@ -34,10 +39,16 @@ public class TitleScreen : MonoBehaviour
             Debug.Log("No save data found");
         }
 
+        audio = (AudioSource)gameObject.AddComponent<AudioSource>();
+        audio.clip = Resources.Load<AudioClip>("Audio/BGM");
+        audio.loop = true;
+        audio.Play();
+        audio.volume = 0.25f * OnLoad.bgm;
+
+        Debug.Log("OnLOad.sfx = " + OnLoad.sfx);
     }
 
-    // Update is called once per frame
-    void Update() {
-
+    public void UpdateAudio() {
+        audio.volume = 0.25f * OnLoad.bgm;
     }
 }

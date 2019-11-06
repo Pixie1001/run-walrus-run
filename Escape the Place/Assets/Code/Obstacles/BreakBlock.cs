@@ -20,7 +20,7 @@ public class BreakBlock : EntityType, IRemovable {
         base.OnExplode(dir);
         Debug.Log(name + " broke!");
         terminate = true;
-        audioSource.PlayOneShot(explodeSE);
+        audioSource.PlayOneShot(explodeSE, OnLoad.sfx);
         if (Model.GetComponent<Animator>() != null) {
             Model.GetComponent<Animator>().Play("EXPLODE");
         }
