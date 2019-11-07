@@ -26,7 +26,7 @@ public class TileGrid : MonoBehaviour
     [HideInInspector] public bool pause = false;
     public GameObject[,] tiles;
     AudioClip characterHitWallSE, explosionHitWallSE, chairStuckSE;
-    private GameObject failScreen, finishScreen, finishButton, walrusIcon, gold, silver, bronze;
+    private GameObject failScreen, finishScreen, finishButton, walrusIcon, medalIcon, gold, silver, bronze;
     AudioSource audio;
     public List<GameObject> TelegraphPool;
     float failTimer = 0f;
@@ -42,6 +42,7 @@ public class TileGrid : MonoBehaviour
         failScreen.SetActive(false);
         finishScreen = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(0).gameObject;
         walrusIcon = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(1).gameObject;
+        medalIcon = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(4).gameObject;
         finishButton = GameObject.FindGameObjectWithTag("InGameMenu").transform.GetChild(6).gameObject.transform.GetChild(2).gameObject;
         finishScreen.SetActive(false);
         avatar = GameObject.FindWithTag("Avatar").GetComponent<Avatar>();

@@ -325,6 +325,17 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
             //telegraphList.Remove(temp);
             Destroy(temp);
         }
+        Model.transform.GetChild(0).gameObject.SetActive(false);
+        DustCloud();
+    }
+
+    private void DustCloud() {
+        Debug.Log("Spawn cloud");
+        //Generate dust cloud
+        GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/DustPulse_02") as GameObject);
+        DustPulse script = (DustPulse)obj.AddComponent(System.Type.GetType("DustPulse"));
+        obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        new ObjectSpawner().SpawnTile(obj, X, Y, 0.02f, grid);
     }
 
     protected override void Update() {
