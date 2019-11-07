@@ -1266,8 +1266,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "When the counter hit 0 Mr Walrus will trip[ creating earth tremors in squares
-    around him. \n\n\n\n\n"
+  m_Text: "When the counter hits 0 Mr Walrus will trip[ creating earth tremors in
+    squares around him. \n\n\n\n\n"
 --- !u!1 &749790662171798838
 GameObject:
   m_ObjectHideFlags: 0
@@ -7561,9 +7561,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "following the quirky adventures of one clumsy walrus trying to navigate
-    an officespace. run walrus run will have you racking your brains as you stumble
-    though environmental puzzles \ntrying your best not to break \nanything too expensive!"
+  m_Text: Help Mr. Walrus survive his first day at his new job after getting lost
+    in an office building, as he tries to find his desk. Be careful though, the Boss
+    likes to keep expensive statues around and Mr. Walrus is very clumsy!
 --- !u!1 &5279116661474203600
 GameObject:
   m_ObjectHideFlags: 0
@@ -13891,7 +13891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: chairs
+  m_Text: office chairs
 --- !u!1 &8887321191155328097
 GameObject:
   m_ObjectHideFlags: 0
