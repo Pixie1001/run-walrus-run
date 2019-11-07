@@ -1,0 +1,463 @@
+fileFormatVersion: 2
+guid: 0d7003973b28b604d80b5ba38ecdcf7e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MedalShine_0
+    21300002: MedalShine_1
+    21300004: MedalShine_2
+    21300006: MedalShine_3
+    21300008: MedalShine_4
+    21300010: MedalShine_5
+    21300012: MedalShine_6
+    21300014: MedalShine_7
+    21300016: MedalShine_8
+    21300018: MedalShine_9
+    21300020: MedalShine_10
+    21300022: MedalShine_11
+    21300024: MedalShine_12
+    21300026: MedalShine_13
+    21300028: MedalShine_14
+    21300030: MedalShine_15
+    21300032: MedalShine_16
+    21300034: MedalShine_17
+    21300036: MedalShine_18
+    21300038: MedalShine_19
+    21300040: MedalShine_20
+    21300042: MedalShine_21
+    21300044: MedalShine_22
+    21300046: MedalShine_23
+    21300048: MedalShine_24
+    21300050: MedalShine_25
+    21300052: MedalShine_26
+    21300054: MedalShine_27
+    21300056: MedalShine_28
+    21300058: MedalShine_29
+    21300060: MedalShine_30
+    21300062: MedalShine_31
+    21300064: MedalShine_32
+    21300066: MedalShine_33
+    21300068: MedalShine_34
+    21300070: MedalShine_35
+    21300072: MedalShine_36
+    21300074: MedalShine_37
+    21300076: MedalShine_38
+    21300078: MedalShine_39
+    21300080: MedalShine_40
+    21300082: MedalShine_41
+    21300084: MedalShine_42
+    21300086: MedalShine_43
+    21300088: MedalShine_44
+    21300090: MedalShine_45
+    21300092: MedalShine_46
+    21300094: MedalShine_47
+    21300096: MedalShine_48
+    21300098: MedalShine_49
+    21300100: MedalShine_50
+    21300102: MedalShine_51
+    21300104: MedalShine_52
+    21300106: MedalShine_53
+    21300108: MedalShine_54
+    21300110: MedalShine_55
+    21300112: MedalShine_56
+    21300114: MedalShine_57
+    21300116: MedalShine_58
+    21300118: MedalShine_59
+    21300120: MedalShine_60
+    21300122: MedalShine_61
+    21300124: MedalShine_62
+    21300126: MedalShine_63
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MedalShine_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1395
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f7530e7a5512f4b88dbdd9c974bccb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1395
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493cd71530bf2bf4aa636d27ea020504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_2
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1395
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 871db2cef985b0c4b867cab3de6a519c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_3
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1395
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785a4acda3567dc4fadd8a2d40d9144f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_4
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1395
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd271e84f2653e468af9a2e0b9c251d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 742
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c887533b15ccbe241905407076ff409d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_6
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 742
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20db216a07b2564585bafaf2cfa45fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_7
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 742
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c882bb86c519f474b9491052907119a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_8
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 742
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d350928297fd04fa316dccf96038f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_9
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 742
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c9800f9d29623429d99d5fa698736d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54965a63b88b3ee40ad3da003e1cf1ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_11
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 89
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57420b2ab834de644815ffbdfb73c7c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_12
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 89
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02c30e8cc0f52844979f8012ec15b23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_13
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 89
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079184d22aebc5e478c48df4bdf7f20d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedalShine_14
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 89
+        width: 395
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2475d8af5ecba07418091a8c43a126b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2e6ed824f4300cd4d9259d49417674f4
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
