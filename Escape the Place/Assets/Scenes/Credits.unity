@@ -148,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.4000244, y: 7.5999756}
-  m_SizeDelta: {x: 1553.8, y: 717.8}
+  m_AnchoredPosition: {x: 0.1, y: -876.2}
+  m_SizeDelta: {x: 1532.3, y: 4253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152380385
 MonoBehaviour:
@@ -184,22 +184,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'credits
-
-
-    programmer: Stephen Davey
-
-
-    3d enviroment artist: Jess Ulcoq
-
-
-    lead animator: Connor Stobbie
-
-
-    puzzle design: Hamish Owen & Loughilan Connolly
-
-
-    etc.'
+  m_Text: "2d animation: Connor Stobbie\r\n\r\n3d animation: Connor Stobbie & Jess
+    Ulcoq\r\n\r\nui design: Jess Ulcoq\r\n\r\ncharacter design: Connor Stobbie\r\n\r\ndesign
+    lead: Loughlin Connolly\r\n\r\nenvironment artist: Jess Ulcoq\r\n\r\nprogramming:
+    Stephen Davey\r\n\r\npuzzle design: Hamish Owen & Loughilin Connolly\r\n\r\nsound
+    design: Loughlin Connolly & Stephen Davey\r\n\r\nmusic by Alex \u201CSkella\u201D
+    Ginnane\r\nhttps://soundcloud.com/theofficialskella/fml/s-GAHRk?fbclid=IwAR3EaCccWitS19AUhB5FgBAxYGQmV6AGAxkF80cjuQ-7wYPadODD-XYq5GQ\r\n\r\nsound
+    supplied by:\r\nhttps://freesound.org/people/ReyDros/sounds/327054/\r\n\r\nhttps://freesound.org/people/bone666138/sounds/198876/\r\n\r\nhttps://freesound.org/people/KevinDuffy1234/sounds/340281/\r\n\r\nhttps://freesound.org/people/Adam_N/sounds/164568/\r\n\r\nhttps://freesound.org/people/waveplay_old/sounds/218041/\r\n\r\nhttps://freesound.org/people/kaonaya/sounds/131364/\r\n\r\nhttps://freesound.org/people/LampEight/sounds/400642/\r\n\r\nhttps://freesound.org/people/Jeanet_Henning/sounds/328904/\r\n\r\nhttps://freesound.org/people/scriotxstudios/sounds/348754/\r\n\r\nhttps://freesound.org/people/Reitanna/sounds/332668/\r\n\r\nhttps://freesound.org/people/unfa/sounds/258339/\r\n\r\nhttps://freesound.org/people/JustInvoke/sounds/446103/?fbclid=IwAR1nOcs3SMcdlBo1gzZfyaQKe16VxXMpz4RYtjljFGAs1L7W9PpAUu0wciM\r\n"
 --- !u!222 &152380386
 CanvasRenderer:
   m_ObjectHideFlags: 0

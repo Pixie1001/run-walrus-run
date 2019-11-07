@@ -3765,7 +3765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movableList: []
-  targetSteps: 16
+  targetSteps: 14
   pause: 0
   TelegraphPool: []
   explodePause: 0
