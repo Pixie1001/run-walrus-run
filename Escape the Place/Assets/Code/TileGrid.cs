@@ -194,7 +194,7 @@ public class TileGrid : MonoBehaviour
         }
 
         //Delay medal popup
-        if (failTimer >= 2f && winState) {
+        if (failTimer >= 1f && winState) {
             if (steps <= targetSteps) {
                 //gold
                 medalIcon.GetComponent<Image>().color = new Color(1f, .745f, 0.3647f);
