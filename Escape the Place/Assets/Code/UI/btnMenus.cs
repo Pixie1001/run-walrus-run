@@ -24,6 +24,9 @@ public class btnMenus : ButtonType
     public void StartGame() {
         PlaySE();
         popup.SetActive(true);
+        popup.transform.GetChild(0).gameObject.SetActive(true);
+        popup.transform.GetChild(1).gameObject.SetActive(false);
+        popup.transform.GetChild(2).gameObject.SetActive(false);
     }
 
     public void Continue() {
