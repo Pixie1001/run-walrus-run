@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VolumeSliders : ButtonType
@@ -17,6 +18,8 @@ public class VolumeSliders : ButtonType
         if (temp != 1.111111f) {
             OnLoad.bgm = temp;
         }
-        GameObject.FindWithTag("MainCamera").GetComponent<TitleScreen>().UpdateAudio();
+        if (SceneManager.GetActiveScene().name == "Title Page") {
+            GameObject.FindWithTag("MainCamera").GetComponent<TitleScreen>().UpdateAudio();
+        }
     }
 }
