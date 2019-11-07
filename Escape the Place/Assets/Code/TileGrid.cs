@@ -193,6 +193,26 @@ public class TileGrid : MonoBehaviour
             failTimer += Time.deltaTime;
         }
 
+        //Delay medal popup
+        if (failTimer >= 2f && winState) {
+            if (steps <= targetSteps) {
+                //gold
+                medalIcon.GetComponent<Image>().color = new Color(1f, .745f, 0.3647f);
+            }
+            else if (steps <= targetSteps + 3) {
+                //Silver
+                medalIcon.GetComponent<Image>().color = new Color(0.8117f, 0.8117f, 0.8117f);
+            }
+            else {
+                //bronze
+                medalIcon.GetComponent<Image>().color = new Color(0.7372f, 0.6078f, 0.5098f);
+            }
+            medalIcon.SetActive(true);
+        }
+        else if (winState) {
+            failTimer += Time.deltaTime;
+        }
+
         //Delay for extended explosion animation
         if (turnTimer >= 1.2f && explodePause) {
             explodePause = false;

@@ -3799,7 +3799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3402362292574585025
 Transform:
   m_ObjectHideFlags: 0
@@ -8882,7 +8882,7 @@ GameObject:
   - component: {fileID: 4388765387240435510}
   - component: {fileID: 6901791262543667162}
   m_Layer: 5
-  m_Name: gold
+  m_Name: medal
   m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8904,8 +8904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1030, y: -336}
-  m_SizeDelta: {x: 538.8, y: 92.4}
+  m_AnchoredPosition: {x: 992, y: -435}
+  m_SizeDelta: {x: 538.80005, y: 92.400024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8470095271913873210
 CanvasRenderer:
@@ -8974,7 +8974,6 @@ GameObject:
   - component: {fileID: 6815918173875676689}
   - component: {fileID: 3669616106252004827}
   - component: {fileID: 2110454791333132133}
-  - component: {fileID: 6067096181643429784}
   m_Layer: 5
   m_Name: bronze
   m_TagString: Bronze
@@ -9038,25 +9037,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!95 &6067096181643429784
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6655686408574323717}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b82ddbf71ec7f704582bc7ddf72c66ed, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6657230248105614835
 GameObject:
   m_ObjectHideFlags: 0
@@ -10802,7 +10782,6 @@ GameObject:
   - component: {fileID: 3197787092344403080}
   - component: {fileID: 1513757703761830782}
   - component: {fileID: 3090949845156647777}
-  - component: {fileID: 8240416905041480793}
   m_Layer: 5
   m_Name: silver
   m_TagString: Silver
@@ -10866,25 +10845,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!95 &8240416905041480793
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8193115586829558569}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b82ddbf71ec7f704582bc7ddf72c66ed, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8234396010246897532
 GameObject:
   m_ObjectHideFlags: 0
@@ -11461,7 +11421,6 @@ GameObject:
   - component: {fileID: 2978764201845319569}
   - component: {fileID: 781659957947962412}
   - component: {fileID: 8601918368987006557}
-  - component: {fileID: 6621229300703392834}
   m_Layer: 5
   m_Name: gold
   m_TagString: Gold
@@ -11525,25 +11484,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!95 &6621229300703392834
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754904465735407437}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b82ddbf71ec7f704582bc7ddf72c66ed, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8759527243044092421
 GameObject:
   m_ObjectHideFlags: 0
