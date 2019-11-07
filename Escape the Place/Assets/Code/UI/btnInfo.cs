@@ -15,4 +15,6 @@ public class btnInfo: ButtonType
             legend.SetActive(false);
         }
     }
+
+
 }

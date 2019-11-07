@@ -20,7 +20,7 @@ public class btnFinish : ButtonType
     public void Finish() {
         PlaySE();
         if (levelId == OnLoad.Levels.Length - 1) {
-            SceneManager.LoadScene(OnLoad.Levels[0].name);
+            SceneManager.LoadScene("Credits");
             Debug.Log("(Finished game) Load " + OnLoad.Levels[0]);
         }
         else {
