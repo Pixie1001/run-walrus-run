@@ -212,10 +212,10 @@ public class ExplosionPulse : MovableObject, IRemovable, IExploder {
                 Debug.Log("Counterpulse");
                 audioSource.PlayOneShot(pulseCollisionSE, OnLoad.sfx);
             }
+            */
             OnExplode(null);
             Model.transform.GetChild(0).gameObject.SetActive(false);
             telegraphQueue.Clear();
-            */
         }
     }
 
